@@ -113,7 +113,7 @@ main { padding-top: 16px; }
 .fine { margin: 10px 0 0; color: var(--muted); font-size: 12.5px; }
 .rfoot { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
 .rfoot .btn { min-height: 44px; padding: 0 14px; }
-.btn.done { margin-left: auto; color: var(--accent); border-color: currentColor; font-weight: 600; }
+
 .row.step.next { box-shadow: inset 3px 0 0 var(--accent); padding-left: 10px; }
 /* Dish switcher: second row of the top bar, Menu only. "All dishes" is a square key with a grid icon; dishes are pills.
    Whatever you are looking at is filled in red. */
@@ -125,8 +125,17 @@ main { padding-top: 16px; }
 .cchip .cprog { font: 500 12px var(--f-mono); color: var(--muted); }
 .cchip.all { border-radius: 10px; border-color: var(--fg); font-weight: 700; padding: 0 14px 0 12px; }
 .cchip.all svg { width: 18px; height: 18px; fill: currentColor; }
-.cchip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
-.cchip[aria-pressed="true"] .cprog { color: inherit; opacity: 0.85; }
+.cchip.all[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+/* Open dish: the name switches to it, the x (its own 40px target, split off by a hairline) closes it. */
+.cpill { flex: none; display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 23px; background: var(--surface); }
+.cpill .cchip { border: 0; background: none; min-height: 44px; padding: 0 10px 0 16px; border-radius: 23px 0 0 23px; }
+.cx { appearance: none; flex: none; width: 40px; height: 44px; display: grid; place-items: center; border: 0; border-left: 1px solid var(--line); border-radius: 0 23px 23px 0; background: none; color: var(--muted); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.cx svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.cx:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.cpill.on { background: var(--accent); border-color: var(--accent); }
+.cpill.on .cchip, .cpill.on .cx { color: var(--accent-fg); }
+.cpill.on .cx { border-left-color: color-mix(in srgb, var(--accent-fg) 30%, transparent); }
+.cpill.on .cprog { color: inherit; opacity: 0.85; }
 .csep { flex: none; width: 1px; height: 28px; background: var(--line); }
 .cchip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 footer p { margin: 0; }

@@ -185,8 +185,7 @@
       '<h4 class="rsec">Steps · tap to tick</h4><div class="steps">' + steps + '</div>' +
       (r.notes && r.notes.length ? '<div class="rnotes"><ul>' + r.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join("") + '</ul></div>' : '') +
       '<div class="rfoot">' + ('wakeLock' in navigator ? '<button class="btn" type="button" data-wake></button>' : '') +
-      '<button class="btn" type="button" data-untick="' + esc(key) + '">Untick all steps</button>' +
-      '<button class="btn done" type="button" data-uncook="' + esc(key) + '">Done with this dish</button></div>';
+      '<button class="btn" type="button" data-untick="' + esc(key) + '">Untick all steps</button></div>';
   }
 
   function row(it) {
@@ -262,7 +261,9 @@
     bar.innerHTML = '<button class="cchip all" type="button" data-cook="" aria-pressed="' + (!cook.active) + '"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="1" width="7" height="7" rx="1.5"/><rect x="1" y="10" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>All dishes</button><span class="csep" aria-hidden="true"></span><div class="cdishes">' +
       cook.tray.map(function (k) {
         var r = recipeById(k);
-        return '<button class="cchip" type="button" data-cook="' + esc(k) + '" aria-pressed="' + (cook.active === k) + '">' + esc(r.short || r.title) + '<span class="cprog" id="cp-' + esc(k) + '"></span></button>';
+        var on = cook.active === k, name = r.short || r.title;
+        return '<span class="cpill' + (on ? ' on' : '') + '"><button class="cchip" type="button" data-cook="' + esc(k) + '" aria-pressed="' + on + '">' + esc(name) + '<span class="cprog" id="cp-' + esc(k) + '"></span></button>' +
+          '<button class="cx" type="button" data-uncook="' + esc(k) + '" aria-label="Close ' + esc(name) + '"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button></span>';
       }).join("") + '</div>';
     var k = cook.active, rec = document.getElementById("mrec");
     document.getElementById("mlist").hidden = !!k;
@@ -284,7 +285,7 @@
     restoreScroll();
     // Slide the dish strip so the current dish is in view (after apply() has filled in the step counts).
     var strip = document.querySelector(".cdishes"), on = strip && strip.querySelector('[aria-pressed="true"]');
-    if (on) strip.scrollLeft = Math.max(0, on.offsetLeft - strip.offsetLeft - (strip.clientWidth - on.offsetWidth) / 2);
+    if (on) { on = on.closest(".cpill") || on; strip.scrollLeft = Math.max(0, on.offsetLeft - strip.offsetLeft - (strip.clientWidth - on.offsetWidth) / 2); }
   }
   // Each tab, and each recipe, remembers where it was scrolled to.
   var tab = "menu";
@@ -297,7 +298,8 @@
   function uncook(k) {
     cook.tray = cook.tray.filter(function (x) { return x !== k; });
     delete cook.pos[k];
-    openCook(null);
+    if (cook.active === k) { openCook(null); return; }
+    saveCook(); renderCook(); apply();
   }
   var scrollTimer = null;
   window.addEventListener("scroll", function () {
