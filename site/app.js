@@ -1,7 +1,7 @@
 // When changing app.js or app.css, bump the ?v= number in index.html and CACHE in sw.js.
 // Christmas Dinner: renders one year's plan from years/<year>.json and keeps ticks per year.
 (function () {
-  var TABS = ["shopping", "timeline", "menu"];
+  var TABS = ["menu", "shopping", "timeline"];
   var LSH = "cd-hide-v1";
   var plan = null;      // the loaded year file
   var year = null;      // the year being viewed (may differ from plan.year when copied forward)
@@ -185,7 +185,8 @@
       '<h4 class="rsec">Steps · tap to tick</h4><div class="steps">' + steps + '</div>' +
       (r.notes && r.notes.length ? '<div class="rnotes"><ul>' + r.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join("") + '</ul></div>' : '') +
       '<div class="rfoot">' + ('wakeLock' in navigator ? '<button class="btn" type="button" data-wake></button>' : '') +
-      '<button class="btn" type="button" data-untick="' + esc(key) + '">Untick all steps</button></div>';
+      '<button class="btn" type="button" data-untick="' + esc(key) + '">Untick all steps</button>' +
+      '<button class="btn done" type="button" data-uncook="' + esc(key) + '">Done with this dish</button></div>';
   }
 
   function row(it) {
@@ -210,8 +211,6 @@
 
   function render() {
     var copied = plan.year !== year;
-    document.getElementById("title").textContent = plan.title + " " + year;
-    document.getElementById("sub").textContent = plan.guests + " guests · sit down " + plan.sitDown + " · " + (copied ? "date to be set" : (plan.date || "date to be set"));
     var lead = copied ? '<div class="callout" style="margin:0 0 16px"><b>No ' + year + ' plan yet.</b> This is the ' + plan.year + ' plan as a starting point, with fresh ticks for ' + year + '. Ask Claude to make a ' + year + ' version with this year\'s changes.</div>' : '';
 
     document.getElementById("p-shopping").innerHTML = lead + barHTML("shop", "items") +
@@ -221,19 +220,26 @@
       '<p class="note-top">Times assume a ' + esc(plan.sitDown) + ' sit-down. D is dinner day.</p>' +
       plan.timeline.map(groupHTML).join("") +
       (plan.callouts || []).map(function (c) { return '<div class="callout"><b>' + esc(c.title) + '</b> ' + esc(c.text) + '</div>'; }).join("");
-    document.getElementById("p-menu").innerHTML = '<div id="mlist">' + lead +
-      (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Tap Cook this to open a recipe. Each one you open gets a tab in the bar at the top, so you can jump between dishes and land back where you were.</p>' : '') +
-      plan.menu.map(function (d) {
-        return '<article class="dish"><div class="dtop"><h2 class="dname">' + (d.url ? '<a href="' + esc(d.url) + '">' + esc(d.name) + '</a>' : esc(d.name)) +
-          '</h2></div>' +
-          d.lines.map(function (x) { return '<p class="dline"><b>' + esc(x.label) + ':</b> ' + esc(x.text) + '</p>'; }).join("") +
-          (d.recipe ? '<div class="dact"><button class="btn open" type="button" data-cook="' + esc(d.recipe.id) + '">Cook this</button><span class="dprog" id="prog-' + esc(d.recipe.id) + '"></span></div>' : '') +
-          '</article>';
-      }).join("") + '</div><div id="mrec" hidden></div>';
-
-    var links = plan.menu.filter(function (d) { return d.url; }).map(function (d) { return '<a href="' + esc(d.url) + '">' + esc(d.name.toLowerCase()) + '</a>'; });
-    document.getElementById("footer").innerHTML = (links.length ? 'Recipes: ' + links.join(", ") + '. ' : '') +
-      'Ticks are saved separately for each year, on this device and, with sync on, in the repo.';
+    var groups = [];
+    plan.menu.forEach(function (d) {
+      if (!d.recipe) return;
+      var name = d.group || "Dishes", g = groups.filter(function (x) { return x.name === name; })[0];
+      if (!g) groups.push(g = { name: name, items: [] });
+      g.items.push(d);
+    });
+    document.getElementById("p-menu").innerHTML =
+      '<div class="cookbar" id="cookbar" role="toolbar" aria-label="Dishes you are cooking" hidden></div>' +
+      '<div id="mlist">' + lead + groups.map(function (g) {
+        return '<div class="mgroup"><h2>' + esc(g.name) + '</h2><div class="dishes">' + g.items.map(function (d) {
+          var r = d.recipe;
+          return '<button class="dishrow" type="button" data-cook="' + esc(r.id) + '" id="row-' + esc(r.id) + '"><span class="dtx"><span class="dn">' + esc(d.name) + '</span>' +
+            '<span class="dm">' + esc(r.source) + ' · <span class="dprog" id="prog-' + esc(r.id) + '"></span></span></span>' +
+            '<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button>';
+        }).join("") + '</div></div>';
+      }).join("") +
+      '<p class="note-top" style="margin-top:16px">Tap a dish to cook from it. Every dish you open stays in the bar at the top, so you can switch back and forth and land where you left off.</p></div>' +
+      '<div id="mrec" hidden></div>';
+    document.getElementById("fnote").textContent = "Quantities are scaled for " + plan.guests + " people. Ticks are saved separately for each year, on this device and, with sync on, in the repo.";
     setHide(lsGet(LSH) === "1");
     renderCook();
   }
@@ -254,18 +260,16 @@
   function renderCook() {
     var bar = document.getElementById("cookbar");
     bar.hidden = !cook.tray.length;
-    bar.innerHTML = '<button class="cchip" type="button" data-cook="" aria-pressed="' + (!cook.active) + '">All dishes</button>' +
+    bar.innerHTML = '<button class="cchip all" type="button" data-cook="" aria-pressed="' + (!cook.active) + '"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="1" width="7" height="7" rx="1.5"/><rect x="1" y="10" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>All dishes</button><span class="csep" aria-hidden="true"></span><div class="cdishes">' +
       cook.tray.map(function (k) {
         var r = recipeById(k);
         return '<button class="cchip" type="button" data-cook="' + esc(k) + '" aria-pressed="' + (cook.active === k) + '">' + esc(r.short || r.title) + '<span class="cprog" id="cp-' + esc(k) + '"></span></button>';
-      }).join("");
+      }).join("") + '</div>';
     var k = cook.active, rec = document.getElementById("mrec");
     document.getElementById("mlist").hidden = !!k;
     rec.hidden = !k;
-    rec.innerHTML = k ? '<div class="rhead"><button class="btn" type="button" data-cook="">← All dishes</button><button class="btn" type="button" data-uncook="' + esc(k) + '">Done with this dish</button></div>' +
-      '<div class="recipe">' + recipeHTML(recipeById(k)) + '</div>' : '';
-    var on = bar.querySelector('[aria-pressed="true"]');
-    if (on) on.scrollIntoView({ block: "nearest", inline: "nearest" });
+    rec.innerHTML = k ? '<div class="recipe">' + recipeHTML(recipeById(k)) + '</div>' : '';
+    document.querySelectorAll(".dishrow").forEach(function (row) { row.classList.toggle("cooking", cook.tray.indexOf(row.getAttribute("data-cook")) >= 0); });
     wakeUI();
   }
   function menuShowing() { return !document.getElementById("p-menu").hidden; }
@@ -279,10 +283,16 @@
     renderCook();
     apply();
     restoreScroll();
+    // Slide the dish strip so the current dish is in view (after apply() has filled in the step counts).
+    var strip = document.querySelector(".cdishes"), on = strip && strip.querySelector('[aria-pressed="true"]');
+    if (on) strip.scrollLeft = Math.max(0, on.offsetLeft - strip.offsetLeft - (strip.clientWidth - on.offsetWidth) / 2);
   }
+  // Each tab, and each recipe, remembers where it was scrolled to.
+  var tab = "menu";
+  function posKey() { return tab === "menu" ? (cook.active || "list") : "tab-" + tab; }
   function restoreScroll() {
-    var y = cook.pos[cook.active || "list"];
-    if (y == null) y = cook.active ? document.getElementById("main").offsetTop - document.querySelector("nav").offsetHeight : 0;
+    var y = cook.pos[posKey()];
+    if (y == null) y = tab === "menu" && cook.active ? document.getElementById("main").offsetTop : 0;
     window.scrollTo(0, Math.max(0, y));
   }
   function uncook(k) {
@@ -292,8 +302,8 @@
   }
   var scrollTimer = null;
   window.addEventListener("scroll", function () {
-    if (!plan || !menuShowing()) return;
-    cook.pos[cook.active || "list"] = Math.round(window.scrollY);
+    if (!plan) return;
+    cook.pos[posKey()] = Math.round(window.scrollY);
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(saveCook, 300);
   }, { passive: true });
@@ -319,6 +329,7 @@
       var n = m.recipe.steps.length, d = 0;
       for (var i = 0; i < n; i++) if (done.has(stepId(m.recipe.id, i))) d++;
       el.textContent = d ? d + " of " + n + " steps done" : n + " steps";
+      el.classList.toggle("going", d > 0);
       var cp = document.getElementById("cp-" + m.recipe.id);
       if (cp) cp.textContent = d + "/" + n;
     });
@@ -520,10 +531,11 @@
 
   function showTab(name) {
     document.querySelectorAll(".tab").forEach(function (t) { t.setAttribute("aria-selected", t.dataset.tab === name ? "true" : "false"); });
-    var was = plan && menuShowing();
+    var was = tab;
+    tab = name;
     document.querySelectorAll(".panel").forEach(function (p) { p.hidden = p.id !== "p-" + name; });
     history.replaceState(null, "", "#" + name);
-    if (plan && name === "menu" && !was) restoreScroll();
+    if (plan && name !== was) restoreScroll();
   }
 
   var years = [];

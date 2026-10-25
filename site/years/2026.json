@@ -668,6 +668,7 @@
       "name": "Roast turkey",
       "url": "https://www.billyparisi.com/the-juiciest-roast-turkey-recipe/",
       "status": "set",
+      "group": "The bird",
       "lines": [
         {
           "label": "Size",
@@ -845,9 +846,196 @@
       }
     },
     {
+      "name": "Turkey gravy",
+      "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
+      "status": "set",
+      "group": "The bird",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "One batch (recipe serves 15)"
+        },
+        {
+          "label": "Method",
+          "text": "Pan drippings roux (1 cup drippings, ½ cup flour), 4 cups stock plus 1 more cup drippings, diced giblets. About 15 minutes while the turkey rests."
+        },
+        {
+          "label": "Make ahead",
+          "text": "Simmer the neck and giblets the day before. Short on drippings? Top up with 1–2 tbsp butter and a little stock."
+        }
+      ],
+      "recipe": {
+        "id": "gravy",
+        "short": "Gravy",
+        "title": "Turkey gravy",
+        "source": "Tastes Better From Scratch",
+        "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
+        "servings": "Serves 15",
+        "time": "Giblets 1 hr the day before · gravy 20 min",
+        "ingredients": [
+          {
+            "id": "giblets",
+            "group": "Giblets",
+            "name": "turkey neck, heart and gizzard",
+            "note": "from the turkey; discard the liver",
+            "unmeasured": "from the bird"
+          },
+          {
+            "id": "drippings",
+            "group": "Gravy",
+            "name": "pan drippings",
+            "note": "fat skimmed off",
+            "ml": 500
+          },
+          {
+            "id": "flour",
+            "group": "Gravy",
+            "name": "all-purpose flour",
+            "ml": 125,
+            "grams": 60,
+            "estimated": true
+          },
+          {
+            "id": "stock",
+            "group": "Gravy",
+            "name": "chicken stock",
+            "ml": 1000,
+            "grams": 948,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "group": "Gravy",
+            "name": "salt and pepper",
+            "unmeasured": "to taste"
+          },
+          {
+            "id": "corn",
+            "group": "Only if it needs thickening",
+            "name": "cornstarch",
+            "ml": 15,
+            "grams": 8,
+            "estimated": true
+          },
+          {
+            "id": "water",
+            "group": "Only if it needs thickening",
+            "name": "cold water",
+            "ml": 15,
+            "grams": 15
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−1",
+            "t": "Put the neck, heart and gizzard in a pot and cover with water. Bring to a boil, then simmer about 1 hour."
+          },
+          "Strain, keeping the liquid. Pick the meat off the neck and dice it with the heart and gizzard. Refrigerate the meat and the liquid separately.",
+          {
+            "w": "4:40",
+            "t": "Pour the pan drippings into a fat separator or a large bowl. Let the fat rise and skim most of it off."
+          },
+          "In a saucepan over medium heat, whisk {drippings:1/2} drippings with {flour} flour into a smooth paste. If it looks greasy, add a little more flour. Cook, whisking, until golden brown.",
+          "Whisk in {stock} chicken stock and {drippings:rest} drippings. Keep whisking 5 to 8 minutes, until thickened.",
+          "Stir in the diced giblet meat.",
+          "Too thick? Thin it with the giblet liquid. Too thin? Simmer 10 minutes more, then whisk in {corn} cornstarch mixed with {water} cold water.",
+          "Taste first, then season with salt and pepper. The bacon makes the drippings salty. Keep warm on low until 5:55."
+        ],
+        "notes": [
+          "Short on drippings? Top up with 1–2 tbsp butter and a little more stock.",
+          "Leftovers keep 2–3 days. Reheat with a splash of stock over medium-low for about 15 minutes."
+        ]
+      }
+    },
+    {
+      "name": "Cranberry sauce",
+      "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
+      "status": "set",
+      "group": "The bird",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "One batch (recipe serves 10)"
+        },
+        {
+          "label": "Method",
+          "text": "Simmer cranberries with sugar and water about 15 min, finish with orange zest, cinnamon and nutmeg. Chill 30–45 min."
+        },
+        {
+          "label": "Make ahead",
+          "text": "Up to 2 days ahead (keeps 7 days in the fridge, or freezes for 3 months)."
+        }
+      ],
+      "recipe": {
+        "id": "cranberry",
+        "short": "Cranberry",
+        "title": "Cranberry sauce",
+        "source": "Chef Billy Parisi",
+        "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
+        "servings": "Serves 10",
+        "time": "Prep 5 min · cook 20 min · chill 45 min",
+        "ingredients": [
+          {
+            "id": "water",
+            "name": "water",
+            "ml": 250,
+            "grams": 237
+          },
+          {
+            "id": "sugar",
+            "name": "granulated sugar",
+            "ml": 312.5,
+            "grams": 250,
+            "estimated": true
+          },
+          {
+            "id": "cranberries",
+            "name": "fresh cranberries",
+            "note": "about 4 cups; frozen works too",
+            "grams": 340,
+            "weightUnit": "oz"
+          },
+          {
+            "id": "orange",
+            "name": "orange",
+            "note": "zested",
+            "count": 1
+          },
+          {
+            "id": "cinnamon",
+            "name": "ground cinnamon",
+            "ml": 5,
+            "grams": 2.5,
+            "estimated": true
+          },
+          {
+            "id": "nutmeg",
+            "name": "ground nutmeg",
+            "ml": 0.625,
+            "grams": 0.5,
+            "estimated": true
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−2",
+            "t": "In a high-sided medium pot, bring {water} water and {sugar} sugar to a full boil."
+          },
+          "Add {cranberries} cranberries and bring back to a boil, until they start to pop.",
+          "Cover and simmer about 15 minutes, until very thick. Add a splash of water if the pot looks dry.",
+          "Off the heat, stir in {cinnamon} cinnamon, {nutmeg} nutmeg and the zest of {orange} orange, pressing the berries to break them up.",
+          "Move to a container and refrigerate until cold, at least 30 to 45 minutes."
+        ],
+        "notes": [
+          "Keeps 7 days in the fridge or 3 months frozen. It thickens and tastes better cold."
+        ]
+      }
+    },
+    {
       "name": "Traditional stuffing",
       "url": "https://www.billyparisi.com/homemade-traditional-stuffing-recipe/",
       "status": "set",
+      "group": "Sides",
       "lines": [
         {
           "label": "Size",
@@ -1004,110 +1192,10 @@
       }
     },
     {
-      "name": "Turkey gravy",
-      "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
-      "status": "set",
-      "lines": [
-        {
-          "label": "Size",
-          "text": "One batch (recipe serves 15)"
-        },
-        {
-          "label": "Method",
-          "text": "Pan drippings roux (1 cup drippings, ½ cup flour), 4 cups stock plus 1 more cup drippings, diced giblets. About 15 minutes while the turkey rests."
-        },
-        {
-          "label": "Make ahead",
-          "text": "Simmer the neck and giblets the day before. Short on drippings? Top up with 1–2 tbsp butter and a little stock."
-        }
-      ],
-      "recipe": {
-        "id": "gravy",
-        "short": "Gravy",
-        "title": "Turkey gravy",
-        "source": "Tastes Better From Scratch",
-        "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
-        "servings": "Serves 15",
-        "time": "Giblets 1 hr the day before · gravy 20 min",
-        "ingredients": [
-          {
-            "id": "giblets",
-            "group": "Giblets",
-            "name": "turkey neck, heart and gizzard",
-            "note": "from the turkey; discard the liver",
-            "unmeasured": "from the bird"
-          },
-          {
-            "id": "drippings",
-            "group": "Gravy",
-            "name": "pan drippings",
-            "note": "fat skimmed off",
-            "ml": 500
-          },
-          {
-            "id": "flour",
-            "group": "Gravy",
-            "name": "all-purpose flour",
-            "ml": 125,
-            "grams": 60,
-            "estimated": true
-          },
-          {
-            "id": "stock",
-            "group": "Gravy",
-            "name": "chicken stock",
-            "ml": 1000,
-            "grams": 948,
-            "estimated": true
-          },
-          {
-            "id": "salt",
-            "group": "Gravy",
-            "name": "salt and pepper",
-            "unmeasured": "to taste"
-          },
-          {
-            "id": "corn",
-            "group": "Only if it needs thickening",
-            "name": "cornstarch",
-            "ml": 15,
-            "grams": 8,
-            "estimated": true
-          },
-          {
-            "id": "water",
-            "group": "Only if it needs thickening",
-            "name": "cold water",
-            "ml": 15,
-            "grams": 15
-          }
-        ],
-        "steps": [
-          {
-            "w": "D−1",
-            "t": "Put the neck, heart and gizzard in a pot and cover with water. Bring to a boil, then simmer about 1 hour."
-          },
-          "Strain, keeping the liquid. Pick the meat off the neck and dice it with the heart and gizzard. Refrigerate the meat and the liquid separately.",
-          {
-            "w": "4:40",
-            "t": "Pour the pan drippings into a fat separator or a large bowl. Let the fat rise and skim most of it off."
-          },
-          "In a saucepan over medium heat, whisk {drippings:1/2} drippings with {flour} flour into a smooth paste. If it looks greasy, add a little more flour. Cook, whisking, until golden brown.",
-          "Whisk in {stock} chicken stock and {drippings:rest} drippings. Keep whisking 5 to 8 minutes, until thickened.",
-          "Stir in the diced giblet meat.",
-          "Too thick? Thin it with the giblet liquid. Too thin? Simmer 10 minutes more, then whisk in {corn} cornstarch mixed with {water} cold water.",
-          "Taste first, then season with salt and pepper. The bacon makes the drippings salty. Keep warm on low until 5:55."
-        ],
-        "notes": [
-          "Short on drippings? Top up with 1–2 tbsp butter and a little more stock.",
-          "Leftovers keep 2–3 days. Reheat with a splash of stock over medium-low for about 15 minutes."
-        ]
-      }
-    },
-    {
       "name": "Candied yams",
       "url": "https://www.billyparisi.com/delicious-candied-yams-recipe/",
       "status": "set",
+      "group": "Sides",
       "lines": [
         {
           "label": "Size",
@@ -1209,6 +1297,7 @@
       "name": "Crispy roasted potatoes",
       "url": "https://www.billyparisi.com/crispy-roasted-potatoes/",
       "status": "set",
+      "group": "Sides",
       "lines": [
         {
           "label": "Size",
@@ -1320,9 +1409,198 @@
       }
     },
     {
+      "name": "Garlic lemon green beans",
+      "url": null,
+      "status": "set",
+      "group": "Sides",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "3 lb for 10"
+        },
+        {
+          "label": "Ingredients",
+          "text": "2 tbsp olive oil, 2 tbsp butter, 4 garlic cloves thinly sliced, zest and juice of 1 lemon, salt and pepper"
+        },
+        {
+          "label": "Method",
+          "text": "Blanch 2–3 min the day before, then sauté in two batches for 4–5 min just before serving. Garlic goes in for the last minute so it does not burn."
+        }
+      ],
+      "recipe": {
+        "id": "beans",
+        "short": "Green beans",
+        "title": "Garlic lemon green beans",
+        "source": "My recipe",
+        "servings": "Serves 10",
+        "time": "Blanch 5 min the day before · sauté 10 min",
+        "ingredients": [
+          {
+            "id": "beans",
+            "name": "green beans",
+            "note": "trimmed",
+            "grams": 1361,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "oil",
+            "name": "olive oil",
+            "ml": 30,
+            "grams": 27,
+            "estimated": true
+          },
+          {
+            "id": "butter",
+            "name": "unsalted butter",
+            "ml": 30,
+            "grams": 28
+          },
+          {
+            "id": "garlic",
+            "name": "garlic cloves",
+            "note": "thinly sliced",
+            "count": 4,
+            "grams": 12,
+            "estimated": true
+          },
+          {
+            "id": "lemon",
+            "name": "lemon",
+            "note": "zest and juice",
+            "count": 1
+          },
+          {
+            "id": "salt",
+            "name": "salt and pepper",
+            "unmeasured": "to taste, plus salt for the water"
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−1",
+            "t": "Bring a large pot of well-salted water to a boil and fill a big bowl with ice water."
+          },
+          "Boil {beans} green beans for 2 to 3 minutes, until bright green. Drain and plunge them into the ice water.",
+          "Dry well and refrigerate in a towel-lined container.",
+          {
+            "w": "5:35",
+            "t": "Heat {oil:1/2} olive oil and {butter:1/2} butter in a large skillet over medium-high heat. Add half the beans and sauté 4 to 5 minutes, until hot and lightly blistered."
+          },
+          "For the last minute, add {garlic:1/2} sliced garlic cloves. Move to a serving dish.",
+          "Repeat with {oil:rest} olive oil, {butter:rest} butter, the rest of the beans and {garlic:rest} garlic cloves.",
+          "Finish with the zest of {lemon} lemon, a squeeze of its juice, and salt and pepper."
+        ],
+        "notes": [
+          "Garlic goes in last so it doesn't burn."
+        ]
+      }
+    },
+    {
+      "name": "Honey-thyme roasted whole carrots",
+      "url": null,
+      "status": "set",
+      "group": "Sides",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "3 lb medium carrots (about 20) for 10"
+        },
+        {
+          "label": "Ingredients",
+          "text": "3 tbsp olive oil, 1 tsp salt, pepper. Glaze: 2 tbsp butter, 2 tbsp honey, 1 tbsp chopped fresh thyme."
+        },
+        {
+          "label": "Method",
+          "text": "Roast whole at 425°F for 25–30 min at midday, chill, then glaze and reheat uncovered at 350°F for about 20 min with the casseroles."
+        }
+      ],
+      "recipe": {
+        "id": "carrots",
+        "short": "Carrots",
+        "title": "Honey-thyme roasted whole carrots",
+        "source": "My recipe",
+        "servings": "Serves 10",
+        "time": "Roast 30 min at midday · glaze and reheat 20 min",
+        "ingredients": [
+          {
+            "id": "carrots",
+            "name": "medium carrots",
+            "note": "about 20, peeled, tops trimmed, left whole",
+            "grams": 1361,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "oil",
+            "name": "olive oil",
+            "ml": 45,
+            "grams": 40,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "name": "salt",
+            "ml": 5,
+            "grams": 6,
+            "estimated": true
+          },
+          {
+            "id": "pepper",
+            "name": "black pepper",
+            "unmeasured": "to taste"
+          },
+          {
+            "id": "butter",
+            "group": "Glaze",
+            "name": "unsalted butter",
+            "ml": 30,
+            "grams": 28
+          },
+          {
+            "id": "honey",
+            "group": "Glaze",
+            "name": "honey",
+            "ml": 30,
+            "grams": 42,
+            "estimated": true
+          },
+          {
+            "id": "thyme",
+            "group": "Glaze",
+            "name": "fresh thyme",
+            "note": "chopped",
+            "ml": 15,
+            "grams": 2.5,
+            "estimated": true
+          }
+        ],
+        "steps": [
+          {
+            "w": "11:45",
+            "t": "Heat the oven to 425°F and line a sheet pan with parchment."
+          },
+          "Toss {carrots} carrots with {oil} olive oil, {salt} salt and some pepper.",
+          "Spread them in one layer with space between them.",
+          "Roast 25 to 30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat.",
+          {
+            "w": "12:15",
+            "t": "Cool 30 minutes, cover and refrigerate."
+          },
+          {
+            "w": "4:35",
+            "t": "Melt {butter} butter with {honey} honey and {thyme} thyme. Toss with the carrots on their pan."
+          },
+          "Reheat uncovered at 350°F for about 20 minutes. Short on oven room? Use the air fryer at 350°F for 6 to 8 minutes."
+        ],
+        "notes": [
+          "Pick slim carrots of a similar size so they cook evenly."
+        ]
+      }
+    },
+    {
       "name": "Soft dinner rolls",
       "url": "https://sallysbakingaddiction.com/soft-dinner-rolls/",
       "status": "set",
+      "group": "Bread and salad",
       "lines": [
         {
           "label": "Size",
@@ -1442,278 +1720,10 @@
       }
     },
     {
-      "name": "Garlic lemon green beans",
-      "url": null,
-      "status": "set",
-      "lines": [
-        {
-          "label": "Size",
-          "text": "3 lb for 10"
-        },
-        {
-          "label": "Ingredients",
-          "text": "2 tbsp olive oil, 2 tbsp butter, 4 garlic cloves thinly sliced, zest and juice of 1 lemon, salt and pepper"
-        },
-        {
-          "label": "Method",
-          "text": "Blanch 2–3 min the day before, then sauté in two batches for 4–5 min just before serving. Garlic goes in for the last minute so it does not burn."
-        }
-      ],
-      "recipe": {
-        "id": "beans",
-        "short": "Green beans",
-        "title": "Garlic lemon green beans",
-        "source": "My recipe",
-        "servings": "Serves 10",
-        "time": "Blanch 5 min the day before · sauté 10 min",
-        "ingredients": [
-          {
-            "id": "beans",
-            "name": "green beans",
-            "note": "trimmed",
-            "grams": 1361,
-            "weightUnit": "lb"
-          },
-          {
-            "id": "oil",
-            "name": "olive oil",
-            "ml": 30,
-            "grams": 27,
-            "estimated": true
-          },
-          {
-            "id": "butter",
-            "name": "unsalted butter",
-            "ml": 30,
-            "grams": 28
-          },
-          {
-            "id": "garlic",
-            "name": "garlic cloves",
-            "note": "thinly sliced",
-            "count": 4,
-            "grams": 12,
-            "estimated": true
-          },
-          {
-            "id": "lemon",
-            "name": "lemon",
-            "note": "zest and juice",
-            "count": 1
-          },
-          {
-            "id": "salt",
-            "name": "salt and pepper",
-            "unmeasured": "to taste, plus salt for the water"
-          }
-        ],
-        "steps": [
-          {
-            "w": "D−1",
-            "t": "Bring a large pot of well-salted water to a boil and fill a big bowl with ice water."
-          },
-          "Boil {beans} green beans for 2 to 3 minutes, until bright green. Drain and plunge them into the ice water.",
-          "Dry well and refrigerate in a towel-lined container.",
-          {
-            "w": "5:35",
-            "t": "Heat {oil:1/2} olive oil and {butter:1/2} butter in a large skillet over medium-high heat. Add half the beans and sauté 4 to 5 minutes, until hot and lightly blistered."
-          },
-          "For the last minute, add {garlic:1/2} sliced garlic cloves. Move to a serving dish.",
-          "Repeat with {oil:rest} olive oil, {butter:rest} butter, the rest of the beans and {garlic:rest} garlic cloves.",
-          "Finish with the zest of {lemon} lemon, a squeeze of its juice, and salt and pepper."
-        ],
-        "notes": [
-          "Garlic goes in last so it doesn't burn."
-        ]
-      }
-    },
-    {
-      "name": "Honey-thyme roasted whole carrots",
-      "url": null,
-      "status": "set",
-      "lines": [
-        {
-          "label": "Size",
-          "text": "3 lb medium carrots (about 20) for 10"
-        },
-        {
-          "label": "Ingredients",
-          "text": "3 tbsp olive oil, 1 tsp salt, pepper. Glaze: 2 tbsp butter, 2 tbsp honey, 1 tbsp chopped fresh thyme."
-        },
-        {
-          "label": "Method",
-          "text": "Roast whole at 425°F for 25–30 min at midday, chill, then glaze and reheat uncovered at 350°F for about 20 min with the casseroles."
-        }
-      ],
-      "recipe": {
-        "id": "carrots",
-        "short": "Carrots",
-        "title": "Honey-thyme roasted whole carrots",
-        "source": "My recipe",
-        "servings": "Serves 10",
-        "time": "Roast 30 min at midday · glaze and reheat 20 min",
-        "ingredients": [
-          {
-            "id": "carrots",
-            "name": "medium carrots",
-            "note": "about 20, peeled, tops trimmed, left whole",
-            "grams": 1361,
-            "weightUnit": "lb"
-          },
-          {
-            "id": "oil",
-            "name": "olive oil",
-            "ml": 45,
-            "grams": 40,
-            "estimated": true
-          },
-          {
-            "id": "salt",
-            "name": "salt",
-            "ml": 5,
-            "grams": 6,
-            "estimated": true
-          },
-          {
-            "id": "pepper",
-            "name": "black pepper",
-            "unmeasured": "to taste"
-          },
-          {
-            "id": "butter",
-            "group": "Glaze",
-            "name": "unsalted butter",
-            "ml": 30,
-            "grams": 28
-          },
-          {
-            "id": "honey",
-            "group": "Glaze",
-            "name": "honey",
-            "ml": 30,
-            "grams": 42,
-            "estimated": true
-          },
-          {
-            "id": "thyme",
-            "group": "Glaze",
-            "name": "fresh thyme",
-            "note": "chopped",
-            "ml": 15,
-            "grams": 2.5,
-            "estimated": true
-          }
-        ],
-        "steps": [
-          {
-            "w": "11:45",
-            "t": "Heat the oven to 425°F and line a sheet pan with parchment."
-          },
-          "Toss {carrots} carrots with {oil} olive oil, {salt} salt and some pepper.",
-          "Spread them in one layer with space between them.",
-          "Roast 25 to 30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat.",
-          {
-            "w": "12:15",
-            "t": "Cool 30 minutes, cover and refrigerate."
-          },
-          {
-            "w": "4:35",
-            "t": "Melt {butter} butter with {honey} honey and {thyme} thyme. Toss with the carrots on their pan."
-          },
-          "Reheat uncovered at 350°F for about 20 minutes. Short on oven room? Use the air fryer at 350°F for 6 to 8 minutes."
-        ],
-        "notes": [
-          "Pick slim carrots of a similar size so they cook evenly."
-        ]
-      }
-    },
-    {
-      "name": "Cranberry sauce",
-      "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
-      "status": "set",
-      "lines": [
-        {
-          "label": "Size",
-          "text": "One batch (recipe serves 10)"
-        },
-        {
-          "label": "Method",
-          "text": "Simmer cranberries with sugar and water about 15 min, finish with orange zest, cinnamon and nutmeg. Chill 30–45 min."
-        },
-        {
-          "label": "Make ahead",
-          "text": "Up to 2 days ahead (keeps 7 days in the fridge, or freezes for 3 months)."
-        }
-      ],
-      "recipe": {
-        "id": "cranberry",
-        "short": "Cranberry",
-        "title": "Cranberry sauce",
-        "source": "Chef Billy Parisi",
-        "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
-        "servings": "Serves 10",
-        "time": "Prep 5 min · cook 20 min · chill 45 min",
-        "ingredients": [
-          {
-            "id": "water",
-            "name": "water",
-            "ml": 250,
-            "grams": 237
-          },
-          {
-            "id": "sugar",
-            "name": "granulated sugar",
-            "ml": 312.5,
-            "grams": 250,
-            "estimated": true
-          },
-          {
-            "id": "cranberries",
-            "name": "fresh cranberries",
-            "note": "about 4 cups; frozen works too",
-            "grams": 340,
-            "weightUnit": "oz"
-          },
-          {
-            "id": "orange",
-            "name": "orange",
-            "note": "zested",
-            "count": 1
-          },
-          {
-            "id": "cinnamon",
-            "name": "ground cinnamon",
-            "ml": 5,
-            "grams": 2.5,
-            "estimated": true
-          },
-          {
-            "id": "nutmeg",
-            "name": "ground nutmeg",
-            "ml": 0.625,
-            "grams": 0.5,
-            "estimated": true
-          }
-        ],
-        "steps": [
-          {
-            "w": "D−2",
-            "t": "In a high-sided medium pot, bring {water} water and {sugar} sugar to a full boil."
-          },
-          "Add {cranberries} cranberries and bring back to a boil, until they start to pop.",
-          "Cover and simmer about 15 minutes, until very thick. Add a splash of water if the pot looks dry.",
-          "Off the heat, stir in {cinnamon} cinnamon, {nutmeg} nutmeg and the zest of {orange} orange, pressing the berries to break them up.",
-          "Move to a container and refrigerate until cold, at least 30 to 45 minutes."
-        ],
-        "notes": [
-          "Keeps 7 days in the fridge or 3 months frozen. It thickens and tastes better cold."
-        ]
-      }
-    },
-    {
       "name": "Spinach salad with pears and pecans",
       "url": null,
       "status": "set",
+      "group": "Bread and salad",
       "lines": [
         {
           "label": "Size",

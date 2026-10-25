@@ -13,30 +13,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="app.css?v=7">
+<link rel="stylesheet" href="app.css?v=8">
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1 id="title">Christmas Dinner</h1>
-    <p class="sub" id="sub"></p>
+  <header><h1>Christmas Dinner</h1></header>
+  <main id="main">
+    <section class="panel" id="p-menu" role="tabpanel" aria-labelledby="t-menu"></section>
+    <section class="panel" id="p-shopping" role="tabpanel" aria-labelledby="t-shopping" hidden></section>
+    <section class="panel" id="p-timeline" role="tabpanel" aria-labelledby="t-timeline" hidden></section>
+  </main>
+  <footer>
     <div class="hrow">
       <label><span class="sum">Year </span><select id="year" aria-label="Year"></select></label>
       <button class="sync linkish" type="button" id="sync">This device only · set up sync</button>
     </div>
-  </header>
-  <nav><div class="tabs" role="tablist" aria-label="Sections">
-    <button class="tab" role="tab" id="t-shopping" data-tab="shopping" aria-selected="true" aria-controls="p-shopping">Shopping</button>
-    <button class="tab" role="tab" id="t-timeline" data-tab="timeline" aria-selected="false" aria-controls="p-timeline">Timeline</button>
-    <button class="tab" role="tab" id="t-menu" data-tab="menu" aria-selected="false" aria-controls="p-menu">Menu</button>
-  </div><div class="cookbar" id="cookbar" role="toolbar" aria-label="Recipes you're cooking" hidden></div></nav>
-  <main id="main">
-    <section class="panel" id="p-shopping" role="tabpanel" aria-labelledby="t-shopping"></section>
-    <section class="panel" id="p-timeline" role="tabpanel" aria-labelledby="t-timeline" hidden></section>
-    <section class="panel" id="p-menu" role="tabpanel" aria-labelledby="t-menu" hidden></section>
-  </main>
-  <footer id="footer"></footer>
+    <p id="fnote"></p>
+  </footer>
 </div>
+<nav class="bnav"><div class="tabs" role="tablist" aria-label="Sections">
+  <button class="tab" role="tab" id="t-menu" data-tab="menu" aria-selected="true" aria-controls="p-menu"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7a2 2 0 0 0 2 2M11 3v7a2 2 0 0 1-2 2v9M9 3v6M17 21V3c-2 1-3.5 3.5-3.5 7v3H17"/></svg></span>Menu</button>
+  <button class="tab" role="tab" id="t-shopping" data-tab="shopping" aria-selected="false" aria-controls="p-shopping"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>Shopping</button>
+  <button class="tab" role="tab" id="t-timeline" data-tab="timeline" aria-selected="false" aria-controls="p-timeline"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>Timeline</button>
+</div></nav>
 <div class="toast" id="toast" hidden></div>
 <dialog id="syncdlg">
   <form method="dialog" class="dlg">
@@ -52,6 +51,6 @@
     </div>
   </form>
 </dialog>
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
