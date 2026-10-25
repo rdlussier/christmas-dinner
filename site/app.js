@@ -1,7 +1,7 @@
 // When changing app.js or app.css, bump the ?v= number in index.html and CACHE in sw.js.
 // Christmas Dinner: renders one year's plan from years/<year>.json and keeps ticks per year.
 (function () {
-  var TABS = ["shopping", "timeline", "menu", "open"];
+  var TABS = ["shopping", "timeline", "menu"];
   var LSH = "cd-hide-v1";
   var plan = null;      // the loaded year file
   var year = null;      // the year being viewed (may differ from plan.year when copied forward)
@@ -224,16 +224,12 @@
     document.getElementById("p-menu").innerHTML = '<div id="mlist">' + lead +
       (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Tap Cook this to open a recipe. Each one you open gets a tab in the bar at the top, so you can jump between dishes and land back where you were.</p>' : '') +
       plan.menu.map(function (d) {
-        var ok = d.status === "set";
         return '<article class="dish"><div class="dtop"><h2 class="dname">' + (d.url ? '<a href="' + esc(d.url) + '">' + esc(d.name) + '</a>' : esc(d.name)) +
-          '</h2><span class="status' + (ok ? '' : ' need') + '">' + esc(ok ? "Recipe set" : d.status) + '</span></div>' +
+          '</h2></div>' +
           d.lines.map(function (x) { return '<p class="dline"><b>' + esc(x.label) + ':</b> ' + esc(x.text) + '</p>'; }).join("") +
           (d.recipe ? '<div class="dact"><button class="btn open" type="button" data-cook="' + esc(d.recipe.id) + '">Cook this</button><span class="dprog" id="prog-' + esc(d.recipe.id) + '"></span></div>' : '') +
           '</article>';
       }).join("") + '</div><div id="mrec" hidden></div>';
-    document.getElementById("p-open").innerHTML = lead + barHTML("open", "items") +
-      '<p class="note-top">Decisions still to make. Tick them off once settled.</p>' +
-      '<div class="group">' + plan.open.map(row).join("") + '</div>';
 
     var links = plan.menu.filter(function (d) { return d.url; }).map(function (d) { return '<a href="' + esc(d.url) + '">' + esc(d.name.toLowerCase()) + '</a>'; });
     document.getElementById("footer").innerHTML = (links.length ? 'Recipes: ' + links.join(", ") + '. ' : '') +
@@ -336,7 +332,6 @@
     var s = allItems(plan.shopping), p = allItems(plan.timeline);
     document.getElementById("sum-shop").textContent = counts(s) + " of " + s.length + " items bought";
     document.getElementById("sum-plan").textContent = counts(p) + " of " + p.length + " tasks done";
-    document.getElementById("sum-open").textContent = counts(plan.open) + " of " + plan.open.length + " settled";
   }
 
   function toast(msg) {
