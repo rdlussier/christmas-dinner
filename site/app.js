@@ -228,7 +228,6 @@
       g.items.push(d);
     });
     document.getElementById("p-menu").innerHTML =
-      '<div class="cookbar" id="cookbar" role="toolbar" aria-label="Dishes you are cooking" hidden></div>' +
       '<div id="mlist">' + lead + groups.map(function (g) {
         return '<div class="mgroup"><h2>' + esc(g.name) + '</h2><div class="dishes">' + g.items.map(function (d) {
           var r = d.recipe;
@@ -259,7 +258,7 @@
   function saveCook() { lsSet(cookKey(), JSON.stringify(cook)); }
   function renderCook() {
     var bar = document.getElementById("cookbar");
-    bar.hidden = !cook.tray.length;
+    bar.hidden = !cook.tray.length || tab !== "menu";
     bar.innerHTML = '<button class="cchip all" type="button" data-cook="" aria-pressed="' + (!cook.active) + '"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="1" width="7" height="7" rx="1.5"/><rect x="1" y="10" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>All dishes</button><span class="csep" aria-hidden="true"></span><div class="cdishes">' +
       cook.tray.map(function (k) {
         var r = recipeById(k);
@@ -292,7 +291,7 @@
   function posKey() { return tab === "menu" ? (cook.active || "list") : "tab-" + tab; }
   function restoreScroll() {
     var y = cook.pos[posKey()];
-    if (y == null) y = tab === "menu" && cook.active ? document.getElementById("main").offsetTop : 0;
+    if (y == null) y = tab === "menu" && cook.active ? document.getElementById("main").offsetTop - document.querySelector(".topbar").offsetHeight : 0;
     window.scrollTo(0, Math.max(0, y));
   }
   function uncook(k) {
@@ -534,6 +533,7 @@
     var was = tab;
     tab = name;
     document.querySelectorAll(".panel").forEach(function (p) { p.hidden = p.id !== "p-" + name; });
+    document.getElementById("cookbar").hidden = !cook.tray.length || name !== "menu";
     history.replaceState(null, "", "#" + name);
     if (plan && name !== was) restoreScroll();
   }
