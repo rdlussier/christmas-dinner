@@ -1,0 +1,908 @@
+{
+  "year": 2026,
+  "title": "Christmas Dinner",
+  "guests": 10,
+  "sitDown": "6:00 pm",
+  "date": null,
+  "shopping": [
+    {
+      "id": "meat",
+      "title": "Meat",
+      "items": [
+        {
+          "id": "turkey",
+          "name": "Fresh turkey",
+          "qty": "15–16 lb",
+          "note": "Billy's recipe is written for 12–14 lb. This size feeds 10 with leftovers. If frozen, start thawing 4 days ahead."
+        },
+        {
+          "id": "sausage",
+          "name": "Loose pork sausage",
+          "qty": "1 lb",
+          "note": "Stuffing."
+        },
+        {
+          "id": "bacon",
+          "name": "Smoked bacon",
+          "qty": "12 strips (1 lb pack)",
+          "note": "Wraps the turkey for the second half of roasting."
+        }
+      ]
+    },
+    {
+      "id": "produce",
+      "title": "Produce",
+      "items": [
+        {
+          "id": "sweetpot",
+          "name": "Sweet potatoes or yams",
+          "qty": "3 lb",
+          "note": "Candied yams at 1.5×."
+        },
+        {
+          "id": "babypot",
+          "name": "Baby yellow potatoes",
+          "qty": "6 lb",
+          "note": "Crispy roasted potatoes at 2×. Skins stay on."
+        },
+        {
+          "id": "carrots",
+          "name": "Medium carrots",
+          "qty": "3 lb (about 20)",
+          "note": "Roasted whole. Pick slim ones of a similar size so they cook evenly. Tops trimmed, or a short bit of stem left on for looks."
+        },
+        {
+          "id": "beans",
+          "name": "Green beans",
+          "qty": "3 lb",
+          "note": "Garlic lemon green beans."
+        },
+        {
+          "id": "cranb",
+          "name": "Fresh cranberries",
+          "qty": "12 oz bag",
+          "note": "Cranberry sauce (frozen works too)."
+        },
+        {
+          "id": "orange",
+          "name": "Orange",
+          "qty": "1",
+          "note": "Zest for the cranberry sauce."
+        },
+        {
+          "id": "greens",
+          "name": "Baby spinach",
+          "qty": "15 oz (three 5 oz clamshells)",
+          "note": "Spinach salad. Pre-washed, so no washing needed."
+        },
+        {
+          "id": "pears",
+          "name": "Ripe pears (Bosc or Anjou)",
+          "qty": "2",
+          "note": "Spinach salad. Buy a few days early so they ripen."
+        },
+        {
+          "id": "pom",
+          "name": "Pomegranate seeds",
+          "qty": "1 cup (one tub, or 1 pomegranate)",
+          "note": "Spinach salad."
+        },
+        {
+          "id": "shallot",
+          "name": "Shallot",
+          "qty": "1 small",
+          "note": "Vinaigrette."
+        },
+        {
+          "id": "onion",
+          "name": "Yellow onions",
+          "qty": "3",
+          "note": "2 small for stuffing, 1 spare."
+        },
+        {
+          "id": "celery",
+          "name": "Celery",
+          "qty": "1 bunch",
+          "note": "3 stalks for stuffing."
+        },
+        {
+          "id": "garlic",
+          "name": "Garlic",
+          "qty": "2 heads",
+          "note": "Herb butter 5 cloves, stuffing 3, green beans about 4, plus spare."
+        },
+        {
+          "id": "lemon",
+          "name": "Lemons",
+          "qty": "3",
+          "note": "1 for the turkey cavity, 1 for the green beans, 1 spare."
+        },
+        {
+          "id": "parsley",
+          "name": "Flat-leaf parsley",
+          "qty": "2 bunches",
+          "note": "Herb butter, cavity sprigs, stuffing garnish."
+        },
+        {
+          "id": "thyme",
+          "name": "Fresh thyme",
+          "qty": "2 packs",
+          "note": "Herb butter, stuffing, carrots."
+        },
+        {
+          "id": "rosemary",
+          "name": "Fresh rosemary",
+          "qty": "2 packs",
+          "note": "Herb butter and stuffing."
+        },
+        {
+          "id": "sage",
+          "name": "Fresh sage",
+          "qty": "2–3 packs",
+          "note": "Herb butter and stuffing, about 4 tbsp chopped in total."
+        }
+      ]
+    },
+    {
+      "id": "dairy",
+      "title": "Dairy and eggs",
+      "items": [
+        {
+          "id": "butter",
+          "name": "Unsalted butter",
+          "qty": "3 lb (12 sticks)",
+          "note": "About 9½ sticks go into recipes: herb butter 4, yams 2¼, rolls 1½, stuffing 1, potatoes ¾. The rest covers green beans, the table and an optional 1–2 tbsp in the gravy."
+        },
+        {
+          "id": "milk",
+          "name": "Whole milk",
+          "qty": "2 cups",
+          "note": "Rolls, two batches."
+        },
+        {
+          "id": "eggs",
+          "name": "Large eggs",
+          "qty": "6 (buy a dozen)",
+          "note": "Stuffing 3, rolls 2."
+        },
+        {
+          "id": "parm",
+          "name": "Parmesan, a wedge",
+          "qty": "3 oz",
+          "note": "Shaved over the spinach salad with a vegetable peeler."
+        }
+      ]
+    },
+    {
+      "id": "bakery",
+      "title": "Bakery",
+      "items": [
+        {
+          "id": "bread",
+          "name": "Fresh loaf of bread",
+          "qty": "about 1½ lb",
+          "note": "Sourdough or similar. Makes the 12 cups of cubes for stuffing."
+        }
+      ]
+    },
+    {
+      "id": "pantry",
+      "title": "Pantry",
+      "items": [
+        {
+          "id": "stock",
+          "name": "Chicken stock",
+          "qty": "about 3 L",
+          "note": "Stuffing 3 cups, gravy 4 cups, and a splash when reheating."
+        },
+        {
+          "id": "flour",
+          "name": "All-purpose flour",
+          "qty": "2 kg bag",
+          "note": "Rolls need 6 cups (about 780 g), gravy ½ cup."
+        },
+        {
+          "id": "yeast",
+          "name": "Instant yeast",
+          "qty": "2 packets (2¼ tsp each)",
+          "note": "One per batch of rolls."
+        },
+        {
+          "id": "sugar",
+          "name": "Granulated sugar",
+          "qty": "1½ cups",
+          "note": "Rolls ¼ cup, cranberry sauce 1¼ cups."
+        },
+        {
+          "id": "brown",
+          "name": "Light brown sugar",
+          "qty": "2⅝ cups packed",
+          "note": "Candied yams at 1.5×."
+        },
+        {
+          "id": "honey",
+          "name": "Honey",
+          "qty": "¼ cup",
+          "note": "Carrot glaze 2 tbsp, optional honey butter on the rolls 2 tbsp."
+        },
+        {
+          "id": "vanilla",
+          "name": "Vanilla extract",
+          "qty": "1 tbsp",
+          "note": "Candied yams."
+        },
+        {
+          "id": "pecans",
+          "name": "Pecan halves",
+          "qty": "1 cup",
+          "note": "Spinach salad, toasted."
+        },
+        {
+          "id": "acv",
+          "name": "Apple cider vinegar",
+          "qty": "¼ cup",
+          "note": "Vinaigrette."
+        },
+        {
+          "id": "dijon",
+          "name": "Dijon mustard",
+          "qty": "1 tbsp",
+          "note": "Vinaigrette."
+        },
+        {
+          "id": "maple",
+          "name": "Maple syrup",
+          "qty": "1 tbsp",
+          "note": "Vinaigrette."
+        },
+        {
+          "id": "oil",
+          "name": "Olive oil",
+          "qty": "about 1½ cups",
+          "note": "Potatoes ½ cup, vinaigrette ½ cup, carrots 3 tbsp, green beans 2 tbsp."
+        },
+        {
+          "id": "soda",
+          "name": "Baking soda",
+          "qty": "2 tsp",
+          "note": "Optional, in the potato boiling water for extra crisp."
+        },
+        {
+          "id": "corn",
+          "name": "Cornstarch",
+          "qty": "1 tbsp",
+          "note": "Optional, only if the gravy needs thickening."
+        },
+        {
+          "id": "cinn",
+          "name": "Ground cinnamon",
+          "qty": "1 tbsp + 1 tsp",
+          "note": "Candied yams, plus 1 tsp for cranberry sauce."
+        },
+        {
+          "id": "nutmeg",
+          "name": "Ground nutmeg",
+          "qty": "¾ tsp + ⅛ tsp",
+          "note": "Candied yams, plus ⅛ tsp for cranberry sauce."
+        },
+        {
+          "id": "gp",
+          "name": "Garlic powder, onion powder, paprika",
+          "qty": "4 tsp each",
+          "note": "Potatoes at 2×. Sweet or smoked paprika."
+        },
+        {
+          "id": "bay",
+          "name": "Dried bay leaves",
+          "qty": "6",
+          "note": "Turkey cavity."
+        },
+        {
+          "id": "salt",
+          "name": "Sea salt or kosher salt",
+          "qty": "1 large box",
+          "note": "Turkey, boiling water, everything."
+        },
+        {
+          "id": "pepper",
+          "name": "Black pepper",
+          "qty": ""
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "title": "Equipment and supplies",
+      "items": [
+        {
+          "id": "twine",
+          "name": "Butcher's twine",
+          "qty": "6 ft",
+          "note": "To truss the turkey."
+        },
+        {
+          "id": "pan",
+          "name": "Roasting pan with a rack",
+          "qty": "",
+          "note": "The rack is needed for browning and flipping. Check it fits your oven."
+        },
+        {
+          "id": "gloves",
+          "name": "Heavy oven gloves or silicone gloves",
+          "qty": "",
+          "note": "For flipping the turkey. Use a helper."
+        },
+        {
+          "id": "foil",
+          "name": "Heavy-duty foil",
+          "qty": "2 rolls"
+        },
+        {
+          "id": "parch",
+          "name": "Parchment paper",
+          "qty": "1 roll",
+          "note": "Bread cubes and potato pans."
+        },
+        {
+          "id": "dishes",
+          "name": "13×9 baking dishes",
+          "qty": "3",
+          "note": "Stuffing, yams (3 lb is a lot for one dish, so use a deeper dish or split it), rolls."
+        },
+        {
+          "id": "sheet",
+          "name": "Sheet pans",
+          "qty": "3",
+          "note": "Two for potatoes, one for carrots."
+        },
+        {
+          "id": "strain",
+          "name": "Fat separator (or a large bowl and ladle)",
+          "qty": "",
+          "note": "Gravy: lets the fat rise so you can skim it off the drippings."
+        },
+        {
+          "id": "tooth",
+          "name": "Toothpicks",
+          "qty": "",
+          "note": "To stitch torn turkey skin."
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "id": "nov",
+      "title": "By mid-November",
+      "when": "Early",
+      "items": [
+        {
+          "id": "p-order",
+          "text": "Order the turkey, 15–16 lb",
+          "note": "Fresh from a butcher, or a store pre-order."
+        },
+        {
+          "id": "p-fit",
+          "text": "Test-fit the oven",
+          "note": "Roasting pan on the bottom rack with a second rack above it. Check that a 13×9 dish and two sheet pans fit. This decides how much can share the oven with the turkey."
+        },
+        {
+          "id": "p-rolls",
+          "text": "Bake a test batch of the rolls (optional)",
+          "note": "One batch makes 14–16. Freeze a few to try the freezer route."
+        },
+        {
+          "id": "p-fridge",
+          "text": "Plan fridge space",
+          "note": "A 15–16 lb turkey needs a full shelf, plus room for stuffing, yams and rolls."
+        }
+      ]
+    },
+    {
+      "id": "d7",
+      "title": "One week before",
+      "when": "D−7",
+      "items": [
+        {
+          "id": "p-pantry",
+          "text": "Buy pantry items and equipment",
+          "note": "Flour, sugars, yeast, stock, spices, foil, parchment, twine."
+        },
+        {
+          "id": "p-bread",
+          "text": "Buy the bread loaf for stuffing"
+        },
+        {
+          "id": "p-therm",
+          "text": "Charge the Bluetooth thermometer and check the probe"
+        }
+      ]
+    },
+    {
+      "id": "d4",
+      "title": "Four days before",
+      "when": "D−4, evening",
+      "items": [
+        {
+          "id": "p-thaw",
+          "text": "Frozen turkey only: move it to the fridge",
+          "note": "Allow 24 hours per 5 lb, so about 3 days for 15–16 lb. Keep it on a tray on the bottom shelf."
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "title": "Three days before",
+      "when": "D−3",
+      "items": [
+        {
+          "id": "p-produce",
+          "text": "Buy produce, butter, milk and eggs"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title": "Two days before",
+      "when": "D−2",
+      "items": [
+        {
+          "id": "p-herbs",
+          "text": "Buy fresh herbs"
+        },
+        {
+          "id": "p-pick",
+          "text": "Pick up the fresh turkey"
+        },
+        {
+          "id": "p-cran",
+          "text": "Make the cranberry sauce",
+          "note": "Boil 1 cup water with 1¼ cups sugar, add the cranberries, return to a boil, then cover and simmer about 15 minutes until very thick. Off the heat, stir in cinnamon, nutmeg and orange zest and press the berries to break them up. Use a high-sided pot (they splatter). Keeps 7 days in the fridge."
+        },
+        {
+          "id": "p-dry",
+          "text": "Dry the bread cubes",
+          "note": "300°F for 25–30 minutes until firm. Cool, then store airtight."
+        }
+      ]
+    },
+    {
+      "id": "d1",
+      "title": "The day before",
+      "when": "D−1",
+      "items": [
+        {
+          "id": "p-bake",
+          "text": "Make and bake the rolls, two separate batches",
+          "note": "Dough rises 1–2 hours, shaped rolls about 1 hour, then 20–25 minutes at 350°F on a lower rack. Cover tightly. They keep 2–3 days at room temperature. Reheat covered at 300°F for about 10 minutes."
+        },
+        {
+          "id": "p-gib",
+          "text": "Simmer the neck and giblets for the gravy",
+          "note": "From the turkey cavity. Bring to a boil in water, simmer about 1 hour. Keep the liquid. Pick the neck meat, dice it with the heart and gizzard (discard the liver), and refrigerate both."
+        },
+        {
+          "id": "p-chop",
+          "text": "Prep vegetables",
+          "note": "Peel and trim the carrots (leave them whole). Chop onions and celery for the stuffing."
+        },
+        {
+          "id": "p-salad",
+          "text": "Make the vinaigrette and toast the pecans",
+          "note": "Shake in a jar: ½ cup olive oil, ¼ cup apple cider vinegar, 1 tbsp Dijon, 1 tbsp maple syrup, 1 minced small shallot, ½ tsp salt, pepper. Refrigerate. Toast the pecans in a dry skillet over medium heat for 4–5 minutes, stirring, then cool and store airtight."
+        },
+        {
+          "id": "p-beans",
+          "text": "Trim and blanch the green beans",
+          "note": "Boil in well-salted water for 2–3 minutes, then plunge into ice water. Dry well and refrigerate in a towel-lined container."
+        },
+        {
+          "id": "p-lay",
+          "text": "Lay out dishes, pans, serving bowls and utensils"
+        },
+        {
+          "id": "p-table",
+          "text": "Set the table"
+        }
+      ]
+    },
+    {
+      "id": "day",
+      "title": "Dinner day",
+      "when": "Sit down 6:00 pm",
+      "day": true,
+      "items": [
+        {
+          "id": "d-0930",
+          "t": "9:30",
+          "text": "Stuffing: brown the sausage, sauté the vegetables, mix with bread, herbs, stock and eggs",
+          "note": "Add the stock slowly. Stop when the bread is moist but not soggy."
+        },
+        {
+          "id": "d-1030",
+          "t": "10:30",
+          "text": "Stuffing into the oven at 350°F",
+          "note": "Covered for 25 minutes, then uncovered for about 20."
+        },
+        {
+          "id": "d-1045",
+          "t": "10:45",
+          "text": "Yams into the oven",
+          "note": "Shortcut from Billy's page: slice, boil 4–6 minutes, drain, coat in the butter and sugar mix, bake at 375°F for 25–30 minutes. Check they are tender."
+        },
+        {
+          "id": "d-1145",
+          "t": "11:45",
+          "text": "Roast the whole carrots at 425°F",
+          "note": "Toss with 3 tbsp olive oil, 1 tsp salt and pepper. One layer on a parchment-lined sheet pan with space between them. 25–30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat."
+        },
+        {
+          "id": "d-1215",
+          "t": "12:15",
+          "text": "Cool the stuffing, yams and carrots for 30 minutes, cover, and move to the fridge",
+          "note": "They are reheated from cold later."
+        },
+        {
+          "id": "d-1200",
+          "t": "12:00",
+          "text": "Whip the herb butter",
+          "note": "5–7 minutes in the stand mixer, then mix in herbs, garlic, salt and pepper."
+        },
+        {
+          "id": "d-1230",
+          "t": "12:30",
+          "text": "Prep the turkey",
+          "note": "Pat dry. Stuff the cavity with lemon, parsley and bay leaves. Butter under the skin on the breast and back. Truss."
+        },
+        {
+          "id": "d-1245",
+          "t": "12:45",
+          "text": "Oven to 450°F"
+        },
+        {
+          "id": "d-1315",
+          "t": "1:15",
+          "text": "Turkey in: bottom rack, breast up, 450°F for 22–25 minutes",
+          "note": "Until browned on top."
+        },
+        {
+          "id": "d-1340",
+          "t": "1:40",
+          "text": "Flip the turkey breast down, cover the top with bacon, oven to 350°F",
+          "note": "Very hot. Gloves, towels and a second person."
+        },
+        {
+          "id": "d-1440",
+          "t": "2:40",
+          "text": "Remove the bacon and return the turkey to the oven"
+        },
+        {
+          "id": "d-1545",
+          "t": "3:45",
+          "text": "Start watching the thermometer",
+          "note": "9–11 minutes per lb after the flip puts the finish at roughly 3:55–4:35. Pull at 165°F in the thickest part."
+        },
+        {
+          "id": "d-1630",
+          "t": "~4:30",
+          "text": "Turkey out. Rest on the board, loosely covered in foil",
+          "note": "Billy rests it 15–20 minutes. Wrapped fully in foil or in a cooler it holds up to 90 minutes."
+        },
+        {
+          "id": "d-1635",
+          "t": "4:35",
+          "text": "Reheat stuffing (splash of stock) and yams, covered, at 350°F for about 20 minutes. Glaze the carrots and put them in uncovered",
+          "note": "Carrot glaze: melt 2 tbsp butter with 2 tbsp honey and 1 tbsp chopped thyme, toss with the carrots on their pan. Short on oven room? Warm them in the air fryer at 350°F for 6–8 minutes instead."
+        },
+        {
+          "id": "d-1640",
+          "t": "4:40",
+          "text": "Gravy: pour the pan drippings into the fat separator and skim most of the fat",
+          "note": "Whisk 1 cup drippings with ½ cup flour over medium heat until golden. Add 4 cups stock and 1 more cup drippings, whisk 5–8 minutes until thick, then stir in the giblets. Thin with giblet liquid. Taste before salting, since the bacon makes the drippings salty. Keep warm on low."
+        },
+        {
+          "id": "d-1645",
+          "t": "4:40",
+          "text": "Potatoes: boil 10 minutes, drain, air-dry 10 minutes, shake at the 5-minute mark"
+        },
+        {
+          "id": "d-1700",
+          "t": "5:00",
+          "text": "Casseroles out, keep covered. Oven to 450°F (475°F without fan)"
+        },
+        {
+          "id": "d-1710",
+          "t": "5:10",
+          "text": "Potatoes on two sheet pans with oil and spices, into the oven",
+          "note": "Space them an inch apart. 20 minutes, flip, 20 more."
+        },
+        {
+          "id": "d-1711",
+          "t": "5:10",
+          "text": "Carve the turkey",
+          "note": "A job for your helper."
+        },
+        {
+          "id": "d-1730",
+          "t": "5:30",
+          "text": "Flip the potatoes"
+        },
+        {
+          "id": "d-1735",
+          "t": "5:35",
+          "text": "Sauté the green beans in two batches",
+          "note": "Large skillet, medium-high, 1 tbsp oil and 1 tbsp butter per batch, 4–5 minutes. Add half the sliced garlic for the last minute. Finish with lemon zest, a squeeze of juice, salt and pepper."
+        },
+        {
+          "id": "d-1740",
+          "t": "5:40",
+          "text": "Warm the rolls",
+          "note": "Air fryer on low for a few minutes, checking often."
+        },
+        {
+          "id": "d-1745",
+          "t": "5:45",
+          "text": "Assemble the spinach salad",
+          "note": "Take the vinaigrette out of the fridge at 5:00 and shake it. Slice the pears now, not earlier, so they don't brown. Toss the spinach with about two-thirds of the dressing, then top with pears, pomegranate, pecans and shaved Parmesan. Extra dressing on the side. A good job for a helper."
+        },
+        {
+          "id": "d-1750",
+          "t": "5:50",
+          "text": "Potatoes out, drizzle with melted butter"
+        },
+        {
+          "id": "d-1755",
+          "t": "5:55",
+          "text": "Gravy, cranberry sauce and everything to the table"
+        },
+        {
+          "id": "d-1800",
+          "t": "6:00",
+          "text": "Sit down"
+        }
+      ]
+    }
+  ],
+  "menu": [
+    {
+      "name": "Roast turkey",
+      "url": "https://www.billyparisi.com/the-juiciest-roast-turkey-recipe/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "15–16 lb (recipe is for 12–14 lb)"
+        },
+        {
+          "label": "Method",
+          "text": "450°F for 22–25 min, flip, 350°F for 9–11 min per lb. Done at 165°F."
+        },
+        {
+          "label": "Notes",
+          "text": "Herb butter under the skin, bacon on top. Rests 15–20 min, holds up to 90."
+        }
+      ]
+    },
+    {
+      "name": "Traditional stuffing",
+      "url": "https://www.billyparisi.com/homemade-traditional-stuffing-recipe/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "One batch (recipe serves 16), made without the mushrooms"
+        },
+        {
+          "label": "Method",
+          "text": "350°F, 25 min covered, about 20 uncovered"
+        },
+        {
+          "label": "Make ahead",
+          "text": "Keeps 4 days. Reheat at 350°F for 15–20 min with ¼–⅓ cup stock."
+        }
+      ]
+    },
+    {
+      "name": "Turkey gravy",
+      "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "One batch (recipe serves 15)"
+        },
+        {
+          "label": "Method",
+          "text": "Pan drippings roux (1 cup drippings, ½ cup flour), 4 cups stock plus 1 more cup drippings, diced giblets. About 15 minutes while the turkey rests."
+        },
+        {
+          "label": "Make ahead",
+          "text": "Simmer the neck and giblets the day before. Short on drippings? Top up with 1–2 tbsp butter and a little stock."
+        }
+      ]
+    },
+    {
+      "name": "Candied yams",
+      "url": "https://www.billyparisi.com/delicious-candied-yams-recipe/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "1.5× (recipe serves 8)"
+        },
+        {
+          "label": "Method",
+          "text": "375°F. Boil-first shortcut is 25–30 min; the standard method is 90 min."
+        },
+        {
+          "label": "Make ahead",
+          "text": "Keeps 5 days. Reheat at 350°F for 15–20 min. Does not freeze well."
+        }
+      ]
+    },
+    {
+      "name": "Crispy roasted potatoes",
+      "url": "https://www.billyparisi.com/crispy-roasted-potatoes/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "2× (recipe serves 6), on two sheet pans"
+        },
+        {
+          "label": "Method",
+          "text": "Boil 10 min, air-dry 10 min, roast at 450°F with fan for 20 + 20 min, melted butter to finish"
+        },
+        {
+          "label": "Note",
+          "text": "Serve straight away. Crowding the pan makes them soggy."
+        }
+      ]
+    },
+    {
+      "name": "Soft dinner rolls",
+      "url": "https://sallysbakingaddiction.com/soft-dinner-rolls/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "Two separate batches, 28–32 rolls (Sally advises against doubling)"
+        },
+        {
+          "label": "Method",
+          "text": "350°F for 20–25 min on a lower rack"
+        },
+        {
+          "label": "Make ahead",
+          "text": "Bake the day before, or shape and refrigerate overnight, or freeze."
+        }
+      ]
+    },
+    {
+      "name": "Garlic lemon green beans",
+      "url": null,
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "3 lb for 10"
+        },
+        {
+          "label": "Ingredients",
+          "text": "2 tbsp olive oil, 2 tbsp butter, 4 garlic cloves thinly sliced, zest and juice of 1 lemon, salt and pepper"
+        },
+        {
+          "label": "Method",
+          "text": "Blanch 2–3 min the day before, then sauté in two batches for 4–5 min just before serving. Garlic goes in for the last minute so it does not burn."
+        }
+      ]
+    },
+    {
+      "name": "Honey-thyme roasted whole carrots",
+      "url": null,
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "3 lb medium carrots (about 20) for 10"
+        },
+        {
+          "label": "Ingredients",
+          "text": "3 tbsp olive oil, 1 tsp salt, pepper. Glaze: 2 tbsp butter, 2 tbsp honey, 1 tbsp chopped fresh thyme."
+        },
+        {
+          "label": "Method",
+          "text": "Roast whole at 425°F for 25–30 min at midday, chill, then glaze and reheat uncovered at 350°F for about 20 min with the casseroles."
+        }
+      ]
+    },
+    {
+      "name": "Cranberry sauce",
+      "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "One batch (recipe serves 10)"
+        },
+        {
+          "label": "Method",
+          "text": "Simmer cranberries with sugar and water about 15 min, finish with orange zest, cinnamon and nutmeg. Chill 30–45 min."
+        },
+        {
+          "label": "Make ahead",
+          "text": "Up to 2 days ahead (keeps 7 days in the fridge, or freezes for 3 months)."
+        }
+      ]
+    },
+    {
+      "name": "Spinach salad with pears and pecans",
+      "url": null,
+      "status": "set",
+      "lines": [
+        {
+          "label": "Size",
+          "text": "15 oz baby spinach for 10"
+        },
+        {
+          "label": "Ingredients",
+          "text": "2 ripe pears, 1 cup pomegranate seeds, 1 cup toasted pecans, 3 oz shaved Parmesan"
+        },
+        {
+          "label": "Dressing",
+          "text": "Apple cider vinaigrette: ½ cup olive oil, ¼ cup cider vinegar, 1 tbsp each Dijon and maple syrup, 1 small shallot, salt and pepper"
+        },
+        {
+          "label": "Make ahead",
+          "text": "Dressing and pecans the day before. No cooking on the day, just slice the pears and toss at 5:45."
+        }
+      ]
+    }
+  ],
+  "open": [
+    {
+      "id": "o-date",
+      "text": "Dinner date: 24th or 25th",
+      "note": "Turns D−7 … D into real calendar dates."
+    },
+    {
+      "id": "o-oven",
+      "text": "Oven settings: is there a fan or convection mode?",
+      "note": "You asked to be reminded. It affects the potatoes (450°F with fan, 475°F without)."
+    },
+    {
+      "id": "o-diet",
+      "text": "Allergies or dietary needs among the 10 guests",
+      "note": "The stuffing has pork sausage, and the turkey is wrapped in bacon. Does anyone avoid meat or pork?"
+    },
+    {
+      "id": "o-turkey",
+      "text": "Fresh or frozen turkey, and where you'll get it",
+      "note": "Frozen needs thawing to start 4 days ahead."
+    },
+    {
+      "id": "o-help",
+      "text": "Who is helping, and with what",
+      "note": "Flipping and carving the turkey are the two jobs worth assigning. Also table, drinks and the salad."
+    },
+    {
+      "id": "o-rolls",
+      "text": "Rolls: bake the day before, or fresh on the day?",
+      "note": "The plan bakes them the day before to keep the oven free on the day."
+    },
+    {
+      "id": "o-snack",
+      "text": "Something for guests to nibble while the turkey rests (optional)"
+    }
+  ],
+  "callouts": [
+    {
+      "title": "If the turkey is late.",
+      "text": "Leave it in until it reads 165°F. Skip the oven reheat, warm the stuffing, yams and carrots in the microwave in portions, and put the potatoes in once the turkey is out."
+    },
+    {
+      "title": "For a lighter day.",
+      "text": "Bake the stuffing, yams and carrots on D−1 and reheat them from the fridge on the day."
+    }
+  ]
+}
