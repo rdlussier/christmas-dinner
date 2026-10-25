@@ -8,6 +8,8 @@
   var done = new Set();
   var toastTimer = null;
   var wake = null;
+  // Recipes being cooked: the chips in the cooking bar, which one is showing, and where each was scrolled to.
+  var cook = { tray: [], active: null, pos: {} };
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -219,17 +221,16 @@
       '<p class="note-top">Times assume a ' + esc(plan.sitDown) + ' sit-down. D is dinner day.</p>' +
       plan.timeline.map(groupHTML).join("") +
       (plan.callouts || []).map(function (c) { return '<div class="callout"><b>' + esc(c.title) + '</b> ' + esc(c.text) + '</div>'; }).join("");
-    document.getElementById("p-menu").innerHTML = lead +
-      (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Open a recipe to cook from it: amounts are scaled for this dinner and written right into each step.</p>' : '') +
+    document.getElementById("p-menu").innerHTML = '<div id="mlist">' + lead +
+      (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Tap Cook this to open a recipe. Each one you open gets a tab in the bar at the top, so you can jump between dishes and land back where you were.</p>' : '') +
       plan.menu.map(function (d) {
         var ok = d.status === "set";
         return '<article class="dish"><div class="dtop"><h2 class="dname">' + (d.url ? '<a href="' + esc(d.url) + '">' + esc(d.name) + '</a>' : esc(d.name)) +
           '</h2><span class="status' + (ok ? '' : ' need') + '">' + esc(ok ? "Recipe set" : d.status) + '</span></div>' +
           d.lines.map(function (x) { return '<p class="dline"><b>' + esc(x.label) + ':</b> ' + esc(x.text) + '</p>'; }).join("") +
-          (d.recipe ? '<div class="dact"><button class="btn open" type="button" data-recipe aria-expanded="false" aria-controls="rec-' + esc(d.recipe.id) + '">Open recipe</button><span class="dprog" id="prog-' + esc(d.recipe.id) + '"></span></div>' +
-            '<div class="recipe" id="rec-' + esc(d.recipe.id) + '" hidden>' + recipeHTML(d.recipe) + '</div>' : '') +
+          (d.recipe ? '<div class="dact"><button class="btn open" type="button" data-cook="' + esc(d.recipe.id) + '">Cook this</button><span class="dprog" id="prog-' + esc(d.recipe.id) + '"></span></div>' : '') +
           '</article>';
-      }).join("");
+      }).join("") + '</div><div id="mrec" hidden></div>';
     document.getElementById("p-open").innerHTML = lead + barHTML("open", "items") +
       '<p class="note-top">Decisions still to make. Tick them off once settled.</p>' +
       '<div class="group">' + plan.open.map(row).join("") + '</div>';
@@ -238,8 +239,68 @@
     document.getElementById("footer").innerHTML = (links.length ? 'Recipes: ' + links.join(", ") + '. ' : '') +
       'Ticks are saved separately for each year, on this device and, with sync on, in the repo.';
     setHide(lsGet(LSH) === "1");
+    renderCook();
+  }
+
+  function recipeById(k) {
+    var m = plan.menu.filter(function (d) { return d.recipe && d.recipe.id === k; })[0];
+    return m ? m.recipe : null;
+  }
+  function cookKey() { return "cd-cooking-" + year; }
+  function loadCook() {
+    cook = { tray: [], active: null, pos: {} };
+    try {
+      var c = JSON.parse(lsGet(cookKey()) || "null");
+      if (c && Array.isArray(c.tray)) cook = { tray: c.tray.filter(recipeById), active: recipeById(c.active) ? c.active : null, pos: c.pos || {} };
+    } catch (e) {}
+  }
+  function saveCook() { lsSet(cookKey(), JSON.stringify(cook)); }
+  function renderCook() {
+    var bar = document.getElementById("cookbar");
+    bar.hidden = !cook.tray.length;
+    bar.innerHTML = '<button class="cchip" type="button" data-cook="" aria-pressed="' + (!cook.active) + '">All dishes</button>' +
+      cook.tray.map(function (k) {
+        var r = recipeById(k);
+        return '<button class="cchip" type="button" data-cook="' + esc(k) + '" aria-pressed="' + (cook.active === k) + '">' + esc(r.short || r.title) + '<span class="cprog" id="cp-' + esc(k) + '"></span></button>';
+      }).join("");
+    var k = cook.active, rec = document.getElementById("mrec");
+    document.getElementById("mlist").hidden = !!k;
+    rec.hidden = !k;
+    rec.innerHTML = k ? '<div class="rhead"><button class="btn" type="button" data-cook="">← All dishes</button><button class="btn" type="button" data-uncook="' + esc(k) + '">Done with this dish</button></div>' +
+      '<div class="recipe">' + recipeHTML(recipeById(k)) + '</div>' : '';
+    var on = bar.querySelector('[aria-pressed="true"]');
+    if (on) on.scrollIntoView({ block: "nearest", inline: "nearest" });
     wakeUI();
   }
+  function menuShowing() { return !document.getElementById("p-menu").hidden; }
+  // Switch to a recipe (or "" for the dish list) and put the page back where it was.
+  function openCook(k) {
+    k = k || null;
+    if (k && cook.tray.indexOf(k) < 0) cook.tray.push(k);
+    cook.active = k;
+    saveCook();
+    showTab("menu");
+    renderCook();
+    apply();
+    restoreScroll();
+  }
+  function restoreScroll() {
+    var y = cook.pos[cook.active || "list"];
+    if (y == null) y = cook.active ? document.getElementById("main").offsetTop - document.querySelector("nav").offsetHeight : 0;
+    window.scrollTo(0, Math.max(0, y));
+  }
+  function uncook(k) {
+    cook.tray = cook.tray.filter(function (x) { return x !== k; });
+    delete cook.pos[k];
+    openCook(null);
+  }
+  var scrollTimer = null;
+  window.addEventListener("scroll", function () {
+    if (!plan || !menuShowing()) return;
+    cook.pos[cook.active || "list"] = Math.round(window.scrollY);
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(saveCook, 300);
+  }, { passive: true });
 
   function counts(items) { var d = 0; items.forEach(function (i) { if (done.has(i.id)) d++; }); return d; }
   function allItems(groups) { var a = []; groups.forEach(function (g) { a = a.concat(g.items); }); return a; }
@@ -262,6 +323,15 @@
       var n = m.recipe.steps.length, d = 0;
       for (var i = 0; i < n; i++) if (done.has(stepId(m.recipe.id, i))) d++;
       el.textContent = d ? d + " of " + n + " steps done" : n + " steps";
+      var cp = document.getElementById("cp-" + m.recipe.id);
+      if (cp) cp.textContent = d + "/" + n;
+    });
+    // Mark the first unticked step so the eye lands on it after a switch.
+    var next = false;
+    document.querySelectorAll("#mrec .row.step").forEach(function (r) {
+      var isNext = !next && !r.classList.contains("is-done");
+      if (isNext) next = true;
+      r.classList.toggle("next", isNext);
     });
     var s = allItems(plan.shopping), p = allItems(plan.timeline);
     document.getElementById("sum-shop").textContent = counts(s) + " of " + s.length + " items bought";
@@ -428,14 +498,6 @@
     wakeUI();
   }
 
-  function toggleRecipe(b) {
-    var open = b.getAttribute("aria-expanded") !== "true";
-    b.setAttribute("aria-expanded", open ? "true" : "false");
-    b.textContent = open ? "Close recipe" : "Open recipe";
-    document.getElementById(b.getAttribute("aria-controls")).hidden = !open;
-    if (!open) b.closest(".dish").scrollIntoView({ block: "nearest" });
-  }
-
   function untick(key) {
     var m = plan.menu.filter(function (d) { return d.recipe && d.recipe.id === key; })[0];
     if (!m) return;
@@ -452,8 +514,10 @@
     if (b) setHide(b.getAttribute("aria-pressed") !== "true");
     var t = e.target.closest(".tab");
     if (t) showTab(t.dataset.tab);
-    var r = e.target.closest("[data-recipe]");
-    if (r) toggleRecipe(r);
+    var c = e.target.closest("[data-cook]");
+    if (c) openCook(c.getAttribute("data-cook"));
+    var x = e.target.closest("[data-uncook]");
+    if (x) uncook(x.getAttribute("data-uncook"));
     if (e.target.closest("[data-wake]")) toggleWake();
     var u = e.target.closest("[data-untick]");
     if (u) untick(u.getAttribute("data-untick"));
@@ -461,8 +525,10 @@
 
   function showTab(name) {
     document.querySelectorAll(".tab").forEach(function (t) { t.setAttribute("aria-selected", t.dataset.tab === name ? "true" : "false"); });
+    var was = plan && menuShowing();
     document.querySelectorAll(".panel").forEach(function (p) { p.hidden = p.id !== "p-" + name; });
     history.replaceState(null, "", "#" + name);
+    if (plan && name === "menu" && !was) restoreScroll();
   }
 
   var years = [];
@@ -473,7 +539,7 @@
     return getJSON("years/" + src + ".json").then(function (p) {
       plan = p; year = y;
       lsSet("cd-year", String(y));
-      loadTicks(); render(); apply(); syncIdle(); sync();
+      loadTicks(); loadCook(); render(); apply(); syncIdle(); sync();
     }).catch(function () { toast("Could not load the " + y + " plan."); });
   }
 

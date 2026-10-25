@@ -684,6 +684,7 @@
       ],
       "recipe": {
         "id": "turkey",
+        "short": "Turkey",
         "title": "The juiciest roast turkey",
         "source": "Chef Billy Parisi",
         "url": "https://www.billyparisi.com/the-juiciest-roast-turkey-recipe/",
@@ -863,6 +864,7 @@
       ],
       "recipe": {
         "id": "stuffing",
+        "short": "Stuffing",
         "title": "Traditional stuffing",
         "source": "Chef Billy Parisi",
         "url": "https://www.billyparisi.com/homemade-traditional-stuffing-recipe/",
@@ -1021,6 +1023,7 @@
       ],
       "recipe": {
         "id": "gravy",
+        "short": "Gravy",
         "title": "Turkey gravy",
         "source": "Tastes Better From Scratch",
         "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
@@ -1121,6 +1124,7 @@
       ],
       "recipe": {
         "id": "yams",
+        "short": "Yams",
         "title": "Candied yams",
         "source": "Chef Billy Parisi",
         "url": "https://www.billyparisi.com/delicious-candied-yams-recipe/",
@@ -1221,6 +1225,7 @@
       ],
       "recipe": {
         "id": "potatoes",
+        "short": "Potatoes",
         "title": "Crispy roasted potatoes",
         "source": "Chef Billy Parisi",
         "url": "https://www.billyparisi.com/crispy-roasted-potatoes/",
@@ -1334,6 +1339,7 @@
       ],
       "recipe": {
         "id": "rolls",
+        "short": "Rolls",
         "title": "Soft dinner rolls",
         "source": "Sally's Baking Addiction",
         "url": "https://sallysbakingaddiction.com/soft-dinner-rolls/",
@@ -1455,6 +1461,7 @@
       ],
       "recipe": {
         "id": "beans",
+        "short": "Green beans",
         "title": "Garlic lemon green beans",
         "source": "My recipe",
         "servings": "Serves 10",
@@ -1540,6 +1547,7 @@
       ],
       "recipe": {
         "id": "carrots",
+        "short": "Carrots",
         "title": "Honey-thyme roasted whole carrots",
         "source": "My recipe",
         "servings": "Serves 10",
@@ -1639,6 +1647,7 @@
       ],
       "recipe": {
         "id": "cranberry",
+        "short": "Cranberry",
         "title": "Cranberry sauce",
         "source": "Chef Billy Parisi",
         "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
@@ -1725,6 +1734,7 @@
       ],
       "recipe": {
         "id": "salad",
+        "short": "Salad",
         "title": "Spinach salad with pears and pecans",
         "source": "My recipe",
         "servings": "Serves 10",
