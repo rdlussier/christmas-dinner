@@ -1245,7 +1245,7 @@
           {
             "id": "oil",
             "name": "olive oil",
-            "ml": 120,
+            "ml": 125,
             "grams": 108,
             "estimated": true
           },
@@ -1344,7 +1344,7 @@
             "id": "milk",
             "name": "whole milk",
             "note": "warmed to about 110°F",
-            "ml": 240,
+            "ml": 250,
             "grams": 245,
             "estimated": true
           },

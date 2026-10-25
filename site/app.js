@@ -50,8 +50,26 @@
       if (Math.abs(r.value - 1.5) < 1e-9) return tbsp + "½ tbsp";
       return tbsp + " tbsp + " + r.text + " tsp";
     }
-    var c = snap(ml / CUP_ML, FRACTIONS);
-    return c.text + (c.value > 1 ? " cups" : " cup");
+    return fmtCups(ml);
+  }
+  // Cups only in fractions people measure (¼ ⅓ ½ ⅔ ¾). Anything else becomes spoons:
+  // 90 ml -> "6 tbsp", 281 ml -> "1 cup + 2 tbsp".
+  var NICE_CUPS = pick(0, 1 / 4, 1 / 3, 1 / 2, 2 / 3, 3 / 4, 1);
+  function spoons(ml) {
+    var t = Math.round(ml / TBSP_ML * 2) / 2;
+    if (t >= 1) return (Math.floor(t) + (t % 1 ? "½" : "")) + " tbsp";
+    var s = snap(ml / TSP_ML, SET_TSP);
+    return s.value > 0 ? s.text + " tsp" : "";
+  }
+  function fmtCups(ml) {
+    var c = snap(ml / CUP_ML, NICE_CUPS);
+    if (Math.abs(c.value * CUP_ML - ml) <= 3) return c.text + (c.value > 1 ? " cups" : " cup");
+    if (ml <= 8 * TBSP_ML + 3) return spoons(ml);
+    var x = ml / CUP_ML, whole = Math.floor(x + 1e-9), base = NICE_CUPS[0];
+    NICE_CUPS.forEach(function (f) { if (f[0] < 1 && whole + f[0] <= x + 1e-9) base = f; });
+    var cups = whole + base[0], text = (whole > 0 ? whole : "") + base[1];
+    var rest = spoons(ml - cups * CUP_ML);
+    return text + (cups > 1 ? " cups" : " cup") + (rest ? " + " + rest : "");
   }
   function trimNum(n) { return Number.isInteger(n) ? String(n) : n.toFixed(1); }
   function fmtGrams(g) {
@@ -152,7 +170,7 @@
     });
     var steps = stepsFor(r).map(function (s, i) {
       return '<label class="row step"><input type="checkbox" data-id="' + stepId(key, i) + '"><span class="rbody">' +
-        '<span class="rtime">' + (i + 1) + (s.when ? ' · ' + esc(s.when) : '') + '</span>' +
+        '<span class="rtime">' + (i + 1) + '</span>' +
         '<span class="stx">' + s.html + '</span></span></label>';
     }).join("");
     var meta = ['<span>' + esc(r.servings) + '</span>'];
@@ -202,7 +220,7 @@
       plan.timeline.map(groupHTML).join("") +
       (plan.callouts || []).map(function (c) { return '<div class="callout"><b>' + esc(c.title) + '</b> ' + esc(c.text) + '</div>'; }).join("");
     document.getElementById("p-menu").innerHTML = lead +
-      (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Open a recipe to cook from it: amounts are scaled for this dinner and written right into each step, and the times match the timeline.</p>' : '') +
+      (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Open a recipe to cook from it: amounts are scaled for this dinner and written right into each step.</p>' : '') +
       plan.menu.map(function (d) {
         var ok = d.status === "set";
         return '<article class="dish"><div class="dtop"><h2 class="dname">' + (d.url ? '<a href="' + esc(d.url) + '">' + esc(d.name) + '</a>' : esc(d.name)) +
