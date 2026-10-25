@@ -1,3 +1,4 @@
+// When changing app.js or app.css, bump the ?v= number in index.html and CACHE in sw.js.
 // Christmas Dinner: renders one year's plan from years/<year>.json and keeps ticks per year.
 (function () {
   var TABS = ["shopping", "timeline", "menu", "open"];

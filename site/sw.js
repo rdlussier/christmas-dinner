@@ -1,6 +1,6 @@
 // Offline support: network first so updates show up, cached copy when offline.
-var CACHE = "cd-v2";
-var SHELL = ["./", "index.html", "app.css", "app.js", "manifest.webmanifest", "icon.svg", "years/index.json"];
+var CACHE = "cd-v3";
+var SHELL = ["./", "index.html", "app.css?v=3", "app.js?v=3", "manifest.webmanifest", "icon.svg", "years/index.json"];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
@@ -14,8 +14,10 @@ self.addEventListener("activate", function (e) {
 
 self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
-  e.respondWith(fetch(e.request).then(function (res) {
-    if (res.ok && (new URL(e.request.url).origin === location.origin || e.request.url.indexOf("fonts.g") > 0)) {
+  // Bypass the browser's HTTP cache for our own files so a deploy shows up right away.
+  var own = new URL(e.request.url).origin === location.origin;
+  e.respondWith(fetch(e.request, own ? { cache: "no-cache" } : undefined).then(function (res) {
+    if (res.ok && (own || e.request.url.indexOf("fonts.g") > 0)) {
       var copy = res.clone();
       caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
     }
