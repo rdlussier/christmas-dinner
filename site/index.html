@@ -2,12 +2,44 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Christmas Dinner</title>
-<style>body{font:16px system-ui,sans-serif;margin:0;padding:48px 16px;background:#F5F7F4;color:#17211C;text-align:center}@media (prefers-color-scheme:dark){body{background:#101512;color:#E7EEE9}}</style>
+<meta name="theme-color" content="#9A1B3B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Xmas Dinner">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-<h1>Christmas Dinner</h1>
-<p>Deploy is working. The app is on its way.</p>
+<div class="wrap">
+  <header>
+    <h1 id="title">Christmas Dinner</h1>
+    <p class="sub" id="sub"></p>
+    <div class="hrow">
+      <label><span class="sum">Year </span><select id="year" aria-label="Year"></select></label>
+      <p class="sync" id="sync">This device only</p>
+    </div>
+  </header>
+  <nav><div class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="t-shopping" data-tab="shopping" aria-selected="true" aria-controls="p-shopping">Shopping</button>
+    <button class="tab" role="tab" id="t-timeline" data-tab="timeline" aria-selected="false" aria-controls="p-timeline">Timeline</button>
+    <button class="tab" role="tab" id="t-menu" data-tab="menu" aria-selected="false" aria-controls="p-menu">Menu</button>
+    <button class="tab" role="tab" id="t-open" data-tab="open" aria-selected="false" aria-controls="p-open">Open items</button>
+  </div></nav>
+  <main id="main">
+    <section class="panel" id="p-shopping" role="tabpanel" aria-labelledby="t-shopping"></section>
+    <section class="panel" id="p-timeline" role="tabpanel" aria-labelledby="t-timeline" hidden></section>
+    <section class="panel" id="p-menu" role="tabpanel" aria-labelledby="t-menu" hidden></section>
+    <section class="panel" id="p-open" role="tabpanel" aria-labelledby="t-open" hidden></section>
+  </main>
+  <footer id="footer"></footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script src="app.js"></script>
 </body>
 </html>
