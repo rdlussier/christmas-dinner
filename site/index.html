@@ -22,7 +22,7 @@
     <p class="sub" id="sub"></p>
     <div class="hrow">
       <label><span class="sum">Year </span><select id="year" aria-label="Year"></select></label>
-      <p class="sync" id="sync">This device only</p>
+      <button class="sync linkish" type="button" id="sync">This device only · set up sync</button>
     </div>
   </header>
   <nav><div class="tabs" role="tablist" aria-label="Sections">
@@ -40,6 +40,20 @@
   <footer id="footer"></footer>
 </div>
 <div class="toast" id="toast" hidden></div>
+<dialog id="syncdlg">
+  <form method="dialog" class="dlg">
+    <h2>Sync ticks</h2>
+    <p>Paste a GitHub token so ticks are shared between your phone and laptop. Use a fine-grained token limited to the <code>christmas-dinner</code> repo, with Contents set to read and write. It is stored only in this browser.</p>
+    <label for="tok">GitHub token</label>
+    <input id="tok" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+    <p class="dlgmsg" id="dlgmsg"></p>
+    <div class="dlgbtns">
+      <button class="btn" type="button" id="tokoff">Turn off sync</button>
+      <button class="btn" value="cancel">Close</button>
+      <button class="btn primary" type="button" id="toksave">Save and sync</button>
+    </div>
+  </form>
+</dialog>
 <script src="app.js"></script>
 </body>
 </html>

@@ -88,3 +88,14 @@ footer a { color: var(--muted); }
 .hrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 10px; }
 .hrow select { font: 500 14px var(--f-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
 .hrow .sync { margin-top: 0; }
+.linkish { appearance: none; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+dialog { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); padding: 0; width: min(440px, calc(100% - 32px)); }
+dialog::backdrop { background: rgb(0 0 0 / 0.4); }
+.dlg { padding: 20px; }
+.dlg h2 { font-family: var(--f-display); font-size: 20px; margin: 0 0 8px; }
+.dlg p { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
+.dlg label { font-weight: 600; font-size: 14px; display: block; margin-bottom: 4px; }
+.dlg input { width: 100%; font: 14px var(--f-mono); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+.dlg .dlgmsg { min-height: 1.4em; margin: 8px 0 0; color: var(--accent); }
+.dlgbtns { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }

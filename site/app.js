@@ -65,7 +65,7 @@
 
     var links = plan.menu.filter(function (d) { return d.url; }).map(function (d) { return '<a href="' + esc(d.url) + '">' + esc(d.name.toLowerCase()) + '</a>'; });
     document.getElementById("footer").innerHTML = (links.length ? 'Recipes: ' + links.join(", ") + '. ' : '') +
-      'Ticks are saved on this device, separately for each year.';
+      'Ticks are saved separately for each year, on this device and, with sync on, in the repo.';
     setHide(lsGet(LSH) === "1");
   }
 
@@ -103,6 +103,120 @@
   }
   function saveTicks() { lsSet(ticksKey(), JSON.stringify(Array.from(done))); }
 
+  // Sync: ticks for each year live in data/ticks-<year>.json in the repo, read and
+  // written through the GitHub contents API with a token kept in this browser.
+  // Taps are queued as per-item changes and replayed onto the latest remote copy,
+  // so ticks from two devices merge instead of overwriting each other.
+  var REPO = "rdlussier/christmas-dinner";
+  var TOKEN_KEY = "cd-gh-token";
+  var syncing = false, again = false, pushTimer = null, lastSync = null;
+
+  function token() { return lsGet(TOKEN_KEY) || ""; }
+  function pendingKey() { return "cd-pending-" + year; }
+  function getPending() { try { return JSON.parse(lsGet(pendingKey()) || "{}"); } catch (e) { return {}; } }
+  function setPending(p) { lsSet(pendingKey(), JSON.stringify(p)); }
+
+  function setSync(text) { document.getElementById("sync").textContent = text; }
+  function syncIdle() {
+    if (!token()) { setSync("This device only · set up sync"); return; }
+    var n = Object.keys(getPending()).length;
+    setSync(n ? n + " tick" + (n > 1 ? "s" : "") + " waiting to sync" :
+      "Synced" + (lastSync ? " · " + lastSync.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) : ""));
+  }
+
+  function gh(method, path, body) {
+    return fetch("https://api.github.com/repos/" + REPO + "/contents/" + path, {
+      method: method,
+      cache: "no-store",
+      headers: { "Authorization": "Bearer " + token(), "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" },
+      body: body ? JSON.stringify(body) : undefined
+    });
+  }
+  function b64decode(s) { return new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g, "")), function (c) { return c.charCodeAt(0); })); }
+  function b64encode(s) { var b = new TextEncoder().encode(s), out = ""; b.forEach(function (x) { out += String.fromCharCode(x); }); return btoa(out); }
+
+  function readRemote(y) {
+    return gh("GET", "data/ticks-" + y + ".json").then(function (r) {
+      if (r.status === 404) return { sha: null, done: [] };
+      if (r.status === 401 || r.status === 403) throw new Error("auth");
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.json().then(function (f) { return { sha: f.sha, done: JSON.parse(b64decode(f.content)).done || [] }; });
+    });
+  }
+
+  // Pull the latest ticks, replay queued taps on top, and write back if anything was queued.
+  function sync(tries) {
+    if (!token() || !plan) return Promise.resolve();
+    if (syncing) { again = true; return Promise.resolve(); }
+    syncing = true;
+    var y = year, ops = getPending(), ids = Object.keys(ops);
+    if (ids.length) setSync("Syncing…");
+    return readRemote(y).then(function (remote) {
+      var set = new Set(remote.done);
+      ids.forEach(function (id) { if (ops[id]) set.add(id); else set.delete(id); });
+      if (!ids.length) return set;
+      var body = { message: "Update " + y + " ticks", content: b64encode(JSON.stringify({ done: Array.from(set).sort(), updated: new Date().toISOString() }, null, 2) + "\n") };
+      if (remote.sha) body.sha = remote.sha;
+      return gh("PUT", "data/ticks-" + y + ".json", body).then(function (r) {
+        if (r.status === 409 || r.status === 422) throw new Error("conflict");
+        if (r.status === 401 || r.status === 403) throw new Error("auth");
+        if (!r.ok) throw new Error("http " + r.status);
+        // Drop only the taps we sent; newer taps stay queued.
+        var now = getPending();
+        ids.forEach(function (id) { if (now[id] === ops[id]) delete now[id]; });
+        setPending(now);
+        return set;
+      });
+    }).then(function (set) {
+      if (y !== year) return;
+      var latest = getPending();
+      Object.keys(latest).forEach(function (id) { if (latest[id]) set.add(id); else set.delete(id); });
+      done = set; saveTicks(); apply();
+      lastSync = new Date(); syncIdle();
+    }).catch(function (err) {
+      if (err.message === "conflict" && (tries || 0) < 3) { syncing = false; return sync((tries || 0) + 1); }
+      if (err.message === "auth") setSync("Sync token rejected · tap to fix");
+      else setSync("Offline · ticks saved on this device");
+    }).then(function () {
+      syncing = false;
+      if (again) { again = false; schedulePush(); }
+    });
+  }
+
+  function schedulePush() { clearTimeout(pushTimer); pushTimer = setTimeout(sync, 700); }
+  function queueOp(id, val) {
+    var p = getPending(); p[id] = val; setPending(p);
+    if (token()) { syncIdle(); schedulePush(); }
+  }
+
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) sync(); });
+  window.addEventListener("online", function () { sync(); });
+  setInterval(function () { if (!document.hidden) sync(); }, 30000);
+
+  var dlg = document.getElementById("syncdlg");
+  document.getElementById("sync").addEventListener("click", function () {
+    document.getElementById("tok").value = token();
+    document.getElementById("dlgmsg").textContent = "";
+    dlg.showModal();
+  });
+  document.getElementById("toksave").addEventListener("click", function () {
+    var t = document.getElementById("tok").value.trim(), msg = document.getElementById("dlgmsg");
+    if (!t) { msg.textContent = "Paste a token first."; return; }
+    msg.textContent = "Checking…";
+    lsSet(TOKEN_KEY, t);
+    // Queue everything ticked on this device so it merges into the shared copy.
+    var p = getPending(); done.forEach(function (id) { if (!(id in p)) p[id] = true; }); setPending(p);
+    readRemote(year).then(function () {
+      dlg.close(); sync(); toast("Sync is on for this device.");
+    }).catch(function (err) {
+      msg.textContent = err.message === "auth" ? "GitHub rejected that token. Check it has Contents read and write on christmas-dinner." : "Could not reach GitHub. Check your connection.";
+    });
+  });
+  document.getElementById("tokoff").addEventListener("click", function () {
+    try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+    dlg.close(); syncIdle(); toast("Sync is off. Ticks save on this device only.");
+  });
+
   document.addEventListener("change", function (e) {
     var i = e.target;
     if (i.id === "year") { openYear(Number(i.value)); return; }
@@ -110,6 +224,7 @@
     if (i.checked) done.add(i.dataset.id); else done.delete(i.dataset.id);
     apply();
     saveTicks();
+    queueOp(i.dataset.id, i.checked);
   });
 
   function setHide(on) {
@@ -138,7 +253,7 @@
     return getJSON("years/" + src + ".json").then(function (p) {
       plan = p; year = y;
       lsSet("cd-year", String(y));
-      loadTicks(); render(); apply();
+      loadTicks(); render(); apply(); syncIdle(); sync();
     }).catch(function () { toast("Could not load the " + y + " plan."); });
   }
 

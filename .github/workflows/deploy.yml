@@ -1,9 +1,13 @@
-# Publishes the site to GitHub Pages on every push to main.
+# Publishes the site to GitHub Pages when the site or this workflow changes on main.
+# Tick saves in data/ do not trigger a deploy.
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
