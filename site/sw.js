@@ -1,6 +1,6 @@
 // Offline support: network first so updates show up, cached copy when offline.
-var CACHE = "cd-v3";
-var SHELL = ["./", "index.html", "app.css?v=3", "app.js?v=3", "manifest.webmanifest", "icon.svg", "years/index.json"];
+var CACHE = "cd-v4";
+var SHELL = ["./", "index.html", "app.css?v=4", "app.js?v=4", "manifest.webmanifest", "icon.svg", "years/index.json"];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));

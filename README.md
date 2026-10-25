@@ -4,6 +4,7 @@ A personal Christmas dinner planner (shopping list, timeline, menu, open items),
 
 - `site/` is the app: plain HTML, CSS and JavaScript with no build step. It installs to a phone home screen and works offline.
 - `site/years/<year>.json` holds each year's plan. `site/years/index.json` lists the years that have a file.
+- A menu dish can carry a full `recipe` in the Simmer layout: ingredient totals (`ml` at 1 cup = 250 ml, `grams`, `count`, `weightUnit`) and steps with `{id}` amount tokens (`{flour:1/2}`, `{butter:rest}`, `{sugar:1 tbsp}`, `{egg:2x}`). The app writes the amounts into each step. Steps can be `{ "w": "4:35", "t": "..." }` to show when they happen. Step ticks are `r-<recipe id>-<step number>`.
 - When the current year has no file yet, the app shows the newest earlier plan as a starting point, with fresh ticks.
 - Ticks are saved in the browser, separately for each year. With sync on (a fine-grained GitHub token pasted into the app, Contents read and write on this repo only), they are also saved to `data/ticks-<year>.json` and shared between devices.
 

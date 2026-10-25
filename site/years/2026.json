@@ -681,7 +681,167 @@
           "label": "Notes",
           "text": "Herb butter under the skin, bacon on top. Rests 15–20 min, holds up to 90."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "turkey",
+        "title": "The juiciest roast turkey",
+        "source": "Chef Billy Parisi",
+        "url": "https://www.billyparisi.com/the-juiciest-roast-turkey-recipe/",
+        "servings": "Serves 10, with leftovers",
+        "time": "Prep 30 min · roast about 2½–3¼ hr · rest 20 min",
+        "ingredients": [
+          {
+            "id": "butter",
+            "group": "Herb butter",
+            "name": "unsalted butter",
+            "note": "softened, 4 sticks",
+            "grams": 454,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "parsley",
+            "group": "Herb butter",
+            "name": "fresh flat-leaf parsley",
+            "note": "chopped",
+            "ml": 45,
+            "grams": 11,
+            "estimated": true
+          },
+          {
+            "id": "thyme",
+            "group": "Herb butter",
+            "name": "fresh thyme",
+            "note": "chopped",
+            "ml": 30,
+            "grams": 5,
+            "estimated": true
+          },
+          {
+            "id": "rosemary",
+            "group": "Herb butter",
+            "name": "fresh rosemary",
+            "note": "chopped",
+            "ml": 30,
+            "grams": 6,
+            "estimated": true
+          },
+          {
+            "id": "sage",
+            "group": "Herb butter",
+            "name": "fresh sage",
+            "note": "chopped",
+            "ml": 30,
+            "grams": 4,
+            "estimated": true
+          },
+          {
+            "id": "garlic",
+            "group": "Herb butter",
+            "name": "garlic cloves",
+            "note": "minced",
+            "count": 5,
+            "grams": 15,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "group": "Herb butter",
+            "name": "sea salt",
+            "ml": 22.5,
+            "grams": 27,
+            "estimated": true
+          },
+          {
+            "id": "pepper",
+            "group": "Herb butter",
+            "name": "black pepper",
+            "ml": 3.75,
+            "grams": 2,
+            "estimated": true
+          },
+          {
+            "id": "turkey",
+            "group": "Turkey",
+            "name": "fresh turkey",
+            "note": "15–16 lb, neck and giblets removed for the gravy",
+            "grams": 6804,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "lemon",
+            "group": "Turkey",
+            "name": "lemon",
+            "note": "halved",
+            "count": 1
+          },
+          {
+            "id": "bay",
+            "group": "Turkey",
+            "name": "dried bay leaves",
+            "count": 6
+          },
+          {
+            "id": "sprigs",
+            "group": "Turkey",
+            "name": "fresh parsley sprigs",
+            "unmeasured": "a handful"
+          },
+          {
+            "id": "bacon",
+            "group": "Turkey",
+            "name": "smoked bacon strips",
+            "note": "about a 1 lb pack",
+            "count": 12,
+            "grams": 454,
+            "estimated": true
+          }
+        ],
+        "steps": [
+          {
+            "w": "12:00",
+            "t": "Whip {butter} butter in a stand mixer for 5 to 7 minutes, until light and fluffy."
+          },
+          "Mix in {parsley} parsley, {thyme} thyme, {rosemary} rosemary, {sage} sage, {garlic} garlic cloves, {salt} sea salt and {pepper} black pepper.",
+          {
+            "w": "12:30",
+            "t": "Pat {turkey} turkey completely dry with paper towels, inside and out."
+          },
+          "Stuff the cavity with {lemon} halved lemon, a handful of parsley sprigs and {bay} bay leaves.",
+          "Gently loosen the skin over the breast and the back with your fingers. Spread the herb butter evenly underneath the skin. Close any tears with toothpicks.",
+          "Truss the legs and wings with butcher's twine.",
+          {
+            "w": "12:45",
+            "t": "Heat the oven to 450°F with a rack in the bottom position."
+          },
+          {
+            "w": "1:15",
+            "t": "Set the turkey breast side up on the rack in the roasting pan. Roast 22 to 25 minutes, until browned on top."
+          },
+          {
+            "w": "1:40",
+            "t": "Carefully flip the turkey breast side down. It is very hot, so use gloves, towels and a helper. Lay {bacon} bacon strips over the top and lower the oven to 350°F."
+          },
+          {
+            "w": "2:40",
+            "t": "Remove the bacon so the back can brown, and keep roasting."
+          },
+          {
+            "w": "3:45",
+            "t": "Roast 9 to 11 minutes per pound in total after the flip, about 2¼ to 3 hours for this size. Pull it when the thickest part of the breast or thigh reads 165°F."
+          },
+          {
+            "w": "~4:30",
+            "t": "Rest loosely covered with foil for 15 to 20 minutes. Wrapped fully in foil or in a cooler it holds up to 90 minutes."
+          },
+          "Remove the twine, the toothpicks and the cavity aromatics, then carve."
+        ],
+        "notes": [
+          "Billy's recipe is written for a 12–14 lb bird. The herb butter stays the same for 15–16 lb; only the roasting time grows.",
+          "Roast on the bottom rack so heat circulates and the bottom doesn't steam.",
+          "Frozen turkey: thaw in the fridge, 24 hours per 5 lb.",
+          "Leftovers keep 5 days in the fridge or 3 months frozen. Reheat covered at 350°F with ½–1 cup stock for 15–20 minutes."
+        ]
+      }
     },
     {
       "name": "Traditional stuffing",
@@ -700,7 +860,146 @@
           "label": "Make ahead",
           "text": "Keeps 4 days. Reheat at 350°F for 15–20 min with ¼–⅓ cup stock."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "stuffing",
+        "title": "Traditional stuffing",
+        "source": "Chef Billy Parisi",
+        "url": "https://www.billyparisi.com/homemade-traditional-stuffing-recipe/",
+        "servings": "Serves 16",
+        "time": "Prep 15 min · cook 1 hr 15 min",
+        "ingredients": [
+          {
+            "id": "bread",
+            "name": "fresh bread",
+            "note": "cut in cubes, about a 1½ lb loaf",
+            "ml": 3000,
+            "grams": 680,
+            "estimated": true
+          },
+          {
+            "id": "butter",
+            "name": "unsalted butter",
+            "note": "1 stick, split in half",
+            "ml": 125,
+            "grams": 113
+          },
+          {
+            "id": "sausage",
+            "name": "loose pork sausage",
+            "grams": 454,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "onion",
+            "name": "small yellow onions",
+            "note": "diced",
+            "count": 2,
+            "grams": 220,
+            "estimated": true
+          },
+          {
+            "id": "celery",
+            "name": "celery stalks",
+            "note": "diced",
+            "count": 3,
+            "grams": 120,
+            "estimated": true
+          },
+          {
+            "id": "garlic",
+            "name": "garlic cloves",
+            "note": "finely minced",
+            "count": 3,
+            "grams": 9,
+            "estimated": true
+          },
+          {
+            "id": "sage",
+            "name": "fresh sage",
+            "note": "chopped",
+            "ml": 30,
+            "grams": 4,
+            "estimated": true
+          },
+          {
+            "id": "rosemary",
+            "name": "fresh rosemary",
+            "note": "chopped",
+            "ml": 15,
+            "grams": 2,
+            "estimated": true
+          },
+          {
+            "id": "thyme",
+            "name": "fresh thyme",
+            "note": "chopped",
+            "ml": 15,
+            "grams": 2.5,
+            "estimated": true
+          },
+          {
+            "id": "stock",
+            "name": "chicken stock",
+            "ml": 750,
+            "grams": 711,
+            "estimated": true
+          },
+          {
+            "id": "eggs",
+            "name": "large eggs",
+            "note": "whisked",
+            "count": 3,
+            "grams": 150,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "name": "salt and pepper",
+            "unmeasured": "to taste"
+          },
+          {
+            "id": "parsley",
+            "name": "chopped parsley",
+            "note": "to garnish",
+            "unmeasured": "a little"
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−2",
+            "t": "Heat the oven to 300°F. Spread {bread} bread cubes on a parchment-lined sheet pan and dry for 25 to 30 minutes, until crisp and firm. Cool, then store airtight."
+          },
+          {
+            "w": "9:30",
+            "t": "Melt {butter:1/2} butter in a large skillet over medium-high heat. Brown {sausage} sausage, breaking it up, until cooked through. Lift it out of the pan."
+          },
+          "Melt {butter:rest} butter in the same pan and cook {onion} onions for 4 to 5 minutes.",
+          "Add {celery} celery stalks and {garlic} garlic cloves and cook 4 to 5 minutes, until the celery is tender.",
+          "Put the vegetables, sausage and dried bread cubes in a large bowl.",
+          "Gently mix in {sage} sage, {rosemary} rosemary, {thyme} thyme, and salt and pepper.",
+          "Pour in {stock} chicken stock a little at a time, mixing gently. Stop once the bread is moist but not soggy.",
+          "Stir in {eggs} whisked eggs.",
+          "Spread in a 13×9-inch baking dish and cover with foil.",
+          {
+            "w": "10:30",
+            "t": "Bake at 350°F for 25 minutes. Uncover and bake about 20 minutes more, until lightly browned on top."
+          },
+          {
+            "w": "12:15",
+            "t": "Cool 30 minutes, cover and refrigerate until the reheat."
+          },
+          {
+            "w": "4:35",
+            "t": "Reheat covered at 350°F with a splash of stock for about 20 minutes. Garnish with chopped parsley."
+          }
+        ],
+        "notes": [
+          "Made without the 2 cups of cremini mushrooms in Billy's recipe, so the mushroom step is left out.",
+          "Taste the mixture before the eggs go in and adjust the seasoning.",
+          "Keeps 4 days in the fridge or 3 months frozen."
+        ]
+      }
     },
     {
       "name": "Turkey gravy",
@@ -719,7 +1018,88 @@
           "label": "Make ahead",
           "text": "Simmer the neck and giblets the day before. Short on drippings? Top up with 1–2 tbsp butter and a little stock."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "gravy",
+        "title": "Turkey gravy",
+        "source": "Tastes Better From Scratch",
+        "url": "https://tastesbetterfromscratch.com/turkey-gravy/",
+        "servings": "Serves 15",
+        "time": "Giblets 1 hr the day before · gravy 20 min",
+        "ingredients": [
+          {
+            "id": "giblets",
+            "group": "Giblets",
+            "name": "turkey neck, heart and gizzard",
+            "note": "from the turkey; discard the liver",
+            "unmeasured": "from the bird"
+          },
+          {
+            "id": "drippings",
+            "group": "Gravy",
+            "name": "pan drippings",
+            "note": "fat skimmed off",
+            "ml": 500
+          },
+          {
+            "id": "flour",
+            "group": "Gravy",
+            "name": "all-purpose flour",
+            "ml": 125,
+            "grams": 60,
+            "estimated": true
+          },
+          {
+            "id": "stock",
+            "group": "Gravy",
+            "name": "chicken stock",
+            "ml": 1000,
+            "grams": 948,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "group": "Gravy",
+            "name": "salt and pepper",
+            "unmeasured": "to taste"
+          },
+          {
+            "id": "corn",
+            "group": "Only if it needs thickening",
+            "name": "cornstarch",
+            "ml": 15,
+            "grams": 8,
+            "estimated": true
+          },
+          {
+            "id": "water",
+            "group": "Only if it needs thickening",
+            "name": "cold water",
+            "ml": 15,
+            "grams": 15
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−1",
+            "t": "Put the neck, heart and gizzard in a pot and cover with water. Bring to a boil, then simmer about 1 hour."
+          },
+          "Strain, keeping the liquid. Pick the meat off the neck and dice it with the heart and gizzard. Refrigerate the meat and the liquid separately.",
+          {
+            "w": "4:40",
+            "t": "Pour the pan drippings into a fat separator or a large bowl. Let the fat rise and skim most of it off."
+          },
+          "In a saucepan over medium heat, whisk {drippings:1/2} drippings with {flour} flour into a smooth paste. If it looks greasy, add a little more flour. Cook, whisking, until golden brown.",
+          "Whisk in {stock} chicken stock and {drippings:rest} drippings. Keep whisking 5 to 8 minutes, until thickened.",
+          "Stir in the diced giblet meat.",
+          "Too thick? Thin it with the giblet liquid. Too thin? Simmer 10 minutes more, then whisk in {corn} cornstarch mixed with {water} cold water.",
+          "Taste first, then season with salt and pepper. The bacon makes the drippings salty. Keep warm on low until 5:55."
+        ],
+        "notes": [
+          "Short on drippings? Top up with 1–2 tbsp butter and a little more stock.",
+          "Leftovers keep 2–3 days. Reheat with a splash of stock over medium-low for about 15 minutes."
+        ]
+      }
     },
     {
       "name": "Candied yams",
@@ -738,7 +1118,88 @@
           "label": "Make ahead",
           "text": "Keeps 5 days. Reheat at 350°F for 15–20 min. Does not freeze well."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "yams",
+        "title": "Candied yams",
+        "source": "Chef Billy Parisi",
+        "url": "https://www.billyparisi.com/delicious-candied-yams-recipe/",
+        "servings": "Serves 12 (1.5× the recipe)",
+        "time": "Prep 10 min · boil 5 min · bake 25–30 min",
+        "ingredients": [
+          {
+            "id": "yams",
+            "name": "yams or sweet potatoes",
+            "note": "peeled, cut in thick slices",
+            "grams": 1361,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "butter",
+            "name": "unsalted butter",
+            "note": "2¼ sticks",
+            "ml": 281.25,
+            "grams": 255
+          },
+          {
+            "id": "sugar",
+            "name": "light brown sugar",
+            "note": "packed",
+            "ml": 656.25,
+            "grams": 559,
+            "estimated": true
+          },
+          {
+            "id": "vanilla",
+            "name": "vanilla extract",
+            "ml": 15,
+            "grams": 13,
+            "estimated": true
+          },
+          {
+            "id": "cinnamon",
+            "name": "ground cinnamon",
+            "ml": 15,
+            "grams": 8,
+            "estimated": true
+          },
+          {
+            "id": "nutmeg",
+            "name": "ground nutmeg",
+            "ml": 3.75,
+            "grams": 2,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "name": "salt",
+            "unmeasured": "a pinch, plus some for the water"
+          }
+        ],
+        "steps": [
+          {
+            "w": "10:45",
+            "t": "Heat the oven to 375°F."
+          },
+          "Boil {yams} sliced yams in salted water for 4 to 6 minutes. Drain well and put them in a large bowl.",
+          "In a medium pan over low heat, melt {butter} butter with {sugar} brown sugar, {vanilla} vanilla, {cinnamon} cinnamon, {nutmeg} nutmeg and a pinch of salt. Whisk until smooth.",
+          "Pour the warm mixture over the yams and toss until evenly coated.",
+          "Spread in a 13×9-inch baking dish and cover with foil. This much is a lot for one dish, so use a deep one or split it.",
+          "Bake 25 to 30 minutes, until very tender.",
+          {
+            "w": "12:15",
+            "t": "Cool 30 minutes, cover and refrigerate until the reheat."
+          },
+          {
+            "w": "4:35",
+            "t": "Reheat covered at 350°F for about 20 minutes."
+          }
+        ],
+        "notes": [
+          "This uses the boil-first shortcut from Billy's article. His recipe card bakes the raw slices instead: 45 minutes covered, stir, then 45 minutes uncovered.",
+          "Keeps 5 days in the fridge. Does not freeze well."
+        ]
+      }
     },
     {
       "name": "Crispy roasted potatoes",
@@ -757,7 +1218,101 @@
           "label": "Note",
           "text": "Serve straight away. Crowding the pan makes them soggy."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "potatoes",
+        "title": "Crispy roasted potatoes",
+        "source": "Chef Billy Parisi",
+        "url": "https://www.billyparisi.com/crispy-roasted-potatoes/",
+        "servings": "Serves 12 (2× the recipe)",
+        "time": "Prep 10 min · cook 1 hr",
+        "ingredients": [
+          {
+            "id": "potatoes",
+            "name": "baby yellow potatoes",
+            "note": "halved, skins on",
+            "grams": 2722,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "soda",
+            "name": "baking soda",
+            "note": "optional, for extra crunch",
+            "ml": 10,
+            "grams": 10,
+            "estimated": true
+          },
+          {
+            "id": "oil",
+            "name": "olive oil",
+            "ml": 120,
+            "grams": 108,
+            "estimated": true
+          },
+          {
+            "id": "gp",
+            "name": "garlic powder",
+            "ml": 20,
+            "grams": 12,
+            "estimated": true
+          },
+          {
+            "id": "op",
+            "name": "onion powder",
+            "ml": 20,
+            "grams": 10,
+            "estimated": true
+          },
+          {
+            "id": "paprika",
+            "name": "sweet or smoked paprika",
+            "ml": 20,
+            "grams": 9,
+            "estimated": true
+          },
+          {
+            "id": "butter",
+            "name": "unsalted butter",
+            "note": "melted",
+            "ml": 90,
+            "grams": 85
+          },
+          {
+            "id": "salt",
+            "name": "salt and pepper",
+            "unmeasured": "to taste"
+          }
+        ],
+        "steps": [
+          {
+            "w": "4:40",
+            "t": "Bring a large pot of well-salted water to a boil. For extra crunch, add {soda} baking soda."
+          },
+          "Boil {potatoes} halved potatoes about 10 minutes, until nearly tender.",
+          "Drain and leave them to air-dry in the colander for 10 minutes. Shake them once at the 5-minute mark to rough up the edges.",
+          {
+            "w": "5:00",
+            "t": "Heat the oven to 450°F with fan, or 475°F without."
+          },
+          {
+            "w": "5:10",
+            "t": "Spread the potatoes on two parchment-lined sheet pans about an inch apart. Toss with {oil} olive oil, {gp} garlic powder, {op} onion powder, {paprika} paprika, and salt and pepper."
+          },
+          "Roast 20 minutes.",
+          {
+            "w": "5:30",
+            "t": "Flip and rearrange the potatoes, then roast 20 minutes more, until golden brown."
+          },
+          {
+            "w": "5:50",
+            "t": "Drizzle with {butter} melted butter and serve straight away."
+          }
+        ],
+        "notes": [
+          "Two pans because crowding steams them. Swap the pans between racks when you flip.",
+          "To hold them, skip the butter and keep them in a 200°F oven for up to an hour."
+        ]
+      }
     },
     {
       "name": "Soft dinner rolls",
@@ -776,7 +1331,109 @@
           "label": "Make ahead",
           "text": "Bake the day before, or shape and refrigerate overnight, or freeze."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "rolls",
+        "title": "Soft dinner rolls",
+        "source": "Sally's Baking Addiction",
+        "url": "https://sallysbakingaddiction.com/soft-dinner-rolls/",
+        "servings": "Makes 14–16 rolls per batch. Make two batches.",
+        "time": "Prep 25 min · rising about 3 hr · bake 22 min",
+        "ingredients": [
+          {
+            "id": "milk",
+            "name": "whole milk",
+            "note": "warmed to about 110°F",
+            "ml": 240,
+            "grams": 245,
+            "estimated": true
+          },
+          {
+            "id": "yeast",
+            "name": "instant yeast",
+            "note": "1 packet",
+            "ml": 11.25,
+            "grams": 7
+          },
+          {
+            "id": "sugar",
+            "name": "granulated sugar",
+            "note": "divided",
+            "ml": 30,
+            "grams": 25,
+            "estimated": true
+          },
+          {
+            "id": "egg",
+            "name": "large egg",
+            "count": 1,
+            "grams": 50,
+            "estimated": true
+          },
+          {
+            "id": "butter",
+            "name": "unsalted butter",
+            "note": "softened, cut in 4 pieces",
+            "ml": 62.5,
+            "grams": 56
+          },
+          {
+            "id": "salt",
+            "name": "salt",
+            "ml": 5,
+            "grams": 6,
+            "estimated": true
+          },
+          {
+            "id": "flour",
+            "name": "all-purpose or bread flour",
+            "note": "spooned and levelled",
+            "ml": 750,
+            "grams": 390
+          },
+          {
+            "id": "butter2",
+            "group": "Honey butter topping (optional)",
+            "name": "unsalted butter",
+            "note": "melted",
+            "ml": 30,
+            "grams": 28
+          },
+          {
+            "id": "honey",
+            "group": "Honey butter topping (optional)",
+            "name": "honey",
+            "ml": 15,
+            "grams": 21,
+            "estimated": true
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−1",
+            "t": "Whisk {milk} warm milk, {yeast} instant yeast and {sugar:1 tbsp} sugar together. Let stand 5 minutes."
+          },
+          "Add {sugar:rest} sugar, {egg} egg, {butter} softened butter, {salt} salt and {flour:1 cup} flour. Mix on low speed.",
+          "Add {flour:rest} flour and mix on medium until the dough pulls away from the sides of the bowl. Only if it is too sticky, add more flour a tablespoon at a time.",
+          "Knead 5 minutes by mixer or by hand, until soft and slightly tacky. A poke should spring back slowly.",
+          "Put the dough in a greased bowl, turn it to coat, cover and let it rise 1 to 2 hours, until doubled.",
+          "Grease a 9×13-inch pan.",
+          "Punch down the dough. Divide it into 14 to 16 pieces and shape each into a smooth ball. Arrange them in the pan.",
+          "Cover and let rise about 1 hour, until puffy.",
+          "Heat the oven to 350°F with a rack in a lower position.",
+          "Bake 20 to 25 minutes, until golden, turning the pan halfway. Tent with foil if the tops brown too fast.",
+          "Optional: brush with {butter2} melted butter mixed with {honey} honey. Cool, then cover tightly.",
+          {
+            "w": "5:40",
+            "t": "Warm the rolls in the air fryer on low for a few minutes, checking often. Or reheat covered at 300°F for about 10 minutes."
+          }
+        ],
+        "notes": [
+          "Amounts are for one batch. Sally advises against doubling, so make the batch twice.",
+          "Baked rolls keep 2–3 days covered at room temperature, or freeze for 3 months.",
+          "Overnight option: refrigerate the shaped rolls up to 15 hours, then let them rise 1–2 hours on the counter before baking."
+        ]
+      }
     },
     {
       "name": "Garlic lemon green beans",
@@ -795,7 +1452,73 @@
           "label": "Method",
           "text": "Blanch 2–3 min the day before, then sauté in two batches for 4–5 min just before serving. Garlic goes in for the last minute so it does not burn."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "beans",
+        "title": "Garlic lemon green beans",
+        "source": "My recipe",
+        "servings": "Serves 10",
+        "time": "Blanch 5 min the day before · sauté 10 min",
+        "ingredients": [
+          {
+            "id": "beans",
+            "name": "green beans",
+            "note": "trimmed",
+            "grams": 1361,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "oil",
+            "name": "olive oil",
+            "ml": 30,
+            "grams": 27,
+            "estimated": true
+          },
+          {
+            "id": "butter",
+            "name": "unsalted butter",
+            "ml": 30,
+            "grams": 28
+          },
+          {
+            "id": "garlic",
+            "name": "garlic cloves",
+            "note": "thinly sliced",
+            "count": 4,
+            "grams": 12,
+            "estimated": true
+          },
+          {
+            "id": "lemon",
+            "name": "lemon",
+            "note": "zest and juice",
+            "count": 1
+          },
+          {
+            "id": "salt",
+            "name": "salt and pepper",
+            "unmeasured": "to taste, plus salt for the water"
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−1",
+            "t": "Bring a large pot of well-salted water to a boil and fill a big bowl with ice water."
+          },
+          "Boil {beans} green beans for 2 to 3 minutes, until bright green. Drain and plunge them into the ice water.",
+          "Dry well and refrigerate in a towel-lined container.",
+          {
+            "w": "5:35",
+            "t": "Heat {oil:1/2} olive oil and {butter:1/2} butter in a large skillet over medium-high heat. Add half the beans and sauté 4 to 5 minutes, until hot and lightly blistered."
+          },
+          "For the last minute, add {garlic:1/2} sliced garlic cloves. Move to a serving dish.",
+          "Repeat with {oil:rest} olive oil, {butter:rest} butter, the rest of the beans and {garlic:rest} garlic cloves.",
+          "Finish with the zest of {lemon} lemon, a squeeze of its juice, and salt and pepper."
+        ],
+        "notes": [
+          "Garlic goes in last so it doesn't burn."
+        ]
+      }
     },
     {
       "name": "Honey-thyme roasted whole carrots",
@@ -814,7 +1537,87 @@
           "label": "Method",
           "text": "Roast whole at 425°F for 25–30 min at midday, chill, then glaze and reheat uncovered at 350°F for about 20 min with the casseroles."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "carrots",
+        "title": "Honey-thyme roasted whole carrots",
+        "source": "My recipe",
+        "servings": "Serves 10",
+        "time": "Roast 30 min at midday · glaze and reheat 20 min",
+        "ingredients": [
+          {
+            "id": "carrots",
+            "name": "medium carrots",
+            "note": "about 20, peeled, tops trimmed, left whole",
+            "grams": 1361,
+            "weightUnit": "lb"
+          },
+          {
+            "id": "oil",
+            "name": "olive oil",
+            "ml": 45,
+            "grams": 40,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "name": "salt",
+            "ml": 5,
+            "grams": 6,
+            "estimated": true
+          },
+          {
+            "id": "pepper",
+            "name": "black pepper",
+            "unmeasured": "to taste"
+          },
+          {
+            "id": "butter",
+            "group": "Glaze",
+            "name": "unsalted butter",
+            "ml": 30,
+            "grams": 28
+          },
+          {
+            "id": "honey",
+            "group": "Glaze",
+            "name": "honey",
+            "ml": 30,
+            "grams": 42,
+            "estimated": true
+          },
+          {
+            "id": "thyme",
+            "group": "Glaze",
+            "name": "fresh thyme",
+            "note": "chopped",
+            "ml": 15,
+            "grams": 2.5,
+            "estimated": true
+          }
+        ],
+        "steps": [
+          {
+            "w": "11:45",
+            "t": "Heat the oven to 425°F and line a sheet pan with parchment."
+          },
+          "Toss {carrots} carrots with {oil} olive oil, {salt} salt and some pepper.",
+          "Spread them in one layer with space between them.",
+          "Roast 25 to 30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat.",
+          {
+            "w": "12:15",
+            "t": "Cool 30 minutes, cover and refrigerate."
+          },
+          {
+            "w": "4:35",
+            "t": "Melt {butter} butter with {honey} honey and {thyme} thyme. Toss with the carrots on their pan."
+          },
+          "Reheat uncovered at 350°F for about 20 minutes. Short on oven room? Use the air fryer at 350°F for 6 to 8 minutes."
+        ],
+        "notes": [
+          "Pick slim carrots of a similar size so they cook evenly."
+        ]
+      }
     },
     {
       "name": "Cranberry sauce",
@@ -833,7 +1636,70 @@
           "label": "Make ahead",
           "text": "Up to 2 days ahead (keeps 7 days in the fridge, or freezes for 3 months)."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "cranberry",
+        "title": "Cranberry sauce",
+        "source": "Chef Billy Parisi",
+        "url": "https://www.billyparisi.com/homemade-cranberry-sauce-recipe/",
+        "servings": "Serves 10",
+        "time": "Prep 5 min · cook 20 min · chill 45 min",
+        "ingredients": [
+          {
+            "id": "water",
+            "name": "water",
+            "ml": 250,
+            "grams": 237
+          },
+          {
+            "id": "sugar",
+            "name": "granulated sugar",
+            "ml": 312.5,
+            "grams": 250,
+            "estimated": true
+          },
+          {
+            "id": "cranberries",
+            "name": "fresh cranberries",
+            "note": "about 4 cups; frozen works too",
+            "grams": 340,
+            "weightUnit": "oz"
+          },
+          {
+            "id": "orange",
+            "name": "orange",
+            "note": "zested",
+            "count": 1
+          },
+          {
+            "id": "cinnamon",
+            "name": "ground cinnamon",
+            "ml": 5,
+            "grams": 2.5,
+            "estimated": true
+          },
+          {
+            "id": "nutmeg",
+            "name": "ground nutmeg",
+            "ml": 0.625,
+            "grams": 0.5,
+            "estimated": true
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−2",
+            "t": "In a high-sided medium pot, bring {water} water and {sugar} sugar to a full boil."
+          },
+          "Add {cranberries} cranberries and bring back to a boil, until they start to pop.",
+          "Cover and simmer about 15 minutes, until very thick. Add a splash of water if the pot looks dry.",
+          "Off the heat, stir in {cinnamon} cinnamon, {nutmeg} nutmeg and the zest of {orange} orange, pressing the berries to break them up.",
+          "Move to a container and refrigerate until cold, at least 30 to 45 minutes."
+        ],
+        "notes": [
+          "Keeps 7 days in the fridge or 3 months frozen. It thickens and tastes better cold."
+        ]
+      }
     },
     {
       "name": "Spinach salad with pears and pecans",
@@ -856,7 +1722,132 @@
           "label": "Make ahead",
           "text": "Dressing and pecans the day before. No cooking on the day, just slice the pears and toss at 5:45."
         }
-      ]
+      ],
+      "recipe": {
+        "id": "salad",
+        "title": "Spinach salad with pears and pecans",
+        "source": "My recipe",
+        "servings": "Serves 10",
+        "time": "Dressing 5 min the day before · assemble 10 min",
+        "ingredients": [
+          {
+            "id": "oil",
+            "group": "Apple cider vinaigrette",
+            "name": "olive oil",
+            "ml": 125,
+            "grams": 108,
+            "estimated": true
+          },
+          {
+            "id": "vinegar",
+            "group": "Apple cider vinaigrette",
+            "name": "apple cider vinegar",
+            "ml": 62.5,
+            "grams": 60,
+            "estimated": true
+          },
+          {
+            "id": "dijon",
+            "group": "Apple cider vinaigrette",
+            "name": "Dijon mustard",
+            "ml": 15,
+            "grams": 15,
+            "estimated": true
+          },
+          {
+            "id": "maple",
+            "group": "Apple cider vinaigrette",
+            "name": "maple syrup",
+            "ml": 15,
+            "grams": 20,
+            "estimated": true
+          },
+          {
+            "id": "shallot",
+            "group": "Apple cider vinaigrette",
+            "name": "small shallot",
+            "note": "minced",
+            "count": 1,
+            "grams": 30,
+            "estimated": true
+          },
+          {
+            "id": "salt",
+            "group": "Apple cider vinaigrette",
+            "name": "salt",
+            "ml": 2.5,
+            "grams": 3,
+            "estimated": true
+          },
+          {
+            "id": "pepper",
+            "group": "Apple cider vinaigrette",
+            "name": "black pepper",
+            "unmeasured": "to taste"
+          },
+          {
+            "id": "pecans",
+            "group": "Salad",
+            "name": "pecan halves",
+            "ml": 250,
+            "grams": 100,
+            "estimated": true
+          },
+          {
+            "id": "spinach",
+            "group": "Salad",
+            "name": "baby spinach",
+            "note": "three 5 oz clamshells",
+            "grams": 425,
+            "weightUnit": "oz"
+          },
+          {
+            "id": "pears",
+            "group": "Salad",
+            "name": "ripe pears",
+            "note": "Bosc or Anjou",
+            "count": 2,
+            "grams": 360,
+            "estimated": true
+          },
+          {
+            "id": "pom",
+            "group": "Salad",
+            "name": "pomegranate seeds",
+            "ml": 250,
+            "grams": 174,
+            "estimated": true
+          },
+          {
+            "id": "parm",
+            "group": "Salad",
+            "name": "Parmesan",
+            "note": "a wedge",
+            "grams": 85,
+            "weightUnit": "oz"
+          }
+        ],
+        "steps": [
+          {
+            "w": "D−1",
+            "t": "Shake {oil} olive oil, {vinegar} apple cider vinegar, {dijon} Dijon, {maple} maple syrup, {shallot} minced shallot, {salt} salt and some pepper in a jar. Refrigerate."
+          },
+          "Toast {pecans} pecans in a dry skillet over medium heat for 4 to 5 minutes, stirring. Cool, then store airtight.",
+          {
+            "w": "5:00",
+            "t": "Take the dressing out of the fridge so it loosens, and shake it."
+          },
+          {
+            "w": "5:45",
+            "t": "Thinly slice {pears} pears. Do it now, not earlier, so they don't brown."
+          },
+          "Toss {spinach} baby spinach with about two-thirds of the dressing.",
+          "Top with the pears, {pom} pomegranate seeds, the pecans and {parm} Parmesan shaved with a vegetable peeler. Serve the rest of the dressing on the side."
+        ],
+        "notes": [
+          "No cooking on the day, so this is a good job for a helper."
+        ]
+      }
     }
   ],
   "open": [

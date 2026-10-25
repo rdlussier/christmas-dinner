@@ -7,6 +7,7 @@
   var year = null;      // the year being viewed (may differ from plan.year when copied forward)
   var done = new Set();
   var toastTimer = null;
+  var wake = null;
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -18,6 +19,153 @@
       if (!r.ok) throw new Error(url + " " + r.status);
       return r.json();
     });
+  }
+
+  // Amount engine, ported from Simmer: cups/spoons (or a count, or lb/oz) first, grams second,
+  // and "the rest" worked out by walking the steps in order.
+  var TSP_ML = 5, TBSP_ML = 15, CUP_ML = 250, LB_G = 453.592, OZ_G = 28.3495;
+  var FRACTIONS = [[0, ""], [1 / 8, "⅛"], [1 / 4, "¼"], [1 / 3, "⅓"], [3 / 8, "⅜"], [1 / 2, "½"], [5 / 8, "⅝"], [2 / 3, "⅔"], [3 / 4, "¾"], [7 / 8, "⅞"], [1, ""]];
+  function pick() { var vals = [].slice.call(arguments); return FRACTIONS.filter(function (f) { return vals.some(function (w) { return Math.abs(f[0] - w) < 1e-9; }); }); }
+  var SET_TSP = pick(0, 1 / 8, 1 / 4, 1 / 3, 1 / 2, 2 / 3, 3 / 4, 1);
+  var SET_COUNT = pick(0, 1 / 4, 1 / 3, 1 / 2, 2 / 3, 3 / 4, 1);
+  var SET_LB = pick(0, 1 / 4, 1 / 2, 3 / 4, 1);
+
+  function snap(x, set) {
+    var whole = Math.floor(x + 1e-9), rem = x - whole, best = set[0];
+    set.forEach(function (f) { if (Math.abs(rem - f[0]) < Math.abs(rem - best[0])) best = f; });
+    var fv = best[0], glyph = best[1];
+    if (fv === 1) { whole += 1; fv = 0; glyph = ""; }
+    return { value: whole + fv, text: whole > 0 ? whole + glyph : (glyph || "0") };
+  }
+  function fmtVolume(ml) {
+    if (!(ml > 0)) return "";
+    var tsp = ml / TSP_ML;
+    if (tsp < 0.09) return "a pinch";
+    if (ml < 55) {
+      var t = snap(tsp, SET_TSP);
+      if (t.value < 3) return t.text + " tsp";
+      var tbsp = Math.floor(tsp / 3 + 1e-9), r = snap(tsp - tbsp * 3, SET_TSP);
+      if (r.value >= 3) { tbsp += 1; r = { value: 0, text: "0" }; }
+      if (r.value === 0) return tbsp + " tbsp";
+      if (Math.abs(r.value - 1.5) < 1e-9) return tbsp + "½ tbsp";
+      return tbsp + " tbsp + " + r.text + " tsp";
+    }
+    var c = snap(ml / CUP_ML, FRACTIONS);
+    return c.text + (c.value > 1 ? " cups" : " cup");
+  }
+  function trimNum(n) { return Number.isInteger(n) ? String(n) : n.toFixed(1); }
+  function fmtGrams(g) {
+    if (!(g > 0)) return "";
+    var n = g < 10 ? Math.round(g * 2) / 2 : Math.round(g);
+    return trimNum(n || 0.5) + " g";
+  }
+  function fmtWeightUnit(g, unit) {
+    if (!(g > 0)) return "";
+    if (unit === "lb" && g >= LB_G / 4 - 5) {
+      var x = g / LB_G, s = snap(x, SET_LB);
+      if (s.value > 0 && Math.abs(s.value - x) * LB_G <= Math.max(10, g * 0.02)) return s.text + " lb";
+      return trimNum(Math.round(x * 10) / 10) + " lb";
+    }
+    var oz = g / OZ_G, n = oz < 10 ? Math.round(oz * 2) / 2 : Math.round(oz);
+    return trimNum(n || 0.5) + " oz";
+  }
+  function fmtCount(n) {
+    if (!(n > 0)) return "";
+    var s = snap(n, SET_COUNT);
+    if (s.value === 0) s = snap(n, FRACTIONS);
+    return s.value === 0 ? "¼" : s.text;
+  }
+  // -> { lead: "¾ cup", weight: "90 g" }
+  function amountParts(ing, f) {
+    f = f == null ? 1 : f;
+    var lead = ing.count > 0 ? fmtCount(ing.count * f) : ing.ml > 0 ? fmtVolume(ing.ml * f) : "";
+    if (!lead && ing.grams > 0 && (ing.weightUnit === "lb" || ing.weightUnit === "oz")) lead = fmtWeightUnit(ing.grams * f, ing.weightUnit);
+    return { lead: lead, weight: ing.grams > 0 ? fmtGrams(ing.grams * f) : "" };
+  }
+  function amountText(ing, f) {
+    var p = amountParts(ing, f);
+    return p.lead && p.weight ? p.lead + " (" + p.weight + ")" : (p.lead || p.weight);
+  }
+
+  var TOKEN_RE = /\{([a-z0-9][a-z0-9_-]*)(?::([^{}]*))?\}/gi;
+  var VOL_UNITS = [[/^(cups?|c)$/i, CUP_ML], [/^(tablespoons?|tbsps?|tbs)$/i, TBSP_ML], [/^(teaspoons?|tsps?)$/i, TSP_ML], [/^ml$/i, 1]];
+  function parseNum(s) {
+    s = String(s).trim();
+    var m = s.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+    if (m) return Number(m[1]) / Number(m[2]);
+    return /^\d+(?:\.\d+)?$/.test(s) ? Number(s) : NaN;
+  }
+  // "rest" | "1/2" | "2 tbsp" | "50 g" | "2x" -> how much of the ingredient's total this is
+  function tokenFraction(ing, spec, usedBefore) {
+    var s = String(spec || "").trim().toLowerCase(), m, n;
+    if (!s) return 1;
+    if (s === "rest") return Math.max(0, 1 - usedBefore);
+    if ((m = s.match(/^(.+?)\s*x$/)) && ing.count > 0) return parseNum(m[1]) / ing.count;
+    if ((m = s.match(/^(.+?)\s*g$/)) && ing.grams > 0) return parseNum(m[1]) / ing.grams;
+    if ((m = s.match(/^([\d./]+)\s*([a-z]+)$/)) && ing.ml > 0) {
+      for (var i = 0; i < VOL_UNITS.length; i++) if (VOL_UNITS[i][0].test(m[2])) return parseNum(m[1]) * VOL_UNITS[i][1] / ing.ml;
+    }
+    n = parseNum(s);
+    return n > 0 && n <= 1 ? n : 1;
+  }
+  // Steps as HTML, with every token replaced by its highlighted amount.
+  function stepsFor(recipe) {
+    var byId = {}, used = {};
+    recipe.ingredients.forEach(function (i) { byId[i.id] = i; });
+    return recipe.steps.map(function (step) {
+      var text = typeof step === "string" ? step : step.t, out = "", last = 0, m;
+      TOKEN_RE.lastIndex = 0;
+      while ((m = TOKEN_RE.exec(text))) {
+        out += esc(text.slice(last, m.index));
+        last = m.index + m[0].length;
+        var ing = byId[m[1]];
+        if (!ing) continue;
+        var before = used[m[1]] || 0, f = tokenFraction(ing, m[2], before);
+        used[m[1]] = String(m[2] || "").trim() === "rest" ? 1 : before + f;
+        var a = amountText(ing, f);
+        if (a) out += '<b class="amt">' + esc(a) + '</b>';
+        else text = text.slice(0, last) + text.slice(last).replace(/^\s+/, "");
+      }
+      return { when: typeof step === "string" ? "" : step.w, html: out + esc(text.slice(last)) };
+    });
+  }
+
+  function stepId(key, i) { return "r-" + key + "-" + (i + 1); }
+
+  function ingredientRow(ing) {
+    var p = amountParts(ing, 1), q;
+    if (p.lead || p.weight) {
+      var lead = p.lead || p.weight, gr = p.lead ? p.weight : "";
+      q = esc(!gr && ing.estimated ? "≈ " + lead : lead) + (gr ? '<span class="gr">' + esc(ing.estimated ? "≈ " + gr : gr) + '</span>' : '');
+    } else {
+      q = '<span class="soft">' + esc(ing.unmeasured || "") + '</span>';
+    }
+    return '<li><span class="iq">' + q + '</span><span class="in">' + esc(ing.name) + (ing.note ? ' <small>' + esc(ing.note) + '</small>' : '') + '</span></li>';
+  }
+
+  function recipeHTML(r) {
+    var key = r.id, lastGroup = "", ings = "";
+    r.ingredients.forEach(function (ing) {
+      if (ing.group && ing.group !== lastGroup) ings += '<li class="grp">' + esc(ing.group) + '</li>';
+      lastGroup = ing.group || lastGroup;
+      ings += ingredientRow(ing);
+    });
+    var steps = stepsFor(r).map(function (s, i) {
+      return '<label class="row step"><input type="checkbox" data-id="' + stepId(key, i) + '"><span class="rbody">' +
+        '<span class="rtime">' + (i + 1) + (s.when ? ' · ' + esc(s.when) : '') + '</span>' +
+        '<span class="stx">' + s.html + '</span></span></label>';
+    }).join("");
+    var meta = ['<span>' + esc(r.servings) + '</span>'];
+    if (r.time) meta.push('<span>' + esc(r.time) + '</span>');
+    meta.push(r.url ? '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.source) + '</a>' : '<span>' + esc(r.source) + '</span>');
+    var est = r.ingredients.some(function (i) { return i.estimated; });
+    return '<h3 class="rtitle">' + esc(r.title) + '</h3><p class="rmeta">' + meta.join("") + '</p>' +
+      '<h4 class="rsec">Ingredients</h4><ul class="ings">' + ings + '</ul>' +
+      (est ? '<p class="fine">≈ marks a weight worked out from standard conversions rather than given by the recipe.</p>' : '') +
+      '<h4 class="rsec">Steps · tap to tick</h4><div class="steps">' + steps + '</div>' +
+      (r.notes && r.notes.length ? '<div class="rnotes"><ul>' + r.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join("") + '</ul></div>' : '') +
+      '<div class="rfoot">' + ('wakeLock' in navigator ? '<button class="btn" type="button" data-wake></button>' : '') +
+      '<button class="btn" type="button" data-untick="' + esc(key) + '">Untick all steps</button></div>';
   }
 
   function row(it) {
@@ -54,11 +202,15 @@
       plan.timeline.map(groupHTML).join("") +
       (plan.callouts || []).map(function (c) { return '<div class="callout"><b>' + esc(c.title) + '</b> ' + esc(c.text) + '</div>'; }).join("");
     document.getElementById("p-menu").innerHTML = lead +
+      (plan.menu.some(function (d) { return d.recipe; }) ? '<p class="note-top">Open a recipe to cook from it: amounts are scaled for this dinner and written right into each step, and the times match the timeline.</p>' : '') +
       plan.menu.map(function (d) {
         var ok = d.status === "set";
         return '<article class="dish"><div class="dtop"><h2 class="dname">' + (d.url ? '<a href="' + esc(d.url) + '">' + esc(d.name) + '</a>' : esc(d.name)) +
           '</h2><span class="status' + (ok ? '' : ' need') + '">' + esc(ok ? "Recipe set" : d.status) + '</span></div>' +
-          d.lines.map(function (x) { return '<p class="dline"><b>' + esc(x.label) + ':</b> ' + esc(x.text) + '</p>'; }).join("") + '</article>';
+          d.lines.map(function (x) { return '<p class="dline"><b>' + esc(x.label) + ':</b> ' + esc(x.text) + '</p>'; }).join("") +
+          (d.recipe ? '<div class="dact"><button class="btn open" type="button" data-recipe aria-expanded="false" aria-controls="rec-' + esc(d.recipe.id) + '">Open recipe</button><span class="dprog" id="prog-' + esc(d.recipe.id) + '"></span></div>' +
+            '<div class="recipe" id="rec-' + esc(d.recipe.id) + '" hidden>' + recipeHTML(d.recipe) + '</div>' : '') +
+          '</article>';
       }).join("");
     document.getElementById("p-open").innerHTML = lead + barHTML("open", "items") +
       '<p class="note-top">Decisions still to make. Tick them off once settled.</p>' +
@@ -68,6 +220,7 @@
     document.getElementById("footer").innerHTML = (links.length ? 'Recipes: ' + links.join(", ") + '. ' : '') +
       'Ticks are saved separately for each year, on this device and, with sync on, in the repo.';
     setHide(lsGet(LSH) === "1");
+    wakeUI();
   }
 
   function counts(items) { var d = 0; items.forEach(function (i) { if (done.has(i.id)) d++; }); return d; }
@@ -84,6 +237,13 @@
         var el = document.getElementById("cnt-" + g.id);
         if (el) el.textContent = counts(g.items) + " / " + g.items.length;
       });
+    });
+    plan.menu.forEach(function (m) {
+      var el = m.recipe && document.getElementById("prog-" + m.recipe.id);
+      if (!el) return;
+      var n = m.recipe.steps.length, d = 0;
+      for (var i = 0; i < n; i++) if (done.has(stepId(m.recipe.id, i))) d++;
+      el.textContent = d ? d + " of " + n + " steps done" : n + " steps";
     });
     var s = allItems(plan.shopping), p = allItems(plan.timeline);
     document.getElementById("sum-shop").textContent = counts(s) + " of " + s.length + " items bought";
@@ -233,11 +393,52 @@
     document.querySelectorAll("[data-hide]").forEach(function (b) { b.setAttribute("aria-pressed", on ? "true" : "false"); });
     lsSet(LSH, on ? "1" : "0");
   }
+  function wakeUI() {
+    document.querySelectorAll("[data-wake]").forEach(function (b) {
+      b.textContent = wake ? "Screen stays on" : "Keep screen on";
+      b.setAttribute("aria-pressed", wake ? "true" : "false");
+    });
+  }
+  async function toggleWake() {
+    try {
+      if (wake) { await wake.release(); wake = null; }
+      else {
+        wake = await navigator.wakeLock.request("screen");
+        wake.addEventListener("release", function () { wake = null; wakeUI(); });
+      }
+    } catch (e) { wake = null; toast("This browser would not keep the screen on."); }
+    wakeUI();
+  }
+
+  function toggleRecipe(b) {
+    var open = b.getAttribute("aria-expanded") !== "true";
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+    b.textContent = open ? "Close recipe" : "Open recipe";
+    document.getElementById(b.getAttribute("aria-controls")).hidden = !open;
+    if (!open) b.closest(".dish").scrollIntoView({ block: "nearest" });
+  }
+
+  function untick(key) {
+    var m = plan.menu.filter(function (d) { return d.recipe && d.recipe.id === key; })[0];
+    if (!m) return;
+    m.recipe.steps.forEach(function (s, i) {
+      var id = stepId(key, i);
+      if (done.has(id)) { done.delete(id); queueOp(id, false); }
+    });
+    saveTicks(); apply();
+  }
+
   document.addEventListener("click", function (e) {
-    var b = e.target.closest && e.target.closest("[data-hide]");
+    if (!e.target.closest) return;
+    var b = e.target.closest("[data-hide]");
     if (b) setHide(b.getAttribute("aria-pressed") !== "true");
-    var t = e.target.closest && e.target.closest(".tab");
+    var t = e.target.closest(".tab");
     if (t) showTab(t.dataset.tab);
+    var r = e.target.closest("[data-recipe]");
+    if (r) toggleRecipe(r);
+    if (e.target.closest("[data-wake]")) toggleWake();
+    var u = e.target.closest("[data-untick]");
+    if (u) untick(u.getAttribute("data-untick"));
   });
 
   function showTab(name) {
