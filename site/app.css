@@ -194,7 +194,7 @@ header::after { content: ""; display: block; width: 56px; height: 2px; margin-to
 /* 1. Menu-card header: wine band, centred title, gold sprig, double gold rule */
 header { margin: 0 calc(50% - 50vw); padding: 30px 16px 26px; background: var(--band); text-align: center; border-bottom: 3px double var(--gold); }
 header h1 { color: var(--band-fg); }
-header::before { content: ""; display: block; height: 34px; margin: 0 auto 8px; width: 150px; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%2028%22%20fill%3D%22none%22%20stroke%3D%22%23C9A86A%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M8%2014h104%22/%3E%3Cpath%20d%3D%22M60%2014c-6-6-14-8-22-7M60%2014c-6%206-14%208-22%207M60%2014c6-6%2014-8%2022-7M60%2014c6%206%2014%208%2022%207%22/%3E%3Cpath%20d%3D%22M30%2014l-6-5M30%2014l-6%205M90%2014l6-5M90%2014l6%205M44%2014l-4-6M44%2014l-4%206M76%2014l4-6M76%2014l4%206%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2214%22%20r%3D%222.6%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2254.5%22%20cy%3D%2210.5%22%20r%3D%221.8%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2265.5%22%20cy%3D%2217.5%22%20r%3D%221.8%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat; }
+header::before { content: ""; display: block; width: 72px; height: 72px; margin: 0 auto 10px; background: url("icon.svg?v=27") center/contain no-repeat; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
 header::after { display: none; }
 .topbar { margin-top: 0; }
 /* The strip under the phone status bar matches the header band, not the page */
