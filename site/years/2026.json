@@ -73,26 +73,26 @@
         {
           "id": "greens",
           "name": "Baby spinach",
-          "qty": "15 oz (three 5 oz clamshells)",
+          "qty": "10 oz (two 5 oz clamshells)",
           "note": "Apple spinach salad. Pre-washed, so no washing needed."
         },
         {
           "id": "apples",
           "name": "Small apples (Pink Lady and Granny Smith)",
-          "qty": "6",
+          "qty": "4",
           "note": "Apple spinach salad. A mix of sweet and tart."
         },
         {
           "id": "dcran",
           "name": "Dried cranberries",
-          "qty": "1 cup",
+          "qty": "⅔ cup",
           "note": "Apple spinach salad."
         },
         {
           "id": "ronion",
-          "name": "Red onions",
-          "qty": "2 small",
-          "note": "Apple spinach salad uses 1½."
+          "name": "Red onion",
+          "qty": "1 small",
+          "note": "Apple spinach salad."
         },
         {
           "id": "onion",
@@ -110,7 +110,7 @@
           "id": "garlic",
           "name": "Garlic",
           "qty": "4 heads",
-          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), green beans 8, herb butter 5, stuffing 3, vinaigrette 3 small, plus spare."
+          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), green beans 8, herb butter 5, stuffing 3, vinaigrette 2 small, plus spare."
         },
         {
           "id": "lemon",
@@ -187,7 +187,7 @@
         {
           "id": "goat",
           "name": "Crumbled goat cheese",
-          "qty": "9 oz",
+          "qty": "6 oz",
           "note": "Apple spinach salad."
         }
       ]
@@ -241,8 +241,8 @@
         {
           "id": "honey",
           "name": "Honey",
-          "qty": "3 tbsp",
-          "note": "Vinaigrette 2 tbsp, optional honey butter on the rolls 1 tbsp."
+          "qty": "2½ tbsp",
+          "note": "Vinaigrette 1 tbsp + 1 tsp, optional honey butter on the rolls 1 tbsp."
         },
         {
           "id": "vanilla",
@@ -253,26 +253,26 @@
         {
           "id": "walnuts",
           "name": "Chopped walnuts",
-          "qty": "1½ cups",
+          "qty": "1 cup",
           "note": "Apple spinach salad, toasted."
         },
         {
           "id": "acv",
           "name": "Apple cider vinegar",
-          "qty": "6 tbsp",
+          "qty": "¼ cup",
           "note": "Vinaigrette."
         },
         {
           "id": "dijon",
           "name": "Dijon mustard",
-          "qty": "1 tbsp",
+          "qty": "2 tsp",
           "note": "Vinaigrette."
         },
         {
           "id": "oil",
           "name": "Olive oil",
-          "qty": "about 2 cups",
-          "note": "Vinaigrette ¾ cup, garlic oil for the mash ½ cup + 2 tbsp, green beans ¼ cup, carrots 3½ tbsp."
+          "qty": "about 1¾ cups",
+          "note": "Vinaigrette ½ cup, garlic oil for the mash ½ cup + 2 tbsp, green beans ¼ cup, carrots 3½ tbsp."
         },
         {
           "id": "corn",
@@ -498,7 +498,7 @@
         {
           "id": "p-salad",
           "text": "Make the vinaigrette and toast the walnuts",
-          "note": "Shake in a jar: ¾ cup olive oil, 6 tbsp apple cider vinegar, 2 tbsp honey, 1 tbsp Dijon, 3 small minced garlic cloves, 3 generous pinches each of salt and pepper. Refrigerate. Toast the walnuts in a dry skillet over medium heat for 4–5 minutes, stirring, then cool and store airtight."
+          "note": "Shake in a jar: ½ cup olive oil, ¼ cup apple cider vinegar, 1 tbsp + 1 tsp honey, 2 tsp Dijon, 2 small minced garlic cloves, 2 generous pinches each of salt and pepper. Refrigerate. Toast the walnuts in a dry skillet over medium heat for 4–5 minutes, stirring, then cool and store airtight."
         },
         {
           "id": "p-beans",
@@ -1807,15 +1807,15 @@
       "lines": [
         {
           "label": "Size",
-          "text": "3× the recipe, 15 oz baby spinach for 10"
+          "text": "2× the recipe (it serves 4–6), 10 oz baby spinach for 10"
         },
         {
           "label": "Ingredients",
-          "text": "6 small apples, 1½ small red onions, 1½ cups toasted walnuts, 1 cup dried cranberries, 9 oz goat cheese"
+          "text": "4 small apples, 1 small red onion, 1 cup toasted walnuts, ⅔ cup dried cranberries, 6 oz goat cheese"
         },
         {
           "label": "Dressing",
-          "text": "Apple cider vinaigrette: ¾ cup olive oil, 6 tbsp apple cider vinegar, 2 tbsp honey, 1 tbsp Dijon, 3 small garlic cloves, salt and pepper"
+          "text": "Apple cider vinaigrette: ½ cup olive oil, ¼ cup apple cider vinegar, 1 tbsp + 1 tsp honey, 2 tsp Dijon, 2 small garlic cloves, salt and pepper"
         },
         {
           "label": "Make ahead",
@@ -1828,39 +1828,39 @@
         "title": "Apple spinach salad",
         "source": "Gimme Some Oven",
         "url": "https://www.gimmesomeoven.com/my-favorite-apple-spinach-salad/",
-        "servings": "Serves 10 (3× the recipe)",
+        "servings": "Serves 10 (2× the recipe)",
         "time": "Dressing 5 min on Wed Dec 23 · assemble 10 min",
         "ingredients": [
           {
             "id": "oil",
             "group": "Apple cider vinaigrette",
             "name": "extra virgin olive oil",
-            "ml": 187.5,
-            "grams": 162,
+            "ml": 125,
+            "grams": 108,
             "estimated": true
           },
           {
             "id": "vinegar",
             "group": "Apple cider vinaigrette",
             "name": "apple cider vinegar",
-            "ml": 90,
-            "grams": 90,
+            "ml": 62.5,
+            "grams": 60,
             "estimated": true
           },
           {
             "id": "honey",
             "group": "Apple cider vinaigrette",
             "name": "honey",
-            "ml": 30,
-            "grams": 42,
+            "ml": 20,
+            "grams": 28,
             "estimated": true
           },
           {
             "id": "dijon",
             "group": "Apple cider vinaigrette",
             "name": "Dijon mustard",
-            "ml": 15,
-            "grams": 15,
+            "ml": 10,
+            "grams": 10,
             "estimated": true
           },
           {
@@ -1868,31 +1868,31 @@
             "group": "Apple cider vinaigrette",
             "name": "small garlic cloves",
             "note": "peeled and minced",
-            "count": 3,
-            "grams": 9,
+            "count": 2,
+            "grams": 6,
             "estimated": true
           },
           {
             "id": "salt",
             "group": "Apple cider vinaigrette",
             "name": "salt and black pepper",
-            "unmeasured": "3 generous pinches each"
+            "unmeasured": "2 generous pinches each"
           },
           {
             "id": "walnuts",
             "group": "Salad",
             "name": "chopped walnuts",
             "note": "toasted",
-            "ml": 375,
-            "grams": 175,
+            "ml": 250,
+            "grams": 117,
             "estimated": true
           },
           {
             "id": "spinach",
             "group": "Salad",
             "name": "baby spinach",
-            "note": "three 5 oz clamshells",
-            "grams": 425,
+            "note": "two 5 oz clamshells",
+            "grams": 283,
             "weightUnit": "oz"
           },
           {
@@ -1900,35 +1900,35 @@
             "group": "Salad",
             "name": "small apples",
             "note": "cored and thinly sliced; a mix of sweet Pink Lady and tart Granny Smith",
-            "count": 6
+            "count": 4
           },
           {
             "id": "onion",
             "group": "Salad",
             "name": "small red onion",
             "note": "thinly sliced",
-            "unmeasured": "1½"
+            "unmeasured": "1"
           },
           {
             "id": "cran",
             "group": "Salad",
             "name": "dried cranberries",
-            "ml": 250,
-            "grams": 120,
+            "ml": 166.67,
+            "grams": 80,
             "estimated": true
           },
           {
             "id": "goat",
             "group": "Salad",
             "name": "crumbled goat cheese",
-            "grams": 255,
+            "grams": 170,
             "weightUnit": "oz"
           }
         ],
         "steps": [
           {
             "w": "Wed Dec 23",
-            "t": "Whisk or shake {oil} olive oil, {vinegar} apple cider vinegar, {honey} honey, {dijon} Dijon, {garlic} minced garlic cloves and 3 generous pinches each of salt and pepper in a jar. Refrigerate."
+            "t": "Whisk or shake {oil} olive oil, {vinegar} apple cider vinegar, {honey} honey, {dijon} Dijon, {garlic} minced garlic cloves and 2 generous pinches each of salt and pepper in a jar. Refrigerate."
           },
           "Toast {walnuts} chopped walnuts in a dry skillet over medium heat for 4 to 5 minutes, stirring. Cool, then store airtight.",
           {
@@ -1937,7 +1937,7 @@
           },
           {
             "w": "5:45",
-            "t": "Thinly slice 1½ small red onions and rinse in cold water to mellow them. Drain well."
+            "t": "Thinly slice the red onion and rinse it in cold water to mellow it. Drain well."
           },
           "Core and thinly slice {apples} apples. Do it now, not earlier, so they don't brown.",
           "In a large bowl, combine {spinach} baby spinach, the apples, onion, walnuts, {cran} dried cranberries and {goat:1/2} goat cheese.",
@@ -1945,7 +1945,7 @@
           "Top with {goat:rest} goat cheese and serve right away."
         ],
         "notes": [
-          "The recipe doesn't list servings. 3× uses 15 oz of spinach, the same amount planned before for 10.",
+          "The recipe serves 4 to 6, so 2× serves 8 to 12. Plenty next to all the other sides.",
           "No cooking on the day, so this is a good job for a helper."
         ]
       }
