@@ -1,6 +1,7 @@
 {
   "name": "Christmas Dinner",
   "short_name": "Xmas Dinner",
+  "id": "./?app=christmas-dinner-2",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
