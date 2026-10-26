@@ -402,7 +402,7 @@
         {
           "id": "p-fridge",
           "text": "Plan fridge space",
-          "note": "A 15–16 lb turkey needs a full shelf. On Dec 23 you also need room for two pans of rolls overnight, and on the 24th for the stuffing and yams."
+          "note": "A 15–16 lb turkey needs a full shelf. Overflow can go in the cold garage only if it stays below 40°F, so check it with a thermometer. Keep the thawing turkey and anything with meat, dairy or eggs in the fridge. Drinks, produce and the cranberry sauce are fine in the garage."
         }
       ]
     },
@@ -477,6 +477,11 @@
           "note": "Press the thickest part of the thigh. It should give a little. Still hard? See “If the turkey is still icy” at the bottom."
         },
         {
+          "id": "p-yams",
+          "text": "Yams, around 2:00 pm: bake the candied yams",
+          "note": "Oven to 375°F. Slice the yams, coat them in the melted butter, sugar and spice mix, and spread in a deep 13×9 dish covered tightly with foil. In at 2:30 for 45 minutes covered, then stir and bake 45 more uncovered, until very tender. Out about 4:00. Cool 30 minutes, cover and refrigerate. The oven is free all day on the 23rd, and this is done well before the roll dough at 5:30."
+        },
+        {
           "id": "p-rolldough",
           "text": "Rolls, around 5:30 pm: make both batches of dough, one after the other",
           "note": "About 15 minutes each in the stand mixer. Cover and let them rise until doubled, 1–2 hours."
@@ -523,27 +528,10 @@
       "day": true,
       "items": [
         {
-          "id": "d-0815y",
-          "t": "8:15",
-          "text": "Yams: oven to 375°F. Slice the yams and coat them in the melted butter, sugar and spice mix",
-          "note": "Into a deep 13×9 dish, covered tightly with foil."
-        },
-        {
-          "id": "d-1045",
-          "t": "8:45",
-          "text": "Yams into the oven, covered, 45 minutes"
-        },
-        {
           "id": "d-0930",
           "t": "9:30",
           "text": "Stuffing: brown the sausage, sauté the vegetables, mix with bread, herbs, stock and eggs",
           "note": "Add the stock slowly. Stop when the bread is moist but not soggy. You may need up to 1 more cup, since bought cubes are drier and there are no mushrooms."
-        },
-        {
-          "id": "d-0930y",
-          "t": "9:30",
-          "text": "Yams: take off the foil, stir, and bake uncovered 45 more minutes",
-          "note": "Until very tender."
         },
         {
           "id": "d-1015",
@@ -552,16 +540,10 @@
           "note": "1–2 hours, until puffy. They go in the oven at 12:15."
         },
         {
-          "id": "d-1015y",
-          "t": "10:15",
-          "text": "Yams out. Cool 30 minutes, then cover and refrigerate",
-          "note": "Oven down to 350°F for the stuffing."
-        },
-        {
           "id": "d-1030",
           "t": "10:30",
           "text": "Stuffing into the oven at 350°F",
-          "note": "Covered for 25 minutes, then uncovered for about 20."
+          "note": "Turn the oven on to 350°F at 10:10. Covered for 25 minutes, then uncovered for about 20."
         },
         {
           "id": "d-1145",
@@ -1247,7 +1229,7 @@
         },
         {
           "label": "Make ahead",
-          "text": "Keeps 5 days. Reheat at 350°F for 15–20 min. Does not freeze well."
+          "text": "Baked on Dec 23 and reheated on the day. Keeps 5 days. Does not freeze well."
         }
       ],
       "recipe": {
@@ -1310,33 +1292,33 @@
         ],
         "steps": [
           {
-            "w": "8:15",
+            "w": "Dec 23, 2:00 pm",
             "t": "Heat the oven to 375°F. Put {yams} sliced yams in a large bowl."
           },
           "In a medium pot over low heat, melt {butter} butter with {sugar} brown sugar, {vanilla} vanilla, {cinnamon} cinnamon, {nutmeg} nutmeg and a pinch of salt. Whisk until smooth.",
           "Pour the mixture over the yams and toss until every slice is coated.",
           "Spread in a deep 13×9-inch baking dish and cover tightly with foil. This much is a lot for one dish, so use a deep one or split it between two.",
           {
-            "w": "8:45",
+            "w": "2:30 pm",
             "t": "Bake covered for 45 minutes."
           },
           {
-            "w": "9:30",
+            "w": "3:15 pm",
             "t": "Take off the foil and stir."
           },
           "Bake uncovered for another 45 minutes, until very tender.",
           {
-            "w": "10:15",
-            "t": "Cool 30 minutes, cover and refrigerate until the reheat."
+            "w": "4:00 pm",
+            "t": "Cool 30 minutes, cover and refrigerate until the next day."
           },
           {
-            "w": "5:25",
-            "t": "Reheat covered at 350°F for 25 to 30 minutes, until hot."
+            "w": "Dec 24, 5:25",
+            "t": "On Dec 24, reheat covered at 350°F for 25 to 30 minutes, until hot."
           }
         ],
         "notes": [
           "Follows Billy's recipe card: 45 minutes covered, stir, then 45 minutes uncovered. A full 1.5× batch may need a few extra minutes, so check that the slices are very tender.",
-          "Keeps 5 days in the fridge. Does not freeze well."
+          "Made the day before, on Dec 23. Keeps 5 days in the fridge. Does not freeze well."
         ]
       }
     },
