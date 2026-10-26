@@ -200,6 +200,10 @@ header::after { display: none; }
 /* The strip under the phone status bar matches the header band, not the page */
 body::before { background: var(--band); }
 body { margin-top: 0; }
+/* Title doubles as a home button: back to the full dish list */
+.home { appearance: none; border: 0; background: none; padding: 0; margin: 0; font: inherit; color: inherit; letter-spacing: inherit; cursor: pointer; border-radius: 6px; -webkit-tap-highlight-color: transparent; transition: opacity 0.15s; }
+.home:active { opacity: 0.7; }
+.home:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 /* 2. Linen paper texture */
 body { background-image: repeating-linear-gradient(0deg, rgb(120 80 40 / 0.025) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgb(120 80 40 / 0.02) 0 1px, transparent 1px 4px); }
 /* 3. Printed-menu section headings */
