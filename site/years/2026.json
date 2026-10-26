@@ -3,7 +3,8 @@
   "title": "Christmas Dinner",
   "guests": 10,
   "sitDown": "6:00 pm",
-  "date": null,
+  "date": "2026-12-24",
+  "timelineNote": "Times assume Thursday, Dec 24, a 6:00 pm sit-down, a 15–16 lb frozen turkey and your one convection oven. Use convection for the carrots and potatoes, and regular bake for everything else, since the recipes are written that way. D is dinner day.",
   "shopping": [
     {
       "id": "meat",
@@ -11,9 +12,9 @@
       "items": [
         {
           "id": "turkey",
-          "name": "Fresh turkey",
+          "name": "Frozen turkey",
           "qty": "15–16 lb",
-          "note": "Billy's recipe is written for 12–14 lb. This size feeds 10 with leftovers. If frozen, start thawing 4 days ahead."
+          "note": "Billy's recipe is written for 12–14 lb. This size feeds 10 with leftovers. Buy it early if you have freezer space. Thawing starts Sunday morning, Dec 20."
         },
         {
           "id": "sausage",
@@ -378,8 +379,8 @@
       "items": [
         {
           "id": "p-order",
-          "text": "Order the turkey, 15–16 lb",
-          "note": "Fresh from a butcher, or a store pre-order."
+          "text": "Buy a frozen turkey, 15–16 lb",
+          "note": "Any time you have freezer space. Thawing starts Sunday morning, Dec 20."
         },
         {
           "id": "p-fit",
@@ -401,7 +402,7 @@
     {
       "id": "d7",
       "title": "One week before",
-      "when": "D−7",
+      "when": "Thu Dec 17 · D−7",
       "items": [
         {
           "id": "p-pantry",
@@ -421,19 +422,19 @@
     {
       "id": "d4",
       "title": "Four days before",
-      "when": "D−4, evening",
+      "when": "Sun Dec 20 · D−4, morning",
       "items": [
         {
           "id": "p-thaw",
-          "text": "Frozen turkey only: move it to the fridge",
-          "note": "Allow 24 hours per 5 lb, so about 3 days for 15–16 lb. Keep it on a tray on the bottom shelf."
+          "text": "Move the frozen turkey to the fridge",
+          "note": "Allow 24 hours for every 4–5 lb, so 3–4 days for 15–16 lb. Sunday morning gives it about 4 days. Leave it wrapped, on a tray on the bottom shelf."
         }
       ]
     },
     {
       "id": "d3",
       "title": "Three days before",
-      "when": "D−3",
+      "when": "Mon Dec 21 · D−3",
       "items": [
         {
           "id": "p-produce",
@@ -444,15 +445,11 @@
     {
       "id": "d2",
       "title": "Two days before",
-      "when": "D−2",
+      "when": "Tue Dec 22 · D−2",
       "items": [
         {
           "id": "p-herbs",
           "text": "Buy fresh herbs"
-        },
-        {
-          "id": "p-pick",
-          "text": "Pick up the fresh turkey"
         },
         {
           "id": "p-cran",
@@ -469,8 +466,13 @@
     {
       "id": "d1",
       "title": "The day before",
-      "when": "D−1",
+      "when": "Wed Dec 23 · D−1",
       "items": [
+        {
+          "id": "p-thawchk",
+          "text": "Check the turkey has thawed",
+          "note": "Press the thickest part of the thigh. It should give a little. Still hard? See “If the turkey is still icy” at the bottom."
+        },
         {
           "id": "p-bake",
           "text": "Make and bake the rolls, two separate batches",
@@ -509,7 +511,7 @@
     {
       "id": "day",
       "title": "Dinner day",
-      "when": "Sit down 6:00 pm",
+      "when": "Thu Dec 24 · sit down 6:00 pm",
       "day": true,
       "items": [
         {
@@ -608,7 +610,7 @@
         {
           "id": "d-1700",
           "t": "5:00",
-          "text": "Casseroles out, keep covered. Oven to 450°F (475°F without fan)"
+          "text": "Casseroles out, keep covered. Oven to 450°F on convection"
         },
         {
           "id": "d-1710",
@@ -764,8 +766,8 @@
           {
             "id": "turkey",
             "group": "Turkey",
-            "name": "fresh turkey",
-            "note": "15–16 lb, neck and giblets removed for the gravy",
+            "name": "turkey",
+            "note": "15–16 lb, thawed, neck and giblets removed for the gravy",
             "grams": 6804,
             "weightUnit": "lb"
           },
@@ -840,7 +842,7 @@
         "notes": [
           "Billy's recipe is written for a 12–14 lb bird. The herb butter stays the same for 15–16 lb; only the roasting time grows.",
           "Roast on the bottom rack so heat circulates and the bottom doesn't steam.",
-          "Frozen turkey: thaw in the fridge, 24 hours per 5 lb.",
+          "Thaw in the fridge, 24 hours for every 4–5 lb. This plan starts it Sunday morning, Dec 20.",
           "Leftovers keep 5 days in the fridge or 3 months frozen. Reheat covered at 350°F with ½–1 cup stock for 15–20 minutes."
         ]
       }
@@ -1386,7 +1388,7 @@
           "Drain and leave them to air-dry in the colander for 10 minutes. Shake them once at the 5-minute mark to rough up the edges.",
           {
             "w": "5:00",
-            "t": "Heat the oven to 450°F with fan, or 475°F without."
+            "t": "Heat the oven to 450°F on convection."
           },
           {
             "w": "5:10",
@@ -1912,8 +1914,28 @@
       "text": "Leave it in until it reads 165°F. Skip the oven reheat, warm the stuffing, yams and carrots in the microwave in portions, and put the potatoes in once the turkey is out."
     },
     {
+      "title": "If the turkey is still icy.",
+      "text": "On the morning of the 24th, keep it in its wrapper and put it breast down in a sink of cold water. Change the water every 30 minutes and allow about 30 minutes per pound that is still frozen."
+    },
+    {
       "title": "For a lighter day.",
       "text": "Bake the stuffing, yams and carrots on D−1 and reheat them from the fridge on the day."
+    }
+  ],
+  "todo": [
+    {
+      "id": "t-steps",
+      "text": "Compare my recipe steps with the original recipe pages",
+      "note": "I couldn't open the sites directly, so the steps are in my own words."
+    },
+    {
+      "id": "t-gear",
+      "text": "Check the kitchen gear",
+      "note": "Roasting pan, meat thermometer, fat separator, two sheet pans, and the stand mixer for the rolls."
+    },
+    {
+      "id": "t-pantry",
+      "text": "Go through the shopping list and tick what you already have"
     }
   ]
 }

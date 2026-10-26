@@ -218,7 +218,7 @@
       '<p class="note-top">Scaled for ' + esc(plan.guests) + ' people. Tick an item to grey it out.</p>' +
       plan.shopping.map(groupHTML).join("");
     document.getElementById("p-timeline").innerHTML = lead + barHTML("plan", "tasks") +
-      '<p class="note-top">Times assume a ' + esc(plan.sitDown) + ' sit-down. D is dinner day.</p>' +
+      '<p class="note-top">' + esc(plan.timelineNote || "Times assume a " + plan.sitDown + " sit-down. D is dinner day.") + '</p>' +
       plan.timeline.map(groupHTML).join("") +
       (plan.callouts || []).map(function (c) { return '<div class="callout"><b>' + esc(c.title) + '</b> ' + esc(c.text) + '</div>'; }).join("");
     var groups = [];
@@ -238,11 +238,13 @@
             '<button class="pin" type="button" data-pin="' + esc(r.id) + '" aria-label="Pin ' + esc(d.name) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6l-.8 6.2 3.3 3.3H6.5l3.3-3.3z"/><path d="M12 13v7.5"/></svg></button></div>';
         }).join("") + '</div></div>';
       }).join("") +
-      '<p class="note-top" style="margin-top:16px">Tap a dish to open its recipe. Pin the dishes you are cooking and they stay in the bar at the top, so you can switch back and forth and land where you left off.</p></div>' +
+      '<p class="note-top" style="margin-top:16px">Tap a dish to open its recipe. Pin the dishes you are cooking and they stay in the bar at the top, so you can switch back and forth and land where you left off.</p>' +
+      '<details class="todo" id="todo"><summary>To do <span class="tcount" id="tcount"></span><svg class="tchev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></summary><div class="tbody"><div id="tlist"></div><form class="tadd" id="tadd"><input id="tnew" type="text" maxlength="200" placeholder="Add an item" aria-label="New to-do item" autocomplete="off"><button class="btn" type="submit">Add</button></form><button class="btn tsubmit" type="button" id="tsubmit" disabled>Submit</button></div></details></div>' +
       '<div id="mrec" hidden></div>';
     document.getElementById("fnote").textContent = "Quantities are scaled for " + plan.guests + " people. Ticks are saved separately for each year, on this device and, with sync on, in the repo.";
     setHide(lsGet(LSH) === "1");
     renderCook();
+    renderTodos();
   }
 
   function recipeById(k) {
@@ -420,6 +422,7 @@
   // Pull the latest ticks, replay queued taps on top, and write back if anything was queued.
   function sync(tries) {
     if (!token() || !plan) return Promise.resolve();
+    syncTodos();
     if (syncing) { again = true; return Promise.resolve(); }
     syncing = true;
     var y = year, ops = getPending(), ids = Object.keys(ops);
@@ -454,6 +457,100 @@
       syncing = false;
       if (again) { again = false; schedulePush(); }
     });
+  }
+
+  // To-do drop-down: the starting items, plus ones added here, minus ones submitted as done.
+  // Ticking only marks an item on this device; Submit removes the ticked ones everywhere.
+  var todoAdded = {}, todoRemoved = new Set(), todoTicked = new Set();
+  function todoItems() {
+    var added = Object.keys(todoAdded).sort().map(function (id) { return { id: id, text: todoAdded[id] }; });
+    return todoSeed().concat(added).filter(function (t) { return !todoRemoved.has(t.id); });
+  }
+  function renderTodos() {
+    var list = document.getElementById("tlist");
+    if (!list) return;
+    var items = todoItems(), cnt = document.getElementById("tcount");
+    cnt.textContent = items.length;
+    cnt.classList.toggle("zero", !items.length);
+    list.innerHTML = items.length ? items.map(function (t) {
+      var on = todoTicked.has(t.id);
+      return '<label class="row trow' + (on ? ' ticked' : '') + '"><input type="checkbox" data-todo="' + esc(t.id) + '"' + (on ? ' checked' : '') + '><span class="rbody"><span class="tt">' + esc(t.text) + '</span>' +
+        (t.note ? '<span class="tn">' + esc(t.note) + '</span>' : '') + '</span></label>';
+    }).join("") : '<p class="tempty">Nothing left to do.</p>';
+    todoSubmitState();
+  }
+  function todoSubmitState() {
+    var n = todoItems().filter(function (t) { return todoTicked.has(t.id); }).length;
+    var b = document.getElementById("tsubmit");
+    b.disabled = !n;
+    b.textContent = n ? "Submit " + n + " done" : "Submit";
+  }
+  document.addEventListener("change", function (e) {
+    var i = e.target;
+    if (!i || !i.dataset || !i.dataset.todo) return;
+    if (i.checked) todoTicked.add(i.dataset.todo); else todoTicked.delete(i.dataset.todo);
+    i.closest(".trow").classList.toggle("ticked", i.checked);
+    todoSubmitState();
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest || !e.target.closest("#tsubmit")) return;
+    var ids = todoItems().filter(function (t) { return todoTicked.has(t.id); }).map(function (t) { return t.id; });
+    if (!ids.length) return;
+    ids.forEach(function (id) { todoRemoved.add(id); todoTicked.delete(id); });
+    todoSave({ remove: ids });
+    renderTodos();
+    toast(ids.length === 1 ? "Done, removed from the list." : ids.length + " items done and removed.");
+  });
+  document.addEventListener("submit", function (e) {
+    if (!e.target || e.target.id !== "tadd") return;
+    e.preventDefault();
+    var input = document.getElementById("tnew"), text = input.value.trim();
+    if (!text) return;
+    var id = "t-" + Date.now().toString(36);
+    todoAdded[id] = text;
+    input.value = "";
+    todoSave({ add: [{ id: id, text: text }] });
+    renderTodos();
+  });
+  // To-dos for each year live in data/todos-<year>.json: items added in the app and ids
+  // submitted as done. Both only ever grow, so merging two devices is a plain union.
+  function todoSeed() { return (plan && plan.todo) || []; }
+  function todoKey() { return "cd-todos-" + year; }
+  function todoDirtyKey() { return "cd-todos-dirty-" + year; }
+  function loadTodos() {
+    todoAdded = {}; todoRemoved = new Set(); todoTicked = new Set();
+    try { var t0 = JSON.parse(lsGet(todoKey()) || "null"); if (t0) { todoAdded = t0.added || {}; todoRemoved = new Set(t0.removed || []); } } catch (e) {}
+  }
+  function todoSaveLocal() { lsSet(todoKey(), JSON.stringify({ added: todoAdded, removed: Array.from(todoRemoved) })); }
+  function todoSave() {
+    todoSaveLocal(); lsSet(todoDirtyKey(), "1");
+    if (token()) schedulePush();
+  }
+  var todoSyncing = false;
+  function syncTodos(tries) {
+    if (!token() || !plan || todoSyncing) return;
+    todoSyncing = true;
+    var y = year, path = "data/todos-" + y + ".json";
+    gh("GET", path).then(function (r) {
+      if (r.status === 404) return { sha: null, added: {}, removed: [] };
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.json().then(function (f) { var v = JSON.parse(b64decode(f.content)); return { sha: f.sha, added: v.added || {}, removed: v.removed || [] }; });
+    }).then(function (remote) {
+      if (y !== year) return;
+      var added = Object.assign({}, remote.added, todoAdded), removed = new Set(remote.removed.concat(Array.from(todoRemoved)));
+      var changed = Object.keys(added).length !== Object.keys(remote.added).length || removed.size !== remote.removed.length;
+      todoAdded = added; todoRemoved = removed; todoSaveLocal(); renderTodos();
+      if (!changed) { lsSet(todoDirtyKey(), ""); return; }
+      var body = { message: "Update " + y + " to-dos", content: b64encode(JSON.stringify({ added: added, removed: Array.from(removed).sort(), updated: new Date().toISOString() }, null, 2) + "\n") };
+      if (remote.sha) body.sha = remote.sha;
+      return gh("PUT", path, body).then(function (r) {
+        if (r.status === 409 || r.status === 422) throw new Error("conflict");
+        if (!r.ok) throw new Error("http " + r.status);
+        lsSet(todoDirtyKey(), "");
+      });
+    }).catch(function (err) {
+      if (err.message === "conflict" && (tries || 0) < 3) { todoSyncing = false; return syncTodos((tries || 0) + 1); }
+    }).then(function () { todoSyncing = false; });
   }
 
   function schedulePush() { clearTimeout(pushTimer); pushTimer = setTimeout(sync, 700); }
@@ -569,7 +666,7 @@
     return getJSON("years/" + src + ".json").then(function (p) {
       plan = p; year = y;
       lsSet("cd-year", String(y));
-      loadTicks(); loadCook(); render(); apply(); syncIdle(); sync();
+      loadTicks(); loadCook(); loadTodos(); render(); apply(); syncIdle(); sync();
     }).catch(function () { toast("Could not load the " + y + " plan."); });
   }
 
