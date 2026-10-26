@@ -55,8 +55,8 @@
         {
           "id": "beans",
           "name": "Green beans",
-          "qty": "3 lb",
-          "note": "Garlic lemon green beans."
+          "qty": "2¼ lb (1 kg)",
+          "note": "Garlic sautéed green beans."
         },
         {
           "id": "cranb",
@@ -109,14 +109,14 @@
         {
           "id": "garlic",
           "name": "Garlic",
-          "qty": "3 heads",
-          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), herb butter 5, stuffing 3, green beans about 4, plus spare."
+          "qty": "4 heads",
+          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), green beans 8, herb butter 5, stuffing 3, plus spare."
         },
         {
           "id": "lemon",
           "name": "Lemons",
-          "qty": "3",
-          "note": "1 for the turkey cavity, 1 for the green beans, 1 spare."
+          "qty": "2",
+          "note": "1 for the turkey cavity, 1 spare."
         },
         {
           "id": "parsley",
@@ -158,7 +158,7 @@
           "id": "butter",
           "name": "Unsalted butter",
           "qty": "4 lb (16 sticks)",
-          "note": "About 12 sticks go into recipes: herb butter 4, mashed potatoes about 3, yams 2¼, rolls 1½, stuffing 1. The rest covers the green beans, the table and an optional 1–2 tbsp in the gravy."
+          "note": "About 12 sticks go into recipes: herb butter 4, mashed potatoes about 3, yams 2¼, rolls 1½, stuffing 1. The rest covers the table and an optional 1–2 tbsp in the gravy."
         },
         {
           "id": "milk",
@@ -277,8 +277,8 @@
         {
           "id": "oil",
           "name": "Olive oil",
-          "qty": "about 1½ cups",
-          "note": "Garlic oil for the mash ½ cup + 2 tbsp, vinaigrette ½ cup, carrots 3½ tbsp, green beans 2 tbsp."
+          "qty": "about 1¾ cups",
+          "note": "Garlic oil for the mash ½ cup + 2 tbsp, vinaigrette ½ cup, green beans ¼ cup, carrots 3½ tbsp."
         },
         {
           "id": "corn",
@@ -509,7 +509,7 @@
         {
           "id": "p-beans",
           "text": "Trim and blanch the green beans",
-          "note": "Boil in well-salted water for 2–3 minutes, then plunge into ice water. Dry well and refrigerate in a towel-lined container."
+          "note": "Boil in two batches, 4 minutes each, in a large pot of water with 4 tsp salt. Rinse under cold tap water, shake dry and refrigerate in a towel-lined container."
         },
         {
           "id": "p-lay",
@@ -666,7 +666,7 @@
           "id": "d-1735",
           "t": "5:35",
           "text": "Sauté the green beans in two batches",
-          "note": "Large skillet, medium-high, 1 tbsp oil and 1 tbsp butter per batch, 4–5 minutes. Add half the sliced garlic for the last minute. Finish with lemon zest, a squeeze of juice, salt and pepper."
+          "note": "Large skillet, medium-high, 2 tbsp olive oil per batch. Add the beans and 4 minced garlic cloves together and toss 2–3 minutes, until the garlic is golden and the beans are hot. Season with salt and pepper. Take the beans out of the fridge at 5:00."
         },
         {
           "id": "d-1740",
@@ -1473,89 +1473,103 @@
       }
     },
     {
-      "name": "Garlic lemon green beans",
-      "url": null,
+      "name": "Garlic sautéed green beans",
+      "url": "https://www.recipetineats.com/garlic-sauteed-green-beans/",
       "status": "set",
       "group": "Sides",
       "lines": [
         {
           "label": "Size",
-          "text": "3 lb for 10"
+          "text": "2¼ lb (1 kg) for 10, 4× the recipe"
         },
         {
           "label": "Ingredients",
-          "text": "2 tbsp olive oil, 2 tbsp butter, 4 garlic cloves thinly sliced, zest and juice of 1 lemon, salt and pepper"
+          "text": "Salt for the blanching water. ¼ cup olive oil, 8 garlic cloves finely minced, ½ tsp salt, pepper."
         },
         {
           "label": "Method",
-          "text": "Blanch 2–3 min the day before, then sauté in two batches for 4–5 min just before serving. Garlic goes in for the last minute so it does not burn."
+          "text": "Blanch 4 min on Wed Dec 23, rinse under cold water, dry and chill. At 5:35, sauté with the garlic in two batches, 2–3 min each."
         }
       ],
       "recipe": {
         "id": "beans",
         "short": "Green beans",
-        "title": "Garlic lemon green beans",
-        "source": "My recipe",
-        "servings": "Serves 10",
-        "time": "Blanch 5 min the day before · sauté 10 min",
+        "title": "Garlic sautéed green beans",
+        "source": "RecipeTin Eats",
+        "url": "https://www.recipetineats.com/garlic-sauteed-green-beans/",
+        "servings": "Serves 10 (4× the recipe)",
+        "time": "Blanch 10 min on Wed Dec 23 · sauté 6 min",
         "ingredients": [
           {
             "id": "beans",
+            "group": "Blanching",
             "name": "green beans",
-            "note": "trimmed",
-            "grams": 1361,
+            "note": "stem ends trimmed, left whole",
+            "grams": 1021,
             "weightUnit": "lb"
           },
           {
-            "id": "oil",
-            "name": "olive oil",
-            "ml": 30,
-            "grams": 27,
+            "id": "bsalt",
+            "group": "Blanching",
+            "name": "salt",
+            "note": "for the water",
+            "ml": 20,
+            "grams": 24,
             "estimated": true
           },
           {
-            "id": "butter",
-            "name": "unsalted butter",
-            "ml": 30,
-            "grams": 28
+            "id": "oil",
+            "group": "Sautéing",
+            "name": "extra virgin olive oil",
+            "note": "or butter",
+            "ml": 60,
+            "grams": 54,
+            "estimated": true
           },
           {
             "id": "garlic",
+            "group": "Sautéing",
             "name": "garlic cloves",
-            "note": "thinly sliced",
-            "count": 4,
-            "grams": 12,
+            "note": "finely minced with a knife, not a press",
+            "count": 8,
+            "grams": 24,
             "estimated": true
           },
           {
-            "id": "lemon",
-            "name": "lemon",
-            "note": "zest and juice",
-            "count": 1
+            "id": "salt",
+            "group": "Sautéing",
+            "name": "salt",
+            "ml": 2.5,
+            "grams": 3,
+            "estimated": true
           },
           {
-            "id": "salt",
-            "name": "salt and pepper",
-            "unmeasured": "to taste, plus salt for the water"
+            "id": "pepper",
+            "group": "Sautéing",
+            "name": "black pepper",
+            "unmeasured": "4 pinches"
           }
         ],
         "steps": [
           {
             "w": "Wed Dec 23",
-            "t": "Bring a large pot of well-salted water to a boil and fill a big bowl with ice water."
+            "t": "Bring a large pot of water to a boil with {bsalt} salt."
           },
-          "Boil {beans} green beans for 2 to 3 minutes, until bright green. Drain and plunge them into the ice water.",
+          "Add half of the {beans} green beans and cook 4 minutes, until bright green. Lift them out, then cook the other half the same way.",
+          "Drain, rinse under cold tap water to cool, and shake off the excess water. Ice water isn't needed.",
           "Dry well and refrigerate in a towel-lined container.",
           {
             "w": "5:35",
-            "t": "Heat {oil:1/2} olive oil and {butter:1/2} butter in a large skillet over medium-high heat. Add half the beans and sauté 4 to 5 minutes, until hot and lightly blistered."
+            "t": "Heat {oil:1/2} olive oil in a large skillet over medium-high heat."
           },
-          "For the last minute, add {garlic:1/2} sliced garlic cloves. Move to a serving dish.",
-          "Repeat with {oil:rest} olive oil, {butter:rest} butter, the rest of the beans and {garlic:rest} garlic cloves.",
-          "Finish with the zest of {lemon} lemon, a squeeze of its juice, and salt and pepper."
+          "Add half the beans and {garlic:1/2} garlic cloves. Toss for 2 to 3 minutes, until the garlic is golden and crispy and the beans are hot.",
+          "Add {salt:1/2} salt and a couple of pinches of pepper, toss, and move to a serving dish.",
+          "Repeat with {oil:rest} olive oil, the rest of the beans, {garlic:rest} garlic cloves, and the rest of the salt and pepper. Serve warm."
         ],
         "notes": [
-          "Garlic goes in last so it doesn't burn."
+          "Nagi's recipe is 250 g, which serves 2 to 4. 4× gives about 100 g each for 10.",
+          "Take the beans out of the fridge at 5:00 so they aren't icy when they hit the pan. The recipe's sauté is only 2 minutes, so allow up to 3 when they start cold.",
+          "Mince the garlic with a knife. A press makes it wet, so it spits and burns."
         ]
       }
     },
