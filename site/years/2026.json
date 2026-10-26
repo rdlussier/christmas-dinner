@@ -4,7 +4,7 @@
   "guests": 10,
   "sitDown": "6:00 pm",
   "date": "2026-12-24",
-  "timelineNote": "Times assume Thursday, Dec 24, a 6:00 pm sit-down, a 15–16 lb frozen turkey and your one convection oven. Use convection for the carrots and potatoes, and regular bake for everything else, since the recipes are written that way. D is dinner day.",
+  "timelineNote": "Times assume Thursday, Dec 24, a 6:00 pm sit-down, a 15–16 lb frozen turkey and your one convection oven. Use convection for the carrots and potatoes, and regular bake for everything else, since the recipes are written that way.",
   "shopping": [
     {
       "id": "meat",
@@ -402,7 +402,7 @@
     {
       "id": "d7",
       "title": "One week before",
-      "when": "Thu Dec 17 · D−7",
+      "when": "Thu Dec 17",
       "items": [
         {
           "id": "p-pantry",
@@ -422,7 +422,7 @@
     {
       "id": "d4",
       "title": "Four days before",
-      "when": "Sun Dec 20 · D−4, morning",
+      "when": "Sun Dec 20, morning",
       "items": [
         {
           "id": "p-thaw",
@@ -434,7 +434,7 @@
     {
       "id": "d3",
       "title": "Three days before",
-      "when": "Mon Dec 21 · D−3",
+      "when": "Mon Dec 21",
       "items": [
         {
           "id": "p-produce",
@@ -445,7 +445,7 @@
     {
       "id": "d2",
       "title": "Two days before",
-      "when": "Tue Dec 22 · D−2",
+      "when": "Tue Dec 22",
       "items": [
         {
           "id": "p-herbs",
@@ -466,7 +466,7 @@
     {
       "id": "d1",
       "title": "The day before",
-      "when": "Wed Dec 23 · D−1",
+      "when": "Wed Dec 23",
       "items": [
         {
           "id": "p-thawchk",
@@ -929,7 +929,7 @@
         ],
         "steps": [
           {
-            "w": "D−1",
+            "w": "Wed Dec 23",
             "t": "Put the neck, heart and gizzard in a pot and cover with water. Bring to a boil, then simmer about 1 hour."
           },
           "Strain, keeping the liquid. Pick the meat off the neck and dice it with the heart and gizzard. Refrigerate the meat and the liquid separately.",
@@ -1020,7 +1020,7 @@
         ],
         "steps": [
           {
-            "w": "D−2",
+            "w": "Tue Dec 22",
             "t": "In a high-sided medium pot, bring {water} water and {sugar} sugar to a full boil."
           },
           "Add {cranberries} cranberries and bring back to a boil, until they start to pop.",
@@ -1159,7 +1159,7 @@
         ],
         "steps": [
           {
-            "w": "D−2",
+            "w": "Tue Dec 22",
             "t": "Heat the oven to 300°F. Spread {bread} bread cubes on a parchment-lined sheet pan and dry for 25 to 30 minutes, until crisp and firm. Cool, then store airtight."
           },
           {
@@ -1479,7 +1479,7 @@
         ],
         "steps": [
           {
-            "w": "D−1",
+            "w": "Wed Dec 23",
             "t": "Bring a large pot of well-salted water to a boil and fill a big bowl with ice water."
           },
           "Boil {beans} green beans for 2 to 3 minutes, until bright green. Drain and plunge them into the ice water.",
@@ -1696,7 +1696,7 @@
         ],
         "steps": [
           {
-            "w": "D−1",
+            "w": "Wed Dec 23",
             "t": "Whisk {milk} warm milk, {yeast} instant yeast and {sugar:1 tbsp} sugar together. Let stand 5 minutes."
           },
           "Add {sugar:rest} sugar, {egg} egg, {butter} softened butter, {salt} salt and {flour:1 cup} flour. Mix on low speed.",
@@ -1851,7 +1851,7 @@
         ],
         "steps": [
           {
-            "w": "D−1",
+            "w": "Wed Dec 23",
             "t": "Shake {oil} olive oil, {vinegar} apple cider vinegar, {dijon} Dijon, {maple} maple syrup, {shallot} minced shallot, {salt} salt and some pepper in a jar. Refrigerate."
           },
           "Toast {pecans} pecans in a dry skillet over medium heat for 4 to 5 minutes, stirring. Cool, then store airtight.",
@@ -1872,42 +1872,6 @@
       }
     }
   ],
-  "open": [
-    {
-      "id": "o-date",
-      "text": "Dinner date: 24th or 25th",
-      "note": "Turns D−7 … D into real calendar dates."
-    },
-    {
-      "id": "o-oven",
-      "text": "Oven settings: is there a fan or convection mode?",
-      "note": "You asked to be reminded. It affects the potatoes (450°F with fan, 475°F without)."
-    },
-    {
-      "id": "o-diet",
-      "text": "Allergies or dietary needs among the 10 guests",
-      "note": "The stuffing has pork sausage, and the turkey is wrapped in bacon. Does anyone avoid meat or pork?"
-    },
-    {
-      "id": "o-turkey",
-      "text": "Fresh or frozen turkey, and where you'll get it",
-      "note": "Frozen needs thawing to start 4 days ahead."
-    },
-    {
-      "id": "o-help",
-      "text": "Who is helping, and with what",
-      "note": "Flipping and carving the turkey are the two jobs worth assigning. Also table, drinks and the salad."
-    },
-    {
-      "id": "o-rolls",
-      "text": "Rolls: bake the day before, or fresh on the day?",
-      "note": "The plan bakes them the day before to keep the oven free on the day."
-    },
-    {
-      "id": "o-snack",
-      "text": "Something for guests to nibble while the turkey rests (optional)"
-    }
-  ],
   "callouts": [
     {
       "title": "If the turkey is late.",
@@ -1919,7 +1883,7 @@
     },
     {
       "title": "For a lighter day.",
-      "text": "Bake the stuffing, yams and carrots on D−1 and reheat them from the fridge on the day."
+      "text": "Bake the stuffing, yams and carrots on Wed Dec 23 and reheat them from the fridge on the day."
     }
   ],
   "todo": [

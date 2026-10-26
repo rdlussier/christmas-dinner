@@ -1,5 +1,5 @@
 // Offline support: network first so updates show up, cached copy when offline.
-var CACHE = "cd-v17";
+var CACHE = "cd-v18";
 var SHELL = ["./", "index.html", "app.css?v=10", "app.js?v=10", "manifest.webmanifest", "icon.svg", "years/index.json"];
 
 self.addEventListener("install", function (e) {

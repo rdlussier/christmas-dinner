@@ -218,7 +218,7 @@
       '<p class="note-top">Scaled for ' + esc(plan.guests) + ' people. Tick an item to grey it out.</p>' +
       plan.shopping.map(groupHTML).join("");
     document.getElementById("p-timeline").innerHTML = lead + barHTML("plan", "tasks") +
-      '<p class="note-top">' + esc(plan.timelineNote || "Times assume a " + plan.sitDown + " sit-down. D is dinner day.") + '</p>' +
+      '<p class="note-top">' + esc(plan.timelineNote || "Times assume a " + plan.sitDown + " sit-down.") + '</p>' +
       plan.timeline.map(groupHTML).join("") +
       (plan.callouts || []).map(function (c) { return '<div class="callout"><b>' + esc(c.title) + '</b> ' + esc(c.text) + '</div>'; }).join("");
     var groups = [];
