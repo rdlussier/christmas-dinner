@@ -199,6 +199,7 @@ header::after { display: none; }
 .topbar { margin-top: 0; }
 /* The strip under the phone status bar matches the header band, not the page */
 body::before { background: var(--band); }
+body { margin-top: 0; }
 /* 2. Linen paper texture */
 body { background-image: repeating-linear-gradient(0deg, rgb(120 80 40 / 0.025) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgb(120 80 40 / 0.02) 0 1px, transparent 1px 4px); }
 /* 3. Printed-menu section headings */
