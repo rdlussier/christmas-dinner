@@ -549,7 +549,7 @@
           "id": "d-1145",
           "t": "11:45",
           "text": "Roast the whole carrots at 425°F",
-          "note": "Toss with 3 tbsp olive oil, 1 tsp salt and pepper. One layer on a parchment-lined sheet pan with space between them. 25–30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat."
+          "note": "Toss with 3 tbsp olive oil, 1 tsp salt and pepper. One layer on a parchment-lined sheet pan with space between them. Convection, 20–25 minutes, turning once at 10 minutes. Start checking at 20: browned and just tender with a little bite left. They finish cooking in the reheat."
         },
         {
           "id": "d-1200",
@@ -653,8 +653,14 @@
         {
           "id": "d-1635",
           "t": "5:25",
-          "text": "Reheat the stuffing (splash of stock) and yams, covered, at 350°F for 25–30 minutes, until hot. Glaze the carrots and put them in uncovered",
-          "note": "Carrot glaze: melt 2 tbsp butter with 2 tbsp honey and 1 tbsp chopped thyme, toss with the carrots on their pan. They come out at 5:55, hot for the table."
+          "text": "Reheat the stuffing (splash of stock) and yams, covered, at 350°F for 25–30 minutes, until hot",
+          "note": "Leave a rack free for the carrot pan, which goes in at 5:35. Everything comes out together at 5:55."
+        },
+        {
+          "id": "d-1735c",
+          "t": "5:35",
+          "text": "Glaze the carrots and put them in uncovered for 15–20 minutes",
+          "note": "Melt 2 tbsp butter with 2 tbsp honey and 1 tbsp chopped thyme and toss with the carrots on their pan. They come out with the stuffing and yams at 5:55, hot for the table."
         },
         {
           "id": "d-1735",
@@ -1569,7 +1575,7 @@
         },
         {
           "label": "Method",
-          "text": "Roast whole at 425°F for 25–30 min at midday, chill, then glaze and reheat uncovered at 350°F for about 20 min with the casseroles."
+          "text": "Roast whole at 425°F on convection for 20–25 min at midday, chill, then glaze and reheat uncovered at 350°F for 15–20 min at 5:35."
         }
       ],
       "recipe": {
@@ -1578,7 +1584,7 @@
         "title": "Honey-thyme roasted whole carrots",
         "source": "My recipe",
         "servings": "Serves 10",
-        "time": "Roast 30 min at midday · glaze and reheat 20 min",
+        "time": "Roast 20–25 min at midday · glaze and reheat 15–20 min",
         "ingredients": [
           {
             "id": "carrots",
@@ -1638,16 +1644,16 @@
           },
           "Toss {carrots} carrots with {oil} olive oil, {salt} salt and some pepper.",
           "Spread them in one layer with space between them.",
-          "Roast 25 to 30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat.",
+          "Roast on convection 20 to 25 minutes, turning once. Start checking at 20 minutes: browned and just tender with a little bite left. They finish cooking in the reheat.",
           {
             "w": "12:15",
             "t": "Cool 30 minutes, cover and refrigerate."
           },
           {
-            "w": "5:25",
+            "w": "5:35",
             "t": "Melt {butter} butter with {honey} honey and {thyme} thyme. Toss with the carrots on their pan."
           },
-          "Reheat uncovered at 350°F for 25 to 30 minutes, alongside the stuffing and yams."
+          "Reheat uncovered at 350°F for 15 to 20 minutes, next to the stuffing and yams. Out at 5:55."
         ],
         "notes": [
           "Pick slim carrots of a similar size so they cook evenly."
