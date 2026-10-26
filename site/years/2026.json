@@ -180,9 +180,9 @@
       "items": [
         {
           "id": "bread",
-          "name": "Fresh loaf of bread",
-          "qty": "about 1½ lb",
-          "note": "Sourdough or similar. Makes the 12 cups of cubes for stuffing."
+          "name": "Dried bread cubes, unseasoned",
+          "qty": "about 12 cups (14 oz)",
+          "note": "For the stuffing. Usually sold in 12–14 oz bags near the stuffing mix."
         }
       ]
     },
@@ -342,13 +342,13 @@
           "id": "parch",
           "name": "Parchment paper",
           "qty": "1 roll",
-          "note": "Bread cubes and potato pans."
+          "note": "Potato and carrot pans."
         },
         {
           "id": "dishes",
           "name": "13×9 baking dishes",
-          "qty": "3",
-          "note": "Stuffing, yams (3 lb is a lot for one dish, so use a deeper dish or split it), rolls."
+          "qty": "4",
+          "note": "Stuffing, yams (3 lb is a lot for one dish, so use a deeper dish or split it), and one per batch of rolls."
         },
         {
           "id": "sheet",
@@ -388,14 +388,9 @@
           "note": "Roasting pan on the bottom rack with a second rack above it. Check that a 13×9 dish and two sheet pans fit. This decides how much can share the oven with the turkey."
         },
         {
-          "id": "p-rolls",
-          "text": "Bake a test batch of the rolls (optional)",
-          "note": "One batch makes 14–16. Freeze a few to try the freezer route."
-        },
-        {
           "id": "p-fridge",
           "text": "Plan fridge space",
-          "note": "A 15–16 lb turkey needs a full shelf, plus room for stuffing, yams and rolls."
+          "note": "A 15–16 lb turkey needs a full shelf, plus room for the stuffing and yams."
         }
       ]
     },
@@ -411,7 +406,8 @@
         },
         {
           "id": "p-bread",
-          "text": "Buy the bread loaf for stuffing"
+          "text": "Buy dried bread cubes for the stuffing",
+          "note": "Unseasoned, about 12 cups (14 oz)."
         },
         {
           "id": "p-therm",
@@ -455,11 +451,6 @@
           "id": "p-cran",
           "text": "Make the cranberry sauce",
           "note": "Boil 1 cup water with 1¼ cups sugar, add the cranberries, return to a boil, then cover and simmer about 15 minutes until very thick. Off the heat, stir in cinnamon, nutmeg and orange zest and press the berries to break them up. Use a high-sided pot (they splatter). Keeps 7 days in the fridge."
-        },
-        {
-          "id": "p-dry",
-          "text": "Dry the bread cubes",
-          "note": "300°F for 25–30 minutes until firm. Cool, then store airtight."
         }
       ]
     },
@@ -472,11 +463,6 @@
           "id": "p-thawchk",
           "text": "Check the turkey has thawed",
           "note": "Press the thickest part of the thigh. It should give a little. Still hard? See “If the turkey is still icy” at the bottom."
-        },
-        {
-          "id": "p-bake",
-          "text": "Make and bake the rolls, two separate batches",
-          "note": "Dough rises 1–2 hours, shaped rolls about 1 hour, then 20–25 minutes at 350°F on a lower rack. Cover tightly. They keep 2–3 days at room temperature. Reheat covered at 300°F for about 10 minutes."
         },
         {
           "id": "p-gib",
@@ -515,6 +501,12 @@
       "day": true,
       "items": [
         {
+          "id": "d-0845",
+          "t": "8:45",
+          "text": "Rolls: make both batches of dough, one after the other",
+          "note": "About 15 minutes each in the stand mixer. Cover the bowls and let them rise somewhere warm until doubled, 1–2 hours. Don't start later than 9:00, or they won't be ready when the oven is free at 12:15."
+        },
+        {
           "id": "d-0930",
           "t": "9:30",
           "text": "Stuffing: brown the sausage, sauté the vegetables, mix with bread, herbs, stock and eggs",
@@ -533,10 +525,22 @@
           "note": "Shortcut from Billy's page: slice, boil 4–6 minutes, drain, coat in the butter and sugar mix, bake at 375°F for 25–30 minutes. Check they are tender."
         },
         {
+          "id": "d-1100",
+          "t": "11:00",
+          "text": "Rolls: shape each batch into 14–16 balls in a greased 9×13 pan, cover and let rise",
+          "note": "About 1 hour, until puffy. They can wait up to 1½ hours if the oven runs late."
+        },
+        {
           "id": "d-1145",
           "t": "11:45",
           "text": "Roast the whole carrots at 425°F",
           "note": "Toss with 3 tbsp olive oil, 1 tsp salt and pepper. One layer on a parchment-lined sheet pan with space between them. 25–30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat."
+        },
+        {
+          "id": "d-1216",
+          "t": "12:15",
+          "text": "Carrots out. Rolls in at 350°F, both pans, 20–25 minutes",
+          "note": "Regular bake, not convection. Open the oven door for a minute so it drops from 425°F. Use two racks and swap the pans halfway. Rolls must be out by 12:40, before the oven goes to 450°F for the turkey. Cool, then cover tightly."
         },
         {
           "id": "d-1215",
@@ -1063,10 +1067,10 @@
         "ingredients": [
           {
             "id": "bread",
-            "name": "fresh bread",
-            "note": "cut in cubes, about a 1½ lb loaf",
+            "name": "dried bread cubes",
+            "note": "unseasoned, store-bought",
             "ml": 3000,
-            "grams": 680,
+            "grams": 400,
             "estimated": true
           },
           {
@@ -1159,10 +1163,6 @@
         ],
         "steps": [
           {
-            "w": "Tue Dec 22",
-            "t": "Heat the oven to 300°F. Spread {bread} bread cubes on a parchment-lined sheet pan and dry for 25 to 30 minutes, until crisp and firm. Cool, then store airtight."
-          },
-          {
             "w": "9:30",
             "t": "Melt {butter:1/2} butter in a large skillet over medium-high heat. Brown {sausage} sausage, breaking it up, until cooked through. Lift it out of the pan."
           },
@@ -1188,6 +1188,7 @@
         ],
         "notes": [
           "Made without the 2 cups of cremini mushrooms in Billy's recipe, so the mushroom step is left out.",
+          "Uses store-bought dried bread cubes, so there's no drying step.",
           "Taste the mixture before the eggs go in and adjust the seasoning.",
           "Keeps 4 days in the fridge or 3 months frozen."
         ]
@@ -1613,8 +1614,8 @@
           "text": "350°F for 20–25 min on a lower rack"
         },
         {
-          "label": "Make ahead",
-          "text": "Bake the day before, or shape and refrigerate overnight, or freeze."
+          "label": "On the day",
+          "text": "Dough at 8:45, shape at 11:00, bake at 12:15 while the oven is free, then warm just before dinner."
         }
       ],
       "recipe": {
@@ -1696,7 +1697,7 @@
         ],
         "steps": [
           {
-            "w": "Wed Dec 23",
+            "w": "8:45",
             "t": "Whisk {milk} warm milk, {yeast} instant yeast and {sugar:1 tbsp} sugar together. Let stand 5 minutes."
           },
           "Add {sugar:rest} sugar, {egg} egg, {butter} softened butter, {salt} salt and {flour:1 cup} flour. Mix on low speed.",
@@ -1704,10 +1705,16 @@
           "Knead 5 minutes by mixer or by hand, until soft and slightly tacky. A poke should spring back slowly.",
           "Put the dough in a greased bowl, turn it to coat, cover and let it rise 1 to 2 hours, until doubled.",
           "Grease a 9×13-inch pan.",
-          "Punch down the dough. Divide it into 14 to 16 pieces and shape each into a smooth ball. Arrange them in the pan.",
+          {
+            "w": "11:00",
+            "t": "Punch down the dough. Divide it into 14 to 16 pieces and shape each into a smooth ball. Arrange them in the pan."
+          },
           "Cover and let rise about 1 hour, until puffy.",
-          "Heat the oven to 350°F with a rack in a lower position.",
-          "Bake 20 to 25 minutes, until golden, turning the pan halfway. Tent with foil if the tops brown too fast.",
+          "When the carrots come out, let the oven drop to 350°F, with a rack in a lower position.",
+          {
+            "w": "12:15",
+            "t": "Bake 20 to 25 minutes, until golden, turning the pan halfway. Tent with foil if the tops brown too fast."
+          },
           "Optional: brush with {butter2} melted butter mixed with {honey} honey. Cool, then cover tightly.",
           {
             "w": "5:40",
@@ -1716,8 +1723,7 @@
         ],
         "notes": [
           "Amounts are for one batch. Sally advises against doubling, so make the batch twice.",
-          "Baked rolls keep 2–3 days covered at room temperature, or freeze for 3 months.",
-          "Overnight option: refrigerate the shaped rolls up to 15 hours, then let them rise 1–2 hours on the counter before baking."
+          "Made on the day: they bake at midday while the oven is free, then get warmed just before dinner."
         ]
       }
     },
