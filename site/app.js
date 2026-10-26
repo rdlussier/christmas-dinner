@@ -261,7 +261,7 @@
   function renderCook() {
     var bar = document.getElementById("cookbar");
     bar.hidden = !barWanted();
-    bar.innerHTML = '<button class="cchip all" type="button" data-cook="" aria-pressed="' + (!cook.active) + '"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="1" width="7" height="7" rx="1.5"/><rect x="1" y="10" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>All dishes</button><span class="csep" aria-hidden="true"></span><div class="cdishes">' +
+    bar.innerHTML = '<button class="cchip all" type="button" data-cook="" aria-label="All dishes" title="All dishes" aria-pressed="' + (!cook.active) + '"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="1" width="7" height="7" rx="1.5"/><rect x="1" y="10" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>All dishes</button><span class="csep" aria-hidden="true"></span><div class="cdishes">' +
       cook.tray.map(function (k) {
         var r = recipeById(k);
         var on = cook.active === k, name = r.short || r.title;
@@ -349,7 +349,7 @@
       el.textContent = d ? d + " of " + n + " steps done" : n + " steps";
       el.classList.toggle("going", d > 0);
       var cp = document.getElementById("cp-" + m.recipe.id);
-      if (cp) cp.textContent = d + "/" + n;
+      if (cp) { cp.textContent = d + "/" + n; cp.closest(".cpill").style.setProperty("--p", (n ? 100 * d / n : 0) + "%"); }
     });
     // Mark the first unticked step so the eye lands on it after a switch.
     var next = false;

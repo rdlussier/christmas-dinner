@@ -234,3 +234,16 @@ body { background-image: repeating-linear-gradient(0deg, rgb(120 80 40 / 0.025) 
 .cx svg { width: 11px; height: 11px; }
 .cchip .cprog { font-size: 11.5px; }
 .csep { height: 24px; }
+/* Phones: "All dishes" becomes a square grid key and each dish shows its progress as a thin gold line,
+   so two dishes fit side by side. */
+.cpill { position: relative; overflow: hidden; }
+.cpill::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: var(--p, 0%); background: var(--gold); transition: width 0.2s; }
+@media (max-width: 520px) {
+  .cookbar { gap: 6px; }
+  .cchip.all { width: 38px; padding: 0; justify-content: center; font-size: 0; gap: 0; }
+  .cchip.all svg { width: 16px; height: 16px; }
+  .cchip .cprog { display: none; }
+  .cdishes { gap: 6px; }
+  .cpill .cchip { padding: 0 6px 0 12px; }
+  .cx { width: 32px; }
+}
