@@ -109,14 +109,8 @@
         {
           "id": "garlic",
           "name": "Garlic",
-          "qty": "2 heads",
-          "note": "Herb butter 5 cloves, stuffing 3, green beans about 4, plus spare."
-        },
-        {
-          "id": "pgarlic",
-          "name": "Peeled garlic cloves",
-          "qty": "about 50 (a 6–8 oz tub)",
-          "note": "Mashed potatoes: about 35 slow-cooked in oil, 14 boiled with the potatoes."
+          "qty": "3 heads",
+          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), herb butter 5, stuffing 3, green beans about 4, plus spare."
         },
         {
           "id": "lemon",
@@ -283,8 +277,8 @@
         {
           "id": "oil",
           "name": "Olive oil",
-          "qty": "about 3 cups (a 1 L bottle)",
-          "note": "Garlic oil for the mash 2 cups, vinaigrette ½ cup, carrots 3 tbsp, green beans 2 tbsp."
+          "qty": "about 1½ cups",
+          "note": "Garlic oil for the mash ½ cup + 2 tbsp, vinaigrette ½ cup, carrots 3 tbsp, green beans 2 tbsp."
         },
         {
           "id": "corn",
@@ -603,7 +597,7 @@
           "id": "d-1400m",
           "t": "2:00",
           "text": "Mashed potatoes: slow-cook the garlic in olive oil",
-          "note": "2 cups oil and about 35 peeled cloves in a small pot on low, 20–30 minutes, until golden and soft. Strain, keeping the garlic and the oil, and leave both out until 5:00."
+          "note": "½ cup + 2 tbsp olive oil and 5 peeled garlic cloves in a small pot on low, 20–30 minutes, until golden and soft. Strain, keeping the garlic and the oil, and leave both out until 5:00."
         },
         {
           "id": "d-1440",
@@ -648,7 +642,7 @@
         {
           "id": "d-1700m",
           "t": "5:00",
-          "text": "Mash the potatoes with the boiled garlic. Fold in the cream and butter, the slow-cooked garlic, ⅔–1 cup garlic oil and the sour cream",
+          "text": "Mash the potatoes with the boiled garlic. Fold in the cream and butter, the slow-cooked garlic and its oil, and the sour cream",
           "note": "Add three-quarters of each first, then the rest to taste. Season with salt and white pepper. Keep covered on very low heat, stirring now and then."
         },
         {
@@ -1354,18 +1348,18 @@
             "id": "oil",
             "group": "Garlic oil",
             "name": "olive oil",
-            "note": "you'll use about ⅔–1 cup of it",
-            "ml": 500,
-            "grams": 455,
+            "note": "all of it goes into the mash",
+            "ml": 156.25,
+            "grams": 142,
             "estimated": true
           },
           {
             "id": "garlic",
             "group": "Garlic oil",
-            "name": "peeled garlic cloves",
-            "note": "about 35",
-            "ml": 156,
-            "grams": 85,
+            "name": "garlic cloves",
+            "note": "peeled",
+            "count": 5,
+            "grams": 15,
             "estimated": true
           },
           {
@@ -1452,7 +1446,7 @@
             "w": "5:00",
             "t": "Drain the potatoes and mash them with the boiled garlic until smooth, using a masher, hand mixer, stand mixer or food mill."
           },
-          "With a spatula, fold in the hot cream and butter, the slow-cooked garlic, about ⅔ to 1 cup of the garlic oil, {sourcream} sour cream, and salt and white pepper. Add about three-quarters of each first, then the rest as needed.",
+          "With a spatula, fold in the hot cream and butter, the slow-cooked garlic and its oil, {sourcream} sour cream, and salt and white pepper. Add about three-quarters of each first, then the rest as needed.",
           "Cover and keep warm over very low heat, stirring now and then, for up to 1 hour.",
           {
             "w": "5:55",
@@ -1460,8 +1454,8 @@
           }
         ],
         "notes": [
-          "Billy's recipe serves 8, so everything is 1.25×. The olive oil is rounded up to 2 cups so it covers the garlic; the rest of the garlic oil is good for bread or roasting.",
-          "Too thick? Stir in a little more garlic oil or sour cream.",
+          "Billy's recipe serves 8, so everything is 1.25×. The garlic oil uses your amounts, ½ cup oil and 4 cloves before scaling, instead of Billy's 1½ cups and ½ cup.",
+          "Too thick? Stir in a little more warm cream or sour cream.",
           "Keeps 4 days in the fridge. Reheat in a pot over low heat with a little butter or milk."
         ]
       }
