@@ -217,7 +217,7 @@
         {
           "id": "brown",
           "name": "Light brown sugar",
-          "qty": "2⅝ cups packed",
+          "qty": "2½ cups + 2 tbsp packed",
           "note": "Candied yams at 1.5×."
         },
         {
@@ -541,6 +541,12 @@
           "note": "Toss with 3 tbsp olive oil, 1 tsp salt and pepper. One layer on a parchment-lined sheet pan with space between them. 25–30 minutes, turning once, until browned and just tender with a little bite left. They finish cooking in the reheat."
         },
         {
+          "id": "d-1200",
+          "t": "12:00",
+          "text": "Whip the herb butter",
+          "note": "5–7 minutes in the stand mixer, then mix in herbs, garlic, salt and pepper."
+        },
+        {
           "id": "d-1216",
           "t": "12:15",
           "text": "Carrots out. Rolls in at 350°F, both pans, 20–25 minutes",
@@ -551,12 +557,6 @@
           "t": "12:15",
           "text": "Cool the stuffing, yams and carrots for 30 minutes, cover, and move to the fridge",
           "note": "They are reheated from cold later."
-        },
-        {
-          "id": "d-1200",
-          "t": "12:00",
-          "text": "Whip the herb butter",
-          "note": "5–7 minutes in the stand mixer, then mix in herbs, garlic, salt and pepper."
         },
         {
           "id": "d-1230",

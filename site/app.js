@@ -604,20 +604,32 @@
   }
   function wakeUI() {
     document.querySelectorAll("[data-wake]").forEach(function (b) {
-      b.textContent = wake ? "Screen stays on" : "Keep screen on";
-      b.setAttribute("aria-pressed", wake ? "true" : "false");
+      b.textContent = wantWake ? "Screen stays on" : "Keep screen on";
+      b.setAttribute("aria-pressed", wantWake ? "true" : "false");
     });
   }
-  async function toggleWake() {
+  // The phone drops the screen lock whenever you switch apps or lock it, so ask again on return.
+  var wantWake = false;
+  async function getWake() {
     try {
-      if (wake) { await wake.release(); wake = null; }
-      else {
-        wake = await navigator.wakeLock.request("screen");
-        wake.addEventListener("release", function () { wake = null; wakeUI(); });
-      }
-    } catch (e) { wake = null; toast("This browser would not keep the screen on."); }
+      wake = await navigator.wakeLock.request("screen");
+      wake.addEventListener("release", function () { wake = null; wakeUI(); });
+    } catch (e) { wake = null; return false; }
+    wakeUI();
+    return true;
+  }
+  async function toggleWake() {
+    if (wantWake) {
+      wantWake = false;
+      var w = wake; wake = null;
+      if (w) await w.release().catch(function () {});
+    } else {
+      wantWake = true;
+      if (!(await getWake())) { wantWake = false; toast("This browser would not keep the screen on."); }
+    }
     wakeUI();
   }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && wantWake && !wake) getWake(); });
 
   function untick(key) {
     var m = plan.menu.filter(function (d) { return d.recipe && d.recipe.id === key; })[0];
