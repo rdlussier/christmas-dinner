@@ -523,10 +523,27 @@
       "day": true,
       "items": [
         {
+          "id": "d-0815y",
+          "t": "8:15",
+          "text": "Yams: oven to 375°F. Slice the yams and coat them in the melted butter, sugar and spice mix",
+          "note": "Into a deep 13×9 dish, covered tightly with foil."
+        },
+        {
+          "id": "d-1045",
+          "t": "8:45",
+          "text": "Yams into the oven, covered, 45 minutes"
+        },
+        {
           "id": "d-0930",
           "t": "9:30",
           "text": "Stuffing: brown the sausage, sauté the vegetables, mix with bread, herbs, stock and eggs",
-          "note": "Add the stock slowly. Stop when the bread is moist but not soggy."
+          "note": "Add the stock slowly. Stop when the bread is moist but not soggy. You may need up to 1 more cup, since bought cubes are drier and there are no mushrooms."
+        },
+        {
+          "id": "d-0930y",
+          "t": "9:30",
+          "text": "Yams: take off the foil, stir, and bake uncovered 45 more minutes",
+          "note": "Until very tender."
         },
         {
           "id": "d-1015",
@@ -535,16 +552,16 @@
           "note": "1–2 hours, until puffy. They go in the oven at 12:15."
         },
         {
+          "id": "d-1015y",
+          "t": "10:15",
+          "text": "Yams out. Cool 30 minutes, then cover and refrigerate",
+          "note": "Oven down to 350°F for the stuffing."
+        },
+        {
           "id": "d-1030",
           "t": "10:30",
           "text": "Stuffing into the oven at 350°F",
           "note": "Covered for 25 minutes, then uncovered for about 20."
-        },
-        {
-          "id": "d-1045",
-          "t": "10:45",
-          "text": "Yams into the oven",
-          "note": "Shortcut from Billy's page: slice, boil 4–6 minutes, drain, coat in the butter and sugar mix, bake at 375°F for 25–30 minutes. Check they are tender."
         },
         {
           "id": "d-1145",
@@ -567,7 +584,7 @@
         {
           "id": "d-1215",
           "t": "12:15",
-          "text": "Cool the stuffing, yams and carrots for 30 minutes, cover, and move to the fridge",
+          "text": "Cool the stuffing and carrots for 30 minutes, cover, and move to the fridge",
           "note": "They are reheated from cold later."
         },
         {
@@ -1190,7 +1207,7 @@
           "Add {celery} celery stalks and {garlic} garlic cloves and cook 4 to 5 minutes, until the celery is tender.",
           "Put the vegetables, sausage and dried bread cubes in a large bowl.",
           "Gently mix in {sage} sage, {rosemary} rosemary, {thyme} thyme, and salt and pepper.",
-          "Pour in {stock} chicken stock a little at a time, mixing gently. Stop once the bread is moist but not soggy.",
+          "Pour in {stock} chicken stock a little at a time, mixing gently. Stop once the bread is moist but not soggy. Bought cubes and no mushrooms make it drier, so you may need up to 1 more cup.",
           "Stir in {eggs} whisked eggs.",
           "Spread in a 13×9-inch baking dish and cover with foil.",
           {
@@ -1202,8 +1219,8 @@
             "t": "Cool 30 minutes, cover and refrigerate until the reheat."
           },
           {
-            "w": "4:35",
-            "t": "Reheat covered at 350°F with a splash of stock for about 20 minutes. Garnish with chopped parsley."
+            "w": "5:25",
+            "t": "Reheat covered at 350°F with a splash of stock for 25 to 30 minutes, until hot. Garnish with chopped parsley."
           }
         ],
         "notes": [
@@ -1226,7 +1243,7 @@
         },
         {
           "label": "Method",
-          "text": "375°F. Boil-first shortcut is 25–30 min; the standard method is 90 min."
+          "text": "375°F: 45 min covered, stir, then 45 min uncovered."
         },
         {
           "label": "Make ahead",
@@ -1240,7 +1257,7 @@
         "source": "Chef Billy Parisi",
         "url": "https://www.billyparisi.com/delicious-candied-yams-recipe/",
         "servings": "Serves 12 (1.5× the recipe)",
-        "time": "Prep 10 min · boil 5 min · bake 25–30 min",
+        "time": "Prep 10 min · bake 1 hr 30 min",
         "ingredients": [
           {
             "id": "yams",
@@ -1288,30 +1305,37 @@
           {
             "id": "salt",
             "name": "salt",
-            "unmeasured": "a pinch, plus some for the water"
+            "unmeasured": "a pinch"
           }
         ],
         "steps": [
           {
-            "w": "10:45",
-            "t": "Heat the oven to 375°F."
+            "w": "8:15",
+            "t": "Heat the oven to 375°F. Put {yams} sliced yams in a large bowl."
           },
-          "Boil {yams} sliced yams in salted water for 4 to 6 minutes. Drain well and put them in a large bowl.",
-          "In a medium pan over low heat, melt {butter} butter with {sugar} brown sugar, {vanilla} vanilla, {cinnamon} cinnamon, {nutmeg} nutmeg and a pinch of salt. Whisk until smooth.",
-          "Pour the warm mixture over the yams and toss until evenly coated.",
-          "Spread in a 13×9-inch baking dish and cover with foil. This much is a lot for one dish, so use a deep one or split it.",
-          "Bake 25 to 30 minutes, until very tender.",
+          "In a medium pot over low heat, melt {butter} butter with {sugar} brown sugar, {vanilla} vanilla, {cinnamon} cinnamon, {nutmeg} nutmeg and a pinch of salt. Whisk until smooth.",
+          "Pour the mixture over the yams and toss until every slice is coated.",
+          "Spread in a deep 13×9-inch baking dish and cover tightly with foil. This much is a lot for one dish, so use a deep one or split it between two.",
           {
-            "w": "12:15",
+            "w": "8:45",
+            "t": "Bake covered for 45 minutes."
+          },
+          {
+            "w": "9:30",
+            "t": "Take off the foil and stir."
+          },
+          "Bake uncovered for another 45 minutes, until very tender.",
+          {
+            "w": "10:15",
             "t": "Cool 30 minutes, cover and refrigerate until the reheat."
           },
           {
-            "w": "4:35",
-            "t": "Reheat covered at 350°F for about 20 minutes."
+            "w": "5:25",
+            "t": "Reheat covered at 350°F for 25 to 30 minutes, until hot."
           }
         ],
         "notes": [
-          "This uses the boil-first shortcut from Billy's article. His recipe card bakes the raw slices instead: 45 minutes covered, stir, then 45 minutes uncovered.",
+          "Follows Billy's recipe card: 45 minutes covered, stir, then 45 minutes uncovered. A full 1.5× batch may need a few extra minutes, so check that the slices are very tender.",
           "Keeps 5 days in the fridge. Does not freeze well."
         ]
       }
@@ -1638,10 +1662,10 @@
             "t": "Cool 30 minutes, cover and refrigerate."
           },
           {
-            "w": "4:35",
+            "w": "5:25",
             "t": "Melt {butter} butter with {honey} honey and {thyme} thyme. Toss with the carrots on their pan."
           },
-          "Reheat uncovered at 350°F for about 20 minutes. Short on oven room? Use the air fryer at 350°F for 6 to 8 minutes."
+          "Reheat uncovered at 350°F for 25 to 30 minutes, alongside the stuffing and yams."
         ],
         "notes": [
           "Pick slim carrots of a similar size so they cook evenly."
