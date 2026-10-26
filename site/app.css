@@ -87,7 +87,20 @@ main { padding-top: 16px; }
 .dishrow .dm { display: block; margin-top: 2px; font-size: 13.5px; color: var(--muted); }
 .dishrow .dprog.going { color: var(--accent); font-weight: 600; }
 .dishrow .chev { flex: none; width: 20px; height: 20px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.dishrow.cooking { box-shadow: inset 3px 0 0 var(--accent); }
+.drow { display: flex; align-items: stretch; border-top: 1px solid var(--line); }
+.drow:first-child { border-top: 0; }
+.drow .dishrow { border-top: 0; }
+.drow.pinned { box-shadow: inset 3px 0 0 var(--accent); }
+.pin { appearance: none; flex: none; width: 52px; display: grid; place-items: center; border: 0; border-left: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.pin svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.pin[aria-pressed="true"] { color: var(--accent); }
+.pin[aria-pressed="true"] svg path:first-child { fill: currentColor; }
+.pin:focus-visible, .rpin:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.rpin { appearance: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 12px; padding: 0 16px; border-radius: 22px; border: 1px solid var(--accent); background: none; color: var(--accent); font: 600 15px var(--f-body); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.rpin svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.rpin[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
+.rpin[aria-pressed="true"] svg path:first-child { fill: currentColor; }
+.rpinwrap { text-align: center; }
 /* Recipe cards: Simmer's layout. Ingredient amounts in a mono column, steps with the amounts written in. */
 .recipe { margin-top: 4px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
 .recipe[hidden] { display: none; }
@@ -184,6 +197,8 @@ header h1 { color: var(--band-fg); }
 header::before { content: ""; display: block; height: 34px; margin: 0 auto 8px; width: 150px; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%2028%22%20fill%3D%22none%22%20stroke%3D%22%23C9A86A%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M8%2014h104%22/%3E%3Cpath%20d%3D%22M60%2014c-6-6-14-8-22-7M60%2014c-6%206-14%208-22%207M60%2014c6-6%2014-8%2022-7M60%2014c6%206%2014%208%2022%207%22/%3E%3Cpath%20d%3D%22M30%2014l-6-5M30%2014l-6%205M90%2014l6-5M90%2014l6%205M44%2014l-4-6M44%2014l-4%206M76%2014l4-6M76%2014l4%206%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2214%22%20r%3D%222.6%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2254.5%22%20cy%3D%2210.5%22%20r%3D%221.8%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2265.5%22%20cy%3D%2217.5%22%20r%3D%221.8%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat; }
 header::after { display: none; }
 .topbar { margin-top: 0; }
+/* The strip under the phone status bar matches the header band, not the page */
+body::before { background: var(--band); }
 /* 2. Linen paper texture */
 body { background-image: repeating-linear-gradient(0deg, rgb(120 80 40 / 0.025) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgb(120 80 40 / 0.02) 0 1px, transparent 1px 4px); }
 /* 3. Printed-menu section headings */

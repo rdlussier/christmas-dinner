@@ -179,7 +179,9 @@
     if (r.time) meta.push('<span>' + esc(r.time) + '</span>');
     meta.push(r.url ? '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.source) + '</a>' : '<span>' + esc(r.source) + '</span>');
     var est = r.ingredients.some(function (i) { return i.estimated; });
+    var pinned = cook.tray.indexOf(key) >= 0;
     return '<h3 class="rtitle">' + esc(r.title) + '</h3><p class="rmeta">' + meta.join("") + '</p>' +
+      '<div class="rpinwrap"><button class="rpin" type="button" data-pin="' + esc(key) + '" aria-pressed="' + pinned + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6l-.8 6.2 3.3 3.3H6.5l3.3-3.3z"/><path d="M12 13v7.5"/></svg>' + (pinned ? 'Pinned' : 'Pin to bar') + '</button></div>' +
       '<h4 class="rsec">Ingredients</h4><ul class="ings">' + ings + '</ul>' +
       (est ? '<p class="fine">≈ marks a weight worked out from standard conversions rather than given by the recipe.</p>' : '') +
       '<h4 class="rsec">Steps · tap to tick</h4><div class="steps">' + steps + '</div>' +
@@ -230,12 +232,13 @@
       '<div id="mlist">' + lead + groups.map(function (g) {
         return '<div class="mgroup"><h2>' + esc(g.name) + '</h2><div class="dishes">' + g.items.map(function (d) {
           var r = d.recipe;
-          return '<button class="dishrow" type="button" data-cook="' + esc(r.id) + '" id="row-' + esc(r.id) + '"><span class="dtx"><span class="dn">' + esc(d.name) + '</span>' +
+          return '<div class="drow" id="row-' + esc(r.id) + '"><button class="dishrow" type="button" data-open="' + esc(r.id) + '"><span class="dtx"><span class="dn">' + esc(d.name) + '</span>' +
             '<span class="dm">' + esc(r.source) + ' · <span class="dprog" id="prog-' + esc(r.id) + '"></span></span></span>' +
-            '<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button>';
+            '<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button>' +
+            '<button class="pin" type="button" data-pin="' + esc(r.id) + '" aria-label="Pin ' + esc(d.name) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6l-.8 6.2 3.3 3.3H6.5l3.3-3.3z"/><path d="M12 13v7.5"/></svg></button></div>';
         }).join("") + '</div></div>';
       }).join("") +
-      '<p class="note-top" style="margin-top:16px">Tap a dish to cook from it. Every dish you open stays in the bar at the top, so you can switch back and forth and land where you left off.</p></div>' +
+      '<p class="note-top" style="margin-top:16px">Tap a dish to open its recipe. Pin the dishes you are cooking and they stay in the bar at the top, so you can switch back and forth and land where you left off.</p></div>' +
       '<div id="mrec" hidden></div>';
     document.getElementById("fnote").textContent = "Quantities are scaled for " + plan.guests + " people. Ticks are saved separately for each year, on this device and, with sync on, in the repo.";
     setHide(lsGet(LSH) === "1");
@@ -257,7 +260,7 @@
   function saveCook() { lsSet(cookKey(), JSON.stringify(cook)); }
   function renderCook() {
     var bar = document.getElementById("cookbar");
-    bar.hidden = !cook.tray.length || tab !== "menu";
+    bar.hidden = !barWanted();
     bar.innerHTML = '<button class="cchip all" type="button" data-cook="" aria-pressed="' + (!cook.active) + '"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="1" width="7" height="7" rx="1.5"/><rect x="1" y="10" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>All dishes</button><span class="csep" aria-hidden="true"></span><div class="cdishes">' +
       cook.tray.map(function (k) {
         var r = recipeById(k);
@@ -269,21 +272,30 @@
     document.getElementById("mlist").hidden = !!k;
     rec.hidden = !k;
     rec.innerHTML = k ? '<div class="recipe">' + recipeHTML(recipeById(k)) + '</div>' : '';
-    document.querySelectorAll(".dishrow").forEach(function (row) { row.classList.toggle("cooking", cook.tray.indexOf(row.getAttribute("data-cook")) >= 0); });
+    document.querySelectorAll(".drow").forEach(function (row) {
+      var on = cook.tray.indexOf(row.id.slice(4)) >= 0;
+      row.classList.toggle("pinned", on);
+      row.querySelector(".pin").setAttribute("aria-pressed", on);
+    });
     wakeUI();
   }
   function menuShowing() { return !document.getElementById("p-menu").hidden; }
   // Switch to a recipe (or "" for the dish list) and put the page back where it was.
+  function barWanted() { return tab === "menu" && (cook.tray.length > 0 || !!cook.active); }
+  // Opening a dish does not pin it; an unpinned dish forgets its scroll once you leave it.
   function openCook(k) {
     k = k || null;
-    if (k && cook.tray.indexOf(k) < 0) cook.tray.push(k);
+    if (cook.active && cook.active !== k && cook.tray.indexOf(cook.active) < 0) delete cook.pos[cook.active];
     cook.active = k;
     saveCook();
     showTab("menu");
     renderCook();
     apply();
     restoreScroll();
-    // Slide the dish strip so the current dish is in view (after apply() has filled in the step counts).
+    centreStrip();
+  }
+  // Slide the dish strip so the current dish is in view (after apply() has filled in the step counts).
+  function centreStrip() {
     var strip = document.querySelector(".cdishes"), on = strip && strip.querySelector('[aria-pressed="true"]');
     if (on) { on = on.closest(".cpill") || on; strip.scrollLeft = Math.max(0, on.offsetLeft - strip.offsetLeft - (strip.clientWidth - on.offsetWidth) / 2); }
   }
@@ -294,6 +306,11 @@
     var y = cook.pos[posKey()];
     if (y == null) y = tab === "menu" && cook.active ? document.getElementById("main").offsetTop - document.querySelector(".topbar").offsetHeight : 0;
     window.scrollTo(0, Math.max(0, y));
+  }
+  function togglePin(k) {
+    if (cook.tray.indexOf(k) >= 0) cook.tray = cook.tray.filter(function (x) { return x !== k; });
+    else cook.tray.push(k);
+    saveCook(); renderCook(); apply(); centreStrip();
   }
   function uncook(k) {
     cook.tray = cook.tray.filter(function (x) { return x !== k; });
@@ -523,6 +540,10 @@
     if (t) showTab(t.dataset.tab);
     var c = e.target.closest("[data-cook]");
     if (c) openCook(c.getAttribute("data-cook"));
+    var o = e.target.closest("[data-open]");
+    if (o) openCook(o.getAttribute("data-open"));
+    var p = e.target.closest("[data-pin]");
+    if (p) togglePin(p.getAttribute("data-pin"));
     var x = e.target.closest("[data-uncook]");
     if (x) uncook(x.getAttribute("data-uncook"));
     if (e.target.closest("[data-wake]")) toggleWake();
@@ -535,7 +556,7 @@
     var was = tab;
     tab = name;
     document.querySelectorAll(".panel").forEach(function (p) { p.hidden = p.id !== "p-" + name; });
-    document.getElementById("cookbar").hidden = !cook.tray.length || name !== "menu";
+    document.getElementById("cookbar").hidden = !barWanted();
     history.replaceState(null, "", "#" + name);
     if (plan && name !== was) restoreScroll();
   }
