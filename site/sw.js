@@ -1,5 +1,5 @@
 // Offline support: network first so updates show up, cached copy when offline.
-var CACHE = "cd-v32";
+var CACHE = "cd-v33";
 var SHELL = ["./", "index.html", "app.css", "app.js", "manifest.webmanifest", "icon.svg", "logo.svg", "icon-192.png", "icon-maskable-192.png", "apple-touch-icon.png", "years/index.json"];
 
 self.addEventListener("install", function (e) {

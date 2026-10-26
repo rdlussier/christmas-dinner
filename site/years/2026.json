@@ -74,25 +74,25 @@
           "id": "greens",
           "name": "Baby spinach",
           "qty": "15 oz (three 5 oz clamshells)",
-          "note": "Spinach salad. Pre-washed, so no washing needed."
+          "note": "Apple spinach salad. Pre-washed, so no washing needed."
         },
         {
-          "id": "pears",
-          "name": "Ripe pears (Bosc or Anjou)",
-          "qty": "2",
-          "note": "Spinach salad. Buy a few days early so they ripen."
+          "id": "apples",
+          "name": "Small apples (Pink Lady and Granny Smith)",
+          "qty": "6",
+          "note": "Apple spinach salad. A mix of sweet and tart."
         },
         {
-          "id": "pom",
-          "name": "Pomegranate seeds",
-          "qty": "1 cup (one tub, or 1 pomegranate)",
-          "note": "Spinach salad."
+          "id": "dcran",
+          "name": "Dried cranberries",
+          "qty": "1 cup",
+          "note": "Apple spinach salad."
         },
         {
-          "id": "shallot",
-          "name": "Shallot",
-          "qty": "1 small",
-          "note": "Vinaigrette."
+          "id": "ronion",
+          "name": "Red onions",
+          "qty": "2 small",
+          "note": "Apple spinach salad uses 1½."
         },
         {
           "id": "onion",
@@ -110,13 +110,13 @@
           "id": "garlic",
           "name": "Garlic",
           "qty": "4 heads",
-          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), green beans 8, herb butter 5, stuffing 3, plus spare."
+          "note": "Mashed potatoes 19 cloves (5 for the garlic oil, 14 boiled), green beans 8, herb butter 5, stuffing 3, vinaigrette 3 small, plus spare."
         },
         {
           "id": "lemon",
           "name": "Lemons",
-          "qty": "2",
-          "note": "1 for the turkey cavity, 1 spare."
+          "qty": "3",
+          "note": "1 for the turkey cavity, 1 for the green beans (optional), 1 spare."
         },
         {
           "id": "parsley",
@@ -185,10 +185,10 @@
           "note": "Stuffing 3, rolls 2."
         },
         {
-          "id": "parm",
-          "name": "Parmesan, a wedge",
-          "qty": "3 oz",
-          "note": "Shaved over the spinach salad with a vegetable peeler."
+          "id": "goat",
+          "name": "Crumbled goat cheese",
+          "qty": "9 oz",
+          "note": "Apple spinach salad."
         }
       ]
     },
@@ -241,8 +241,8 @@
         {
           "id": "honey",
           "name": "Honey",
-          "qty": "1 tbsp (optional)",
-          "note": "Only for the optional honey butter on the rolls. Skip it if you don't want honey butter."
+          "qty": "3 tbsp",
+          "note": "Vinaigrette 2 tbsp, optional honey butter on the rolls 1 tbsp."
         },
         {
           "id": "vanilla",
@@ -251,15 +251,15 @@
           "note": "Candied yams."
         },
         {
-          "id": "pecans",
-          "name": "Pecan halves",
-          "qty": "1 cup",
-          "note": "Spinach salad, toasted."
+          "id": "walnuts",
+          "name": "Chopped walnuts",
+          "qty": "1½ cups",
+          "note": "Apple spinach salad, toasted."
         },
         {
           "id": "acv",
           "name": "Apple cider vinegar",
-          "qty": "¼ cup",
+          "qty": "6 tbsp",
           "note": "Vinaigrette."
         },
         {
@@ -269,16 +269,10 @@
           "note": "Vinaigrette."
         },
         {
-          "id": "maple",
-          "name": "Maple syrup",
-          "qty": "1 tbsp",
-          "note": "Vinaigrette."
-        },
-        {
           "id": "oil",
           "name": "Olive oil",
-          "qty": "about 1¾ cups",
-          "note": "Garlic oil for the mash ½ cup + 2 tbsp, vinaigrette ½ cup, green beans ¼ cup, carrots 3½ tbsp."
+          "qty": "about 2 cups",
+          "note": "Vinaigrette ¾ cup, garlic oil for the mash ½ cup + 2 tbsp, green beans ¼ cup, carrots 3½ tbsp."
         },
         {
           "id": "corn",
@@ -503,8 +497,8 @@
         },
         {
           "id": "p-salad",
-          "text": "Make the vinaigrette and toast the pecans",
-          "note": "Shake in a jar: ½ cup olive oil, ¼ cup apple cider vinegar, 1 tbsp Dijon, 1 tbsp maple syrup, 1 minced small shallot, ½ tsp salt, pepper. Refrigerate. Toast the pecans in a dry skillet over medium heat for 4–5 minutes, stirring, then cool and store airtight."
+          "text": "Make the vinaigrette and toast the walnuts",
+          "note": "Shake in a jar: ¾ cup olive oil, 6 tbsp apple cider vinegar, 2 tbsp honey, 1 tbsp Dijon, 3 small minced garlic cloves, 3 generous pinches each of salt and pepper. Refrigerate. Toast the walnuts in a dry skillet over medium heat for 4–5 minutes, stirring, then cool and store airtight."
         },
         {
           "id": "p-beans",
@@ -666,7 +660,7 @@
           "id": "d-1735",
           "t": "5:35",
           "text": "Sauté the green beans in two batches",
-          "note": "Large skillet, medium-high, 2 tbsp olive oil per batch. Add the beans and 4 minced garlic cloves together and toss 2–3 minutes, until the garlic is golden and the beans are hot. Season with salt and pepper. Take the beans out of the fridge at 5:00."
+          "note": "Large skillet, medium-high, 2 tbsp olive oil per batch. Add the beans and 4 minced garlic cloves together and toss 2–3 minutes, until the garlic is golden and the beans are hot. Season with salt and pepper. Optional: lemon zest and a squeeze of juice. Take the beans out of the fridge at 5:00."
         },
         {
           "id": "d-1740",
@@ -677,8 +671,8 @@
         {
           "id": "d-1745",
           "t": "5:45",
-          "text": "Assemble the spinach salad",
-          "note": "Take the vinaigrette out of the fridge at 5:00 and shake it. Slice the pears now, not earlier, so they don't brown. Toss the spinach with about two-thirds of the dressing, then top with pears, pomegranate, pecans and shaved Parmesan. Extra dressing on the side. A good job for a helper."
+          "text": "Assemble the apple spinach salad",
+          "note": "Take the vinaigrette out of the fridge at 5:00 and shake it. Slice the red onion and rinse it in cold water. Slice the apples now, not earlier, so they don't brown. Toss the spinach, apples, onion, walnuts, cranberries and half the goat cheese with the dressing, then top with the rest of the goat cheese. A good job for a helper."
         },
         {
           "id": "d-1755",
@@ -1548,6 +1542,13 @@
             "group": "Sautéing",
             "name": "black pepper",
             "unmeasured": "4 pinches"
+          },
+          {
+            "id": "lemon",
+            "group": "Sautéing",
+            "name": "lemon",
+            "note": "zest and juice (optional)",
+            "count": 1
           }
         ],
         "steps": [
@@ -1564,7 +1565,8 @@
           },
           "Add half the beans and {garlic:1/2} garlic cloves. Toss for 2 to 3 minutes, until the garlic is golden and crispy and the beans are hot.",
           "Add {salt:1/2} salt and a couple of pinches of pepper, toss, and move to a serving dish.",
-          "Repeat with {oil:rest} olive oil, the rest of the beans, {garlic:rest} garlic cloves, and the rest of the salt and pepper. Serve warm."
+          "Repeat with {oil:rest} olive oil, the rest of the beans, {garlic:rest} garlic cloves, and the rest of the salt and pepper. Serve warm.",
+          "Optional: finish with the zest of {lemon} lemon and a squeeze of its juice."
         ],
         "notes": [
           "Nagi's recipe is 250 g, which serves 2 to 4. 4× gives about 100 g each for 10.",
@@ -1798,50 +1800,59 @@
       }
     },
     {
-      "name": "Spinach salad with pears and pecans",
-      "url": null,
+      "name": "Apple spinach salad",
+      "url": "https://www.gimmesomeoven.com/my-favorite-apple-spinach-salad/",
       "status": "set",
       "group": "Bread and salad",
       "lines": [
         {
           "label": "Size",
-          "text": "15 oz baby spinach for 10"
+          "text": "3× the recipe, 15 oz baby spinach for 10"
         },
         {
           "label": "Ingredients",
-          "text": "2 ripe pears, 1 cup pomegranate seeds, 1 cup toasted pecans, 3 oz shaved Parmesan"
+          "text": "6 small apples, 1½ small red onions, 1½ cups toasted walnuts, 1 cup dried cranberries, 9 oz goat cheese"
         },
         {
           "label": "Dressing",
-          "text": "Apple cider vinaigrette: ½ cup olive oil, ¼ cup cider vinegar, 1 tbsp each Dijon and maple syrup, 1 small shallot, salt and pepper"
+          "text": "Apple cider vinaigrette: ¾ cup olive oil, 6 tbsp apple cider vinegar, 2 tbsp honey, 1 tbsp Dijon, 3 small garlic cloves, salt and pepper"
         },
         {
           "label": "Make ahead",
-          "text": "Dressing and pecans the day before. No cooking on the day, just slice the pears and toss at 5:45."
+          "text": "Dressing and walnuts on Wed Dec 23. No cooking on the day, just slice and toss at 5:45."
         }
       ],
       "recipe": {
         "id": "salad",
         "short": "Salad",
-        "title": "Spinach salad with pears and pecans",
-        "source": "My recipe",
-        "servings": "Serves 10",
-        "time": "Dressing 5 min the day before · assemble 10 min",
+        "title": "Apple spinach salad",
+        "source": "Gimme Some Oven",
+        "url": "https://www.gimmesomeoven.com/my-favorite-apple-spinach-salad/",
+        "servings": "Serves 10 (3× the recipe)",
+        "time": "Dressing 5 min on Wed Dec 23 · assemble 10 min",
         "ingredients": [
           {
             "id": "oil",
             "group": "Apple cider vinaigrette",
-            "name": "olive oil",
-            "ml": 125,
-            "grams": 108,
+            "name": "extra virgin olive oil",
+            "ml": 187.5,
+            "grams": 162,
             "estimated": true
           },
           {
             "id": "vinegar",
             "group": "Apple cider vinaigrette",
             "name": "apple cider vinegar",
-            "ml": 62.5,
-            "grams": 60,
+            "ml": 90,
+            "grams": 90,
+            "estimated": true
+          },
+          {
+            "id": "honey",
+            "group": "Apple cider vinaigrette",
+            "name": "honey",
+            "ml": 30,
+            "grams": 42,
             "estimated": true
           },
           {
@@ -1853,42 +1864,27 @@
             "estimated": true
           },
           {
-            "id": "maple",
+            "id": "garlic",
             "group": "Apple cider vinaigrette",
-            "name": "maple syrup",
-            "ml": 15,
-            "grams": 20,
-            "estimated": true
-          },
-          {
-            "id": "shallot",
-            "group": "Apple cider vinaigrette",
-            "name": "small shallot",
-            "note": "minced",
-            "count": 1,
-            "grams": 30,
+            "name": "small garlic cloves",
+            "note": "peeled and minced",
+            "count": 3,
+            "grams": 9,
             "estimated": true
           },
           {
             "id": "salt",
             "group": "Apple cider vinaigrette",
-            "name": "salt",
-            "ml": 2.5,
-            "grams": 3,
-            "estimated": true
+            "name": "salt and black pepper",
+            "unmeasured": "3 generous pinches each"
           },
           {
-            "id": "pepper",
-            "group": "Apple cider vinaigrette",
-            "name": "black pepper",
-            "unmeasured": "to taste"
-          },
-          {
-            "id": "pecans",
+            "id": "walnuts",
             "group": "Salad",
-            "name": "pecan halves",
-            "ml": 250,
-            "grams": 100,
+            "name": "chopped walnuts",
+            "note": "toasted",
+            "ml": 375,
+            "grams": 175,
             "estimated": true
           },
           {
@@ -1900,49 +1896,56 @@
             "weightUnit": "oz"
           },
           {
-            "id": "pears",
+            "id": "apples",
             "group": "Salad",
-            "name": "ripe pears",
-            "note": "Bosc or Anjou",
-            "count": 2,
-            "grams": 360,
-            "estimated": true
+            "name": "small apples",
+            "note": "cored and thinly sliced; a mix of sweet Pink Lady and tart Granny Smith",
+            "count": 6
           },
           {
-            "id": "pom",
+            "id": "onion",
             "group": "Salad",
-            "name": "pomegranate seeds",
+            "name": "small red onion",
+            "note": "thinly sliced",
+            "unmeasured": "1½"
+          },
+          {
+            "id": "cran",
+            "group": "Salad",
+            "name": "dried cranberries",
             "ml": 250,
-            "grams": 174,
+            "grams": 120,
             "estimated": true
           },
           {
-            "id": "parm",
+            "id": "goat",
             "group": "Salad",
-            "name": "Parmesan",
-            "note": "a wedge",
-            "grams": 85,
+            "name": "crumbled goat cheese",
+            "grams": 255,
             "weightUnit": "oz"
           }
         ],
         "steps": [
           {
             "w": "Wed Dec 23",
-            "t": "Shake {oil} olive oil, {vinegar} apple cider vinegar, {dijon} Dijon, {maple} maple syrup, {shallot} minced shallot, {salt} salt and some pepper in a jar. Refrigerate."
+            "t": "Whisk or shake {oil} olive oil, {vinegar} apple cider vinegar, {honey} honey, {dijon} Dijon, {garlic} minced garlic cloves and 3 generous pinches each of salt and pepper in a jar. Refrigerate."
           },
-          "Toast {pecans} pecans in a dry skillet over medium heat for 4 to 5 minutes, stirring. Cool, then store airtight.",
+          "Toast {walnuts} chopped walnuts in a dry skillet over medium heat for 4 to 5 minutes, stirring. Cool, then store airtight.",
           {
             "w": "5:00",
             "t": "Take the dressing out of the fridge so it loosens, and shake it."
           },
           {
             "w": "5:45",
-            "t": "Thinly slice {pears} pears. Do it now, not earlier, so they don't brown."
+            "t": "Thinly slice 1½ small red onions and rinse in cold water to mellow them. Drain well."
           },
-          "Toss {spinach} baby spinach with about two-thirds of the dressing.",
-          "Top with the pears, {pom} pomegranate seeds, the pecans and {parm} Parmesan shaved with a vegetable peeler. Serve the rest of the dressing on the side."
+          "Core and thinly slice {apples} apples. Do it now, not earlier, so they don't brown.",
+          "In a large bowl, combine {spinach} baby spinach, the apples, onion, walnuts, {cran} dried cranberries and {goat:1/2} goat cheese.",
+          "Drizzle with the vinaigrette and toss.",
+          "Top with {goat:rest} goat cheese and serve right away."
         ],
         "notes": [
+          "The recipe doesn't list servings. 3× uses 15 oz of spinach, the same amount planned before for 10.",
           "No cooking on the day, so this is a good job for a helper."
         ]
       }
