@@ -390,7 +390,7 @@
         {
           "id": "p-fridge",
           "text": "Plan fridge space",
-          "note": "A 15–16 lb turkey needs a full shelf, plus room for the stuffing and yams."
+          "note": "A 15–16 lb turkey needs a full shelf. On Dec 23 you also need room for two pans of rolls overnight, and on the 24th for the stuffing and yams."
         }
       ]
     },
@@ -465,6 +465,16 @@
           "note": "Press the thickest part of the thigh. It should give a little. Still hard? See “If the turkey is still icy” at the bottom."
         },
         {
+          "id": "p-rolldough",
+          "text": "Rolls, around 5:30 pm: make both batches of dough, one after the other",
+          "note": "About 15 minutes each in the stand mixer. Cover and let them rise until doubled, 1–2 hours."
+        },
+        {
+          "id": "p-rollshape",
+          "text": "Rolls, around 7:30 pm: shape and refrigerate",
+          "note": "14–16 balls per batch in a greased 9×13 pan. Cover tightly and refrigerate. Sally allows up to about 15 hours, so don't shape them earlier than this."
+        },
+        {
           "id": "p-gib",
           "text": "Simmer the neck and giblets for the gravy",
           "note": "From the turkey cavity. Bring to a boil in water, simmer about 1 hour. Keep the liquid. Pick the neck meat, dice it with the heart and gizzard (discard the liver), and refrigerate both."
@@ -501,16 +511,16 @@
       "day": true,
       "items": [
         {
-          "id": "d-0845",
-          "t": "8:45",
-          "text": "Rolls: make both batches of dough, one after the other",
-          "note": "About 15 minutes each in the stand mixer. Cover the bowls and let them rise somewhere warm until doubled, 1–2 hours. Don't start later than 9:00, or they won't be ready when the oven is free at 12:15."
-        },
-        {
           "id": "d-0930",
           "t": "9:30",
           "text": "Stuffing: brown the sausage, sauté the vegetables, mix with bread, herbs, stock and eggs",
           "note": "Add the stock slowly. Stop when the bread is moist but not soggy."
+        },
+        {
+          "id": "d-1015",
+          "t": "10:15",
+          "text": "Rolls out of the fridge. Keep them covered and let them rise on the counter",
+          "note": "1–2 hours, until puffy. They go in the oven at 12:15."
         },
         {
           "id": "d-1030",
@@ -523,12 +533,6 @@
           "t": "10:45",
           "text": "Yams into the oven",
           "note": "Shortcut from Billy's page: slice, boil 4–6 minutes, drain, coat in the butter and sugar mix, bake at 375°F for 25–30 minutes. Check they are tender."
-        },
-        {
-          "id": "d-1100",
-          "t": "11:00",
-          "text": "Rolls: shape each batch into 14–16 balls in a greased 9×13 pan, cover and let rise",
-          "note": "About 1 hour, until puffy. They can wait up to 1½ hours if the oven runs late."
         },
         {
           "id": "d-1145",
@@ -1614,8 +1618,8 @@
           "text": "350°F for 20–25 min on a lower rack"
         },
         {
-          "label": "On the day",
-          "text": "Dough at 8:45, shape at 11:00, bake at 12:15 while the oven is free, then warm just before dinner."
+          "label": "Make ahead",
+          "text": "Shape on the evening of Dec 23 and refrigerate overnight. Out of the fridge at 10:15, bake at 12:15, warm just before dinner."
         }
       ],
       "recipe": {
@@ -1697,7 +1701,7 @@
         ],
         "steps": [
           {
-            "w": "8:45",
+            "w": "Dec 23, 5:30 pm",
             "t": "Whisk {milk} warm milk, {yeast} instant yeast and {sugar:1 tbsp} sugar together. Let stand 5 minutes."
           },
           "Add {sugar:rest} sugar, {egg} egg, {butter} softened butter, {salt} salt and {flour:1 cup} flour. Mix on low speed.",
@@ -1706,10 +1710,14 @@
           "Put the dough in a greased bowl, turn it to coat, cover and let it rise 1 to 2 hours, until doubled.",
           "Grease a 9×13-inch pan.",
           {
-            "w": "11:00",
+            "w": "7:30 pm",
             "t": "Punch down the dough. Divide it into 14 to 16 pieces and shape each into a smooth ball. Arrange them in the pan."
           },
-          "Cover and let rise about 1 hour, until puffy.",
+          "Cover tightly and refrigerate overnight, up to about 15 hours.",
+          {
+            "w": "10:15",
+            "t": "Take the pans out, keep them covered, and let the rolls rise on the counter 1–2 hours, until puffy."
+          },
           "When the carrots come out, let the oven drop to 350°F, with a rack in a lower position.",
           {
             "w": "12:15",
@@ -1723,7 +1731,7 @@
         ],
         "notes": [
           "Amounts are for one batch. Sally advises against doubling, so make the batch twice.",
-          "Made on the day: they bake at midday while the oven is free, then get warmed just before dinner."
+          "Shaped the evening before and refrigerated, as Sally's notes allow, then baked at midday while the oven is free."
         ]
       }
     },
