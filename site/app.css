@@ -157,3 +157,46 @@ dialog::backdrop { background: rgb(0 0 0 / 0.4); }
 .dlg .dlgmsg { min-height: 1.4em; margin: 8px 0 0; color: var(--accent); }
 .dlgbtns { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 8px; }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+
+/* Theme: Decorated */
+:root { --bg: #FAF6EF; --surface: #FFFFFF; --fg: #2B1A1D; --muted: #6E5E5F; --line: #EADFD3; --accent: #7A1E2C; --accent-fg: #FFFFFF; --pine: #A9874E; --done: #958A8A; --chip: #F1E8DC; --warn: #7A4E00; --warn-bg: #F8EBCB; --f-display: "DM Serif Display", Georgia, serif; --f-body: "DM Sans", system-ui, sans-serif; --f-mono: "DM Sans", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #1A1012; --surface: #24171A; --fg: #F2E9DF; --muted: #B3A3A0; --line: #3A2A2D; --accent: #E3B5A0; --accent-fg: #2A1215; --pine: #D2B07A; --done: #7F7173; --chip: #2E1F22; --warn: #E7C27A; --warn-bg: #30261A; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #1A1012; --surface: #24171A; --fg: #F2E9DF; --muted: #B3A3A0; --line: #3A2A2D; --accent: #E3B5A0; --accent-fg: #2A1215; --pine: #D2B07A; --done: #7F7173; --chip: #2E1F22; --warn: #E7C27A; --warn-bg: #30261A; color-scheme: dark; }
+body { font-variant-numeric: tabular-nums lining-nums; }
+header { padding-top: 26px; }
+h1 { font-size: clamp(30px, 8vw, 36px); font-weight: 600; letter-spacing: 0; }
+header::after { content: ""; display: block; width: 56px; height: 2px; margin-top: 10px; background: var(--pine); }
+.dishrow .dn, .rtitle, .ghead h2 { letter-spacing: 0.005em; }
+.mgroup h2, .rsec, .gwhen { font-family: var(--f-body); font-weight: 700; letter-spacing: 0.14em; font-size: 11.5px; }
+.mgroup h2, .rsec { color: var(--pine); }
+.ghead { border-bottom: 1px solid var(--fg); }
+.iq, .rqty, .rtime, .cprog, .sum, .gcnt, .dprog, .sync { font-family: var(--f-body); }
+.iq { font-weight: 700; }
+.rtime { font-weight: 700; }
+.tab[aria-selected="true"] { box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 0 0 1px var(--line); }
+
+:root { --band: #6A1826; --band-fg: #F8EFE2; --gold: #B8955A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --band: #2B1317; --band-fg: #F2E6D6; --gold: #D2B07A; } }
+:root[data-theme="dark"] { --band: #2B1317; --band-fg: #F2E6D6; --gold: #D2B07A; }
+/* 1. Menu-card header: wine band, centred title, gold sprig, double gold rule */
+header { margin: 0 calc(50% - 50vw); padding: 30px 16px 26px; background: var(--band); text-align: center; border-bottom: 3px double var(--gold); }
+header h1 { color: var(--band-fg); }
+header::before { content: ""; display: block; height: 34px; margin: 0 auto 8px; width: 150px; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%2028%22%20fill%3D%22none%22%20stroke%3D%22%23C9A86A%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M8%2014h104%22/%3E%3Cpath%20d%3D%22M60%2014c-6-6-14-8-22-7M60%2014c-6%206-14%208-22%207M60%2014c6-6%2014-8%2022-7M60%2014c6%206%2014%208%2022%207%22/%3E%3Cpath%20d%3D%22M30%2014l-6-5M30%2014l-6%205M90%2014l6-5M90%2014l6%205M44%2014l-4-6M44%2014l-4%206M76%2014l4-6M76%2014l4%206%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2214%22%20r%3D%222.6%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2254.5%22%20cy%3D%2210.5%22%20r%3D%221.8%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3Ccircle%20cx%3D%2265.5%22%20cy%3D%2217.5%22%20r%3D%221.8%22%20fill%3D%22%23C9A86A%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat; }
+header::after { display: none; }
+.topbar { margin-top: 0; }
+/* 2. Linen paper texture */
+body { background-image: repeating-linear-gradient(0deg, rgb(120 80 40 / 0.025) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgb(120 80 40 / 0.02) 0 1px, transparent 1px 4px); }
+/* 3. Printed-menu section headings */
+.mgroup h2 { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 400; font-size: 20px; letter-spacing: 0; text-transform: none; color: var(--accent); margin-bottom: 10px; }
+.mgroup h2::before, .mgroup h2::after { content: ""; flex: 1; height: 1px; background: var(--gold); opacity: 0.6; }
+/* 4. Recipe card with an inner gold frame, serif step numbers */
+.recipe { padding: 22px 20px; outline: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); outline-offset: -7px; }
+.rtitle { text-align: center; font-size: 28px; }
+.rmeta { justify-content: center; text-align: center; }
+.row.step .rtime { font-family: var(--f-display); font-size: 20px; font-weight: 400; color: var(--accent); }
+/* 5. Round burgundy checkboxes */
+.row input { appearance: none; -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--muted); background: var(--surface); }
+.row input:checked { background: var(--accent) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%208.5l2.6%202.6L12%205.6%22/%3E%3C/svg%3E") center/14px no-repeat; border-color: var(--accent); }
+/* 6. Gold rule on shopping and timeline group headings */
+.ghead { border-bottom: 1px solid var(--gold); }
+.ghead h2 { font-weight: 400; }
