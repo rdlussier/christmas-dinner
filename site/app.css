@@ -215,3 +215,22 @@ body { background-image: repeating-linear-gradient(0deg, rgb(120 80 40 / 0.025) 
 /* 6. Gold rule on shopping and timeline group headings */
 .ghead { border-bottom: 1px solid var(--gold); }
 .ghead h2 { font-weight: 400; }
+/* Recipe steps, Simmer style: big number in its own column, no checkbox, tap the step to grey it out */
+.row.step { position: relative; gap: 0; padding: 16px 0; }
+.row.step input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+.row.step .rbody { display: flex; gap: 14px; align-items: flex-start; }
+.row.step .rtime { flex: none; width: 34px; margin: 0; font-size: 30px; line-height: 1.05; }
+.row.step .stx { flex: 1; min-width: 0; }
+.row.step.is-done .rbody { opacity: 0.45; }
+.row.step.is-done .rtime { color: var(--done); }
+.row.step input:focus-visible + .rbody { outline: 2px solid var(--accent); outline-offset: 4px; }
+/* Smaller dish switcher */
+.cchip { min-height: 38px; padding: 0 13px; font-size: 14px; gap: 6px; border-radius: 19px; }
+.cchip.all { padding: 0 12px 0 10px; border-radius: 9px; }
+.cchip.all svg { width: 15px; height: 15px; }
+.cpill { border-radius: 19px; }
+.cpill .cchip { min-height: 36px; padding: 0 8px 0 13px; border-radius: 19px 0 0 19px; }
+.cx { width: 34px; height: 36px; border-radius: 0 19px 19px 0; }
+.cx svg { width: 11px; height: 11px; }
+.cchip .cprog { font-size: 11.5px; }
+.csep { height: 24px; }

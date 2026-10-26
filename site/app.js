@@ -184,7 +184,7 @@
       '<div class="rpinwrap"><button class="rpin" type="button" data-pin="' + esc(key) + '" aria-pressed="' + pinned + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6l-.8 6.2 3.3 3.3H6.5l3.3-3.3z"/><path d="M12 13v7.5"/></svg>' + (pinned ? 'Pinned' : 'Pin to bar') + '</button></div>' +
       '<h4 class="rsec">Ingredients</h4><ul class="ings">' + ings + '</ul>' +
       (est ? '<p class="fine">≈ marks a weight worked out from standard conversions rather than given by the recipe.</p>' : '') +
-      '<h4 class="rsec">Steps · tap to tick</h4><div class="steps">' + steps + '</div>' +
+      '<h4 class="rsec">Steps · tap a step when it’s done</h4><div class="steps">' + steps + '</div>' +
       (r.notes && r.notes.length ? '<div class="rnotes"><ul>' + r.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join("") + '</ul></div>' : '') +
       '<div class="rfoot">' + ('wakeLock' in navigator ? '<button class="btn" type="button" data-wake></button>' : '') +
       '<button class="btn" type="button" data-untick="' + esc(key) + '">Untick all steps</button></div>';
